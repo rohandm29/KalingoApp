@@ -1,0 +1,5 @@
+E:\Kalingo\Git\Kalingo\Kalingo.Core.UnitTests\bin\Debug\Kalingo.Core.UnitTests.dll
+E:\Kalingo\Git\Kalingo\Kalingo.Core.UnitTests\bin\Debug\Kalingo.Core.UnitTests.pdb
+E:\Kalingo\Git\Kalingo\Kalingo.Core.UnitTests\obj\Debug\Kalingo.Core.UnitTests.csprojResolveAssemblyReference.cache
+E:\Kalingo\Git\Kalingo\Kalingo.Core.UnitTests\obj\Debug\Kalingo.Core.UnitTests.dll
+E:\Kalingo\Git\Kalingo\Kalingo.Core.UnitTests\obj\Debug\Kalingo.Core.UnitTests.pdb

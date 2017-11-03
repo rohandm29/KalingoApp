@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="MINES BOOM"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:gravity="center_vertical|center"
+        android:id="@+id/lblLogIn" />
+    <TextView
+        android:text="Avoid hitting mines"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center"
+        android:id="@+id/txtMinesChances" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:id="@+id/FourthRow">
+        <Button
+            android:text="16"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/Button16" />
+        <Button
+            android:text="15"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/Button15" />
+        <Button
+            android:text="14"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/Button14" />
+        <Button
+            android:text="13"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/Button13" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:id="@+id/ThirdRow">
+        <Button
+            android:text="12"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/Button12" />
+        <Button
+            android:text="11"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/Button11" />
+        <Button
+            android:text="10"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/Button10" />
+        <Button
+            android:text="9"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/Button9" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:id="@+id/ThirdRow">
+        <Button
+            android:text="8"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/Button8" />
+        <Button
+            android:text="7"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/Button7" />
+        <Button
+            android:text="6"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/Button6" />
+        <Button
+            android:text="5"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/Button5" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:id="@+id/ThirdRow">
+        <Button
+            android:text="4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/Button4" />
+        <Button
+            android:text="3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/Button3" />
+        <Button
+            android:text="2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/Button2" />
+        <Button
+            android:text="1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/Button1" />
+    </LinearLayout>
+</LinearLayout>

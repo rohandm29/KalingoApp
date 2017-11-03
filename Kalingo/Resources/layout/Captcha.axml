@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+        <TextView
+            android:text="Enter the text in the given image below:"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center_vertical|center"
+            android:id="@+id/lblNewUser" />
+        <EditText
+            android:id="@+id/txtCaptcha"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:padding="5dp"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical|center"
+            android:layout_gravity="center" />
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:id="@+id/imgCaptcha" />
+        <Button
+            android:text="Submit"
+            android:layout_width="208.0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:id="@+id/btnCaptchaSubmit" />
+    </LinearLayout>
+</RelativeLayout>

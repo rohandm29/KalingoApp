@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Hello">Hello World, Click Me!</string>
+    <string name="ApplicationName">Kalingo</string>
+    <string name="car_prompt">Country</string>
+    <string-array name="country_array">
+      <item>Select</item>
+      <item>UK</item>
+      <item>USA</item>
+      <item>India</item>
+      <item>Canada</item>
+      <item>Euro</item>
+    </string-array>
+</resources>
