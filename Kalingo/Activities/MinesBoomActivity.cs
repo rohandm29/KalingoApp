@@ -47,13 +47,13 @@ namespace Kalingo.Activities
             
             btnSelected.Text = "";
 
-            btnSelected.SetBackgroundResource(result.SelectionCorrect ? Resource.Drawable.GreenGift : Resource.Drawable.RedGift);
+            btnSelected.SetBackgroundResource(result.SelectionCorrect ? Resource.Drawable.GreenThumb : Resource.Drawable.RedGift);
 
             SetText(result.TotalChances, result.TotalGifts);
 
-            IsGameOver(result);
-
             PlaySound(result.SelectionCorrect);
+
+            IsGameOver(result);
 
             _progress.Dismiss();
         }
@@ -79,15 +79,28 @@ namespace Kalingo.Activities
             else
             {
                 if (result.TotalChances == 0)
+                {
+                    ShowMissedThumbs(result.RandomSequence);
+
                     Toast.MakeText(this, "Game lost..", ToastLength.Long).Show();
+                }
                 else
                     return;
             }
 
-            await Task.Delay(2000);
+            await Task.Delay(10000);
 
             var menuIntent = new Intent(this, typeof(MenuActivity));
             StartActivity(menuIntent);
+        }
+
+        private void ShowMissedThumbs(string resultRandomSequence)
+        {
+            foreach (var id in resultRandomSequence.Split('-'))
+            {
+                Button button = GetButton(int.Parse(id));
+                button.SetBackgroundResource(Resource.Drawable.GreenGift);
+            }
         }
 
         private void ShowDialogCoinsEarned()
@@ -190,6 +203,31 @@ namespace Kalingo.Activities
             var txtMinesChances = FindViewById<TextView>(Resource.Id.txtMinesChances);
             txtMinesChances.Text = $"Gift - {5} | lives remaining - {7} | watch mines!!";
             txtMinesChances.SetTypeface(null, TypefaceStyle.Bold);
+        }
+
+        private Button GetButton(int buttonId)
+        {
+            switch (buttonId)
+            {
+                case 1: return FindViewById<Button>(Resource.Id.Button1);
+                case 2: return FindViewById<Button>(Resource.Id.Button2);
+                case 3: return FindViewById<Button>(Resource.Id.Button3);
+                case 4: return FindViewById<Button>(Resource.Id.Button4);
+                case 5: return FindViewById<Button>(Resource.Id.Button5);
+                case 6: return FindViewById<Button>(Resource.Id.Button6);
+                case 7: return FindViewById<Button>(Resource.Id.Button7);
+                case 8: return FindViewById<Button>(Resource.Id.Button8);
+                case 9: return FindViewById<Button>(Resource.Id.Button9);
+                case 10: return FindViewById<Button>(Resource.Id.Button10);
+                case 11: return FindViewById<Button>(Resource.Id.Button11);
+                case 12: return FindViewById<Button>(Resource.Id.Button12);
+                case 13: return FindViewById<Button>(Resource.Id.Button13);
+                case 14: return FindViewById<Button>(Resource.Id.Button14);
+                case 15: return FindViewById<Button>(Resource.Id.Button15);
+                case 16: return FindViewById<Button>(Resource.Id.Button16);
+            }
+
+            return FindViewById<Button>(Resource.Id.Button1);
         }
     }
 }

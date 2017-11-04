@@ -31,7 +31,7 @@ namespace Kalingo.Activities
             RegisterControl();
 
             //LoadInterstistialAd();
-            LoadRewardedAd();
+            //LoadRewardedAd();
         }
 
         private void LoadInterstistialAd()
@@ -73,12 +73,15 @@ namespace Kalingo.Activities
 
         private void BtnPlayMinesBoomOnClick(object sender, EventArgs e)
         {
-            if (_rewardedVideoAd.IsLoaded)
-                _rewardedVideoAd.Show();
-            else
-            {
-                Toast.MakeText(this, "Failed to load rewarded ad", ToastLength.Short).Show();
-            }
+            var intent = new Intent(this, typeof(MinesBoomActivity));
+            StartActivity(intent);
+
+            //if (_rewardedVideoAd.IsLoaded)
+            //    _rewardedVideoAd.Show();
+            //else
+            //{
+            //    Toast.MakeText(this, "Failed to load rewarded ad", ToastLength.Short).Show();
+            //}
         }
 
         private void BtnShopClick(object sender, EventArgs e)
