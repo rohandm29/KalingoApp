@@ -37,8 +37,8 @@ namespace Kalingo.Activities
         private async void ButtonOnClick(object sender, EventArgs eventArgs)
         {
             _progress.Show();   
-
             var btnSelected = (Button)sender;
+
             var id = int.Parse(btnSelected.Text);
 
             var result = await _minesBoomService.Submit(id);
@@ -49,11 +49,9 @@ namespace Kalingo.Activities
 
             btnSelected.SetBackgroundResource(result.SelectionCorrect ? Resource.Drawable.GreenThumb : Resource.Drawable.RedGift);
 
-            SetText(result.TotalChances, result.TotalGifts);
-
             PlaySound(result.SelectionCorrect);
 
-            IsGameOver(result);
+            ProcessResult(result);
 
             _progress.Dismiss();
         }
@@ -66,29 +64,31 @@ namespace Kalingo.Activities
                 _playerRed.Start();
         }
 
-        private async void IsGameOver(MinesBoomGameResult result)
+        private void ProcessResult(MinesBoomGameResult result)
         {
             if (result.HasWon)
             {
-                Toast.MakeText(this, "Game Won..", ToastLength.Long).Show();
+                Toast.MakeText(this, "Game Won.", ToastLength.Long).Show();
 
                 var txtMinesChances = FindViewById<TextView>(Resource.Id.txtMinesChances);
-                txtMinesChances.Text = "you have won 5 Gold coins. . ";
+                var coinType = result.CoinType == 1 ? "Gold" : "Silver";
+                txtMinesChances.Text = $"You have won {result.CoinsWon} {coinType} coins.";
                 txtMinesChances.SetTypeface(null, TypefaceStyle.BoldItalic);
             }
             else
             {
                 if (result.TotalChances == 0)
                 {
-                    ShowMissedThumbs(result.RandomSequence);
-
-                    Toast.MakeText(this, "Game lost..", ToastLength.Long).Show();
+                    Toast.MakeText(this, "Game lost.", ToastLength.Long).Show();
                 }
                 else
                     return;
             }
 
-            await Task.Delay(10000);
+            if(result.RandomSequence != null)
+                ShowMissedThumbs(result.RandomSequence);
+
+            SetText(result.TotalChances, result.GiftsHidden);
 
             var menuIntent = new Intent(this, typeof(MenuActivity));
             StartActivity(menuIntent);
@@ -98,7 +98,7 @@ namespace Kalingo.Activities
         {
             foreach (var id in resultRandomSequence.Split('-'))
             {
-                Button button = GetButton(int.Parse(id));
+                var button = GetButton(int.Parse(id));
                 button.SetBackgroundResource(Resource.Drawable.GreenGift);
             }
         }
@@ -111,7 +111,7 @@ namespace Kalingo.Activities
                 {
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     builder.SetTitle("Coins Earned On Wins");
-                    builder.SetMessage("     5 Gifts = 5 Gold \n\n     4 Gift = 2 Gold \n\n     3 Gifts =  5 Silver");
+                    builder.SetMessage(" 5 Gifts = 5 Gold \n\n 4 Gift = 2 Gold \n\n 3 Gifts =  5 Silver");
                     builder.SetCancelable(false);
                     builder.SetNeutralButton("OK", delegate { DismissDialog(builder); });
                     builder.Show();
