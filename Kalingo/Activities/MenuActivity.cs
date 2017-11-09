@@ -5,15 +5,14 @@ using Android.OS;
 using Android.Widget;
 using Android.Gms.Ads;
 using Android.Gms.Ads.Reward;
-using Android.Runtime;
 using Kalingo.AdMob;
 using Kalingo.Core;
 using Kalingo.Master;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "M E N U"/*, MainLauncher = true*/)]
-    public class MenuActivity : BaseActivity, Android.Gms.Ads.Reward.IRewardedVideoAdListener
+    [Activity(Label = "M E N U", MainLauncher = true)]
+    public class MenuActivity : Activity, IRewardedVideoAdListener
     {
         private InterstitialAd _interstitialAd;
         private InterstitialAdListener _interstitialAdListener;
@@ -33,21 +32,7 @@ namespace Kalingo.Activities
             //LoadInterstistialAd();
             //LoadRewardedAd();
         }
-
-        private void LoadInterstistialAd()
-        {
-            _interstitialAdListener = new InterstitialAdListener(this.ApplicationContext);
-
-            _interstitialAd = new InterstitialAd(this)
-            {
-                //AdUnitId = "ca-app-pub-3940256099942544/1033173712",
-                AdUnitId = "ca-app-pub-7100837506775638/6637403349",  // prod interstitial ad
-                AdListener = _interstitialAdListener,
-            };
-
-            _interstitialAd.LoadAd(new AdRequest.Builder().Build());
-        }
-
+        
         public void LoadRewardedAd()
         {
             _rewardedAdListener = new RewardedAdListener(this.BaseContext);
@@ -60,17 +45,7 @@ namespace Kalingo.Activities
             // test Adunit
             _rewardedVideoAd.LoadAd("ca-app-pub-3940256099942544/5224354917", new AdRequest.Builder().Build());
         }
-
-        private void BtnPlayLaddersOnClick(object sender, EventArgs e)
-        {
-            if (_interstitialAd.IsLoaded)
-                _interstitialAd.Show();
-            else
-            {
-                Toast.MakeText(this, "Failed to load ad", ToastLength.Short).Show();
-            }
-        }
-
+        
         private void BtnPlayMinesBoomOnClick(object sender, EventArgs e)
         {
             var intent = new Intent(this, typeof(MinesBoomActivity));
@@ -92,23 +67,20 @@ namespace Kalingo.Activities
 
         private void RegisterControl()
         {
-            var btnPlayGiftBoxes = FindViewById<Button>(Resource.Id.btnPlayLadders);
-            btnPlayGiftBoxes.Click += BtnPlayLaddersOnClick;
-
             var btnPlayMinesBoom = FindViewById<Button>(Resource.Id.btnPlayMinesBoom);
             btnPlayMinesBoom.Click += BtnPlayMinesBoomOnClick;
+            btnPlayMinesBoom.Text += "\n________________________\n Attempts Left : 3";
 
-            var btnShop = FindViewById<Button>(Resource.Id.btnShop);
-            btnShop.SetBackgroundResource(Resource.Drawable.Cart);
-            btnShop.Click += BtnShopClick;
+            var btnShopVouchers = FindViewById<Button>(Resource.Id.btnShopVouchers);
+            btnShopVouchers.Text += $"\n________________________\n Gold Coins : {App.Gold}";
+            btnShopVouchers.Click += BtnShopClick;
 
-            var btnAccount = FindViewById<Button>(Resource.Id.btnAccount);
-            btnAccount.SetBackgroundResource(Resource.Drawable.MyAccount);
-
-            var lblCoinCount = FindViewById<TextView>(Resource.Id.lblCoinCount);
-            lblCoinCount.Text = $"Gold: {App.Gold} | Silver: {App.Silver}";
+            var lblMyAccount = FindViewById<TextView>(Resource.Id.lblMyAccount);
+            lblMyAccount.Clickable = true;
+            lblMyAccount.Click += MyAccount_OnClick;
         }
 
+        #region Rewarded Ad Handlers
         public void OnRewarded(IRewardItem reward)
         {
             var intent = new Intent(this, typeof(MinesBoomActivity));
@@ -143,5 +115,41 @@ namespace Kalingo.Activities
         public void OnRewardedVideoStarted()
         {
         }
+
+        #endregion
+
+        private void MyAccount_OnClick(object sender, EventArgs eventArgs)
+        {
+            var intent = new Intent(this, typeof(MyAccountActivity));
+            StartActivity(intent);
+        }
+
+        #region  Unused
+
+        private void LoadInterstistialAd()
+        {
+            _interstitialAdListener = new InterstitialAdListener(ApplicationContext);
+
+            _interstitialAd = new InterstitialAd(this)
+            {
+                //AdUnitId = "ca-app-pub-3940256099942544/1033173712",
+                AdUnitId = "ca-app-pub-7100837506775638/6637403349",  // prod interstitial ad
+                AdListener = _interstitialAdListener,
+            };
+
+            _interstitialAd.LoadAd(new AdRequest.Builder().Build());
+        }
+
+        private void BtnPlayLaddersOnClick(object sender, EventArgs e)
+        {
+            if (_interstitialAd.IsLoaded)
+                _interstitialAd.Show();
+            else
+            {
+                Toast.MakeText(this, "Failed to load ad", ToastLength.Short).Show();
+            }
+        }
+
+        #endregion
     }
 }

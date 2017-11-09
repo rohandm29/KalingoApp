@@ -39,11 +39,11 @@ namespace Kalingo.Activities
             btnAmazon.Click += Voucher_Click;
 
             var btnEbay = FindViewById<ImageButton>(Resource.Id.btnEbay);
-            btnEbay.SetImageResource(Resource.Drawable.ebay);
+            btnEbay.SetImageResource(Resource.Drawable.Ebay);
             btnEbay.Click += Voucher_Click;
 
             var btnMns = FindViewById<ImageButton>(Resource.Id.btnMns);
-            btnMns.SetImageResource(Resource.Drawable.mns);
+            btnMns.SetImageResource(Resource.Drawable.Mns);
             btnMns.Click += Voucher_Click;
 
             var btnBodyShop = FindViewById<ImageButton>(Resource.Id.btnBodyShop);
@@ -55,7 +55,7 @@ namespace Kalingo.Activities
             btnHnm.Click += Voucher_Click;
 
             var btnFlipkart = FindViewById<ImageButton>(Resource.Id.btnFlipkart);
-            btnFlipkart.SetImageResource(Resource.Drawable.flipkart);
+            btnFlipkart.SetImageResource(Resource.Drawable.Flipkart);
             btnFlipkart.Click += Voucher_Click;
         }
 

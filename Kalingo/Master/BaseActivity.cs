@@ -25,7 +25,7 @@ namespace Kalingo.Master
             base.SetContentView(Resource.Layout.BaseActivity);
 
             image = FindViewById<ImageView>(Resource.Id.imgHeader);
-            image.SetImageResource(Resource.Drawable.header);
+            image.SetImageResource(Resource.Drawable.Header);
 
             linBase = (LinearLayout)FindViewById(Resource.Id.linBase);
         }
