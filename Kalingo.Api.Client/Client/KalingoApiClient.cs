@@ -48,7 +48,7 @@ namespace Kalingo.Api.Client.Client
         public async Task<int> CreateMinesBoom(int userId)
         {
             //var uri = new Uri("http://10.0.3.2:9988/game/join?gameTypeId=2&userId=1");
-            var uri = new Uri(_baseAddress + $"/game/join?gameTypeId={MinesBoomId}&userId={userId}");
+            var uri = new Uri(_baseAddress + $"/games/join?gameTypeId={MinesBoomId}&userId={userId}");
 
             var message = new HttpRequestMessage(HttpMethod.Get, uri);
 
@@ -59,7 +59,7 @@ namespace Kalingo.Api.Client.Client
 
         public async Task<MinesBoomGameResult> SubmitMinesBoom(MinesBoomArgs mbArgs)
         {
-            var uri = new Uri(_baseAddress + "/game/submit/MinesBoomSession");
+            var uri = new Uri(_baseAddress + "/games/submit/MinesBoomSession");
 
             var message = new HttpRequestMessage(HttpMethod.Post, uri)
             {
@@ -75,7 +75,7 @@ namespace Kalingo.Api.Client.Client
 
         public async Task<int> AddUser(NewUser user)
         {
-            var uri = new Uri(_baseAddress + "/user/Add");
+            var uri = new Uri(_baseAddress + "/users/Add");
 
             var message = new HttpRequestMessage(HttpMethod.Post, uri)
             {
@@ -89,7 +89,7 @@ namespace Kalingo.Api.Client.Client
 
         public async Task<UserResponse> GetUser(UserArgs userArgs)
         {
-            var uri = new Uri(_baseAddress + "user/Get");
+            var uri = new Uri(_baseAddress + "users/Get");
 
             var message = new HttpRequestMessage(HttpMethod.Post, uri)
             {
@@ -103,7 +103,7 @@ namespace Kalingo.Api.Client.Client
 
         public async Task UpdateUser(UpdateUser updateUser)
         {
-            var uri = new Uri(_baseAddress + "user/Update");
+            var uri = new Uri(_baseAddress + "users/Update");
 
             var message = new HttpRequestMessage(HttpMethod.Post, uri)
             {

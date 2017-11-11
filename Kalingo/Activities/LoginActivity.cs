@@ -11,7 +11,7 @@ using Object = Java.Lang.Object;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "Login", /*MainLauncher = true,*/ Icon = "@drawable/icon")]
+    [Activity(Label = "Login", MainLauncher = true, Icon = "@drawable/icon")]
     public class LoginActivity : Activity
     {
         public UserService UserService;
@@ -55,7 +55,7 @@ namespace Kalingo.Activities
             lblNewUser.Text = "Login";
 
             lblNewUser.Click -= lblNewUser_OnClick;
-            lblNewUser.Click += Login_OnClick;
+            lblNewUser.Click += ShowLogin_OnClick;
 
             RegisterUser();
         }
@@ -84,7 +84,7 @@ namespace Kalingo.Activities
             //}
         }
 
-        private void Login_OnClick(object sender, EventArgs eventArgs)
+        private void ShowLogin_OnClick(object sender, EventArgs eventArgs)
         {
             var btnSubmit = FindViewById<Button>(Resource.Id.btnSubmit);
             btnSubmit.Click -= btnRegister_Click;

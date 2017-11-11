@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -9,11 +8,10 @@ using Android.Gms.Ads.Reward;
 using Android.Views;
 using Kalingo.AdMob;
 using Kalingo.Core;
-using Kalingo.Master;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "M E N U", MainLauncher = true) ]
+    [Activity(Label = "M E N U"  /*,MainLauncher = true */  )]
     public class MenuActivity : Activity, IRewardedVideoAdListener
     {
         private Button _minesboom;
@@ -23,8 +21,6 @@ namespace Kalingo.Activities
 
         private IRewardedVideoAd _rewardedVideoAd;
 
-        private ProgressDialog _progress;
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -33,14 +29,6 @@ namespace Kalingo.Activities
             LoadAd();
 
             RegisterControl();
-        }
-
-        private void SetupProgress()
-        {
-            _progress = new ProgressDialog(this) { Indeterminate = true };
-            _progress.SetProgressStyle(ProgressDialogStyle.Spinner);
-            _progress.SetMessage("rolling..");
-            _progress.SetCancelable(false);
         }
 
         private void LoadAd()
@@ -69,20 +57,6 @@ namespace Kalingo.Activities
 
             if (App.PromoUser != 1)
             {
-                //while (!_rewardedVideoAd.IsLoaded)
-                //{
-                //    if (count < 10)
-                //    {
-                //        count++;
-                //        ShowMessage("...");
-                //        Thread.Sleep(1000);
-                //    }
-                //    else
-                //    {
-                //        ShowMessage("There was a problem loading game. Please check your internet connection.");
-                //        break;
-                //    }
-                //}
                 if (_rewardedVideoAd.IsLoaded)
                 {
                     _rewardedVideoAd.Show();
@@ -90,19 +64,6 @@ namespace Kalingo.Activities
             }
             else
             {
-                while (!_interstitialAd.IsLoaded)
-                {
-                    if (count < 3)
-                    {
-                        Thread.Sleep(2000);
-                        count++;
-                    }
-                    else
-                    {
-                        ShowMessage("There was a problem loading game. Please check your internet connection.");
-                        break;
-                    }
-                }
                 if (_interstitialAd.IsLoaded)
                 {
                     _interstitialAd.Show();
@@ -137,7 +98,7 @@ namespace Kalingo.Activities
 
         public void OnRewardedVideoAdFailedToLoad(int errorCode)
         {
-            Toast.MakeText(this, $"FailedToLoad {errorCode}", ToastLength.Short).Show();
+            ShowMessage($"FailedToLoad {errorCode}");
         }
 
         public void OnRewardedVideoAdLeftApplication()
@@ -152,7 +113,7 @@ namespace Kalingo.Activities
             var txtLoading = FindViewById<TextView>(Resource.Id.txtLoading);
             txtLoading.Visibility = ViewStates.Invisible;
 
-            Toast.MakeText(this, "AdLoaded", ToastLength.Short).Show();
+            ShowMessage("AdLoaded");
         }
 
         public void OnRewardedVideoAdOpened()
@@ -221,7 +182,7 @@ namespace Kalingo.Activities
                 _interstitialAd.Show();
             else
             {
-                Toast.MakeText(this, "Failed to load ad", ToastLength.Short).Show();
+                ShowMessage("Failed to load ad");
             }
         }
 
