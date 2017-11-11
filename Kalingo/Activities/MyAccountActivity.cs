@@ -11,7 +11,7 @@ using Kalingo.Master;
 namespace Kalingo.Activities
 {
     [Activity(Label = "My Account", /*MainLauncher = true,*/ Icon = "@drawable/icon")]
-    public class MyAccountActivity : BaseActivity
+    public class MyAccountActivity : Activity
     {
         private UserService _userService;
 

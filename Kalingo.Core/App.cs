@@ -17,5 +17,7 @@ namespace Kalingo.Core
         public static int Silver { get; set; }
 
         public static bool CoinsDialogShown { get; set; }
+
+        public static int PromoUser { get; set; }
     }
 }

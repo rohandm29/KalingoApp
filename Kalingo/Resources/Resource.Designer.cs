@@ -2184,65 +2184,65 @@ namespace Kalingo
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0c009e
-			public const int Button1 = 2131493022;
-			
-			// aapt resource value: 0x7f0c0095
-			public const int Button10 = 2131493013;
-			
-			// aapt resource value: 0x7f0c0094
-			public const int Button11 = 2131493012;
-			
-			// aapt resource value: 0x7f0c0093
-			public const int Button12 = 2131493011;
-			
-			// aapt resource value: 0x7f0c0091
-			public const int Button13 = 2131493009;
-			
-			// aapt resource value: 0x7f0c0090
-			public const int Button14 = 2131493008;
-			
-			// aapt resource value: 0x7f0c008f
-			public const int Button15 = 2131493007;
-			
-			// aapt resource value: 0x7f0c008e
-			public const int Button16 = 2131493006;
-			
-			// aapt resource value: 0x7f0c009d
-			public const int Button2 = 2131493021;
-			
-			// aapt resource value: 0x7f0c009c
-			public const int Button3 = 2131493020;
-			
-			// aapt resource value: 0x7f0c009b
-			public const int Button4 = 2131493019;
-			
-			// aapt resource value: 0x7f0c009a
-			public const int Button5 = 2131493018;
-			
-			// aapt resource value: 0x7f0c0099
-			public const int Button6 = 2131493017;
-			
-			// aapt resource value: 0x7f0c0098
-			public const int Button7 = 2131493016;
-			
-			// aapt resource value: 0x7f0c0097
-			public const int Button8 = 2131493015;
+			// aapt resource value: 0x7f0c009f
+			public const int Button1 = 2131493023;
 			
 			// aapt resource value: 0x7f0c0096
-			public const int Button9 = 2131493014;
+			public const int Button10 = 2131493014;
 			
-			// aapt resource value: 0x7f0c00bc
-			public const int CoinsLayout = 2131493052;
+			// aapt resource value: 0x7f0c0095
+			public const int Button11 = 2131493013;
 			
-			// aapt resource value: 0x7f0c008d
-			public const int FourthRow = 2131493005;
+			// aapt resource value: 0x7f0c0094
+			public const int Button12 = 2131493012;
 			
 			// aapt resource value: 0x7f0c0092
-			public const int ThirdRow = 2131493010;
+			public const int Button13 = 2131493010;
 			
-			// aapt resource value: 0x7f0c00a6
-			public const int action0 = 2131493030;
+			// aapt resource value: 0x7f0c0091
+			public const int Button14 = 2131493009;
+			
+			// aapt resource value: 0x7f0c0090
+			public const int Button15 = 2131493008;
+			
+			// aapt resource value: 0x7f0c008f
+			public const int Button16 = 2131493007;
+			
+			// aapt resource value: 0x7f0c009e
+			public const int Button2 = 2131493022;
+			
+			// aapt resource value: 0x7f0c009d
+			public const int Button3 = 2131493021;
+			
+			// aapt resource value: 0x7f0c009c
+			public const int Button4 = 2131493020;
+			
+			// aapt resource value: 0x7f0c009b
+			public const int Button5 = 2131493019;
+			
+			// aapt resource value: 0x7f0c009a
+			public const int Button6 = 2131493018;
+			
+			// aapt resource value: 0x7f0c0099
+			public const int Button7 = 2131493017;
+			
+			// aapt resource value: 0x7f0c0098
+			public const int Button8 = 2131493016;
+			
+			// aapt resource value: 0x7f0c0097
+			public const int Button9 = 2131493015;
+			
+			// aapt resource value: 0x7f0c00bd
+			public const int CoinsLayout = 2131493053;
+			
+			// aapt resource value: 0x7f0c008e
+			public const int FourthRow = 2131493006;
+			
+			// aapt resource value: 0x7f0c0093
+			public const int ThirdRow = 2131493011;
+			
+			// aapt resource value: 0x7f0c00a7
+			public const int action0 = 2131493031;
 			
 			// aapt resource value: 0x7f0c005d
 			public const int action_bar = 2131492957;
@@ -2265,17 +2265,17 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c003a
 			public const int action_bar_title = 2131492922;
 			
-			// aapt resource value: 0x7f0c00a3
-			public const int action_container = 2131493027;
+			// aapt resource value: 0x7f0c00a4
+			public const int action_container = 2131493028;
 			
 			// aapt resource value: 0x7f0c005e
 			public const int action_context_bar = 2131492958;
 			
-			// aapt resource value: 0x7f0c00aa
-			public const int action_divider = 2131493034;
+			// aapt resource value: 0x7f0c00ab
+			public const int action_divider = 2131493035;
 			
-			// aapt resource value: 0x7f0c00a4
-			public const int action_image = 2131493028;
+			// aapt resource value: 0x7f0c00a5
+			public const int action_image = 2131493029;
 			
 			// aapt resource value: 0x7f0c0002
 			public const int action_menu_divider = 2131492866;
@@ -2292,11 +2292,11 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c003c
 			public const int action_mode_close_button = 2131492924;
 			
-			// aapt resource value: 0x7f0c00a5
-			public const int action_text = 2131493029;
+			// aapt resource value: 0x7f0c00a6
+			public const int action_text = 2131493030;
 			
-			// aapt resource value: 0x7f0c00b3
-			public const int actions = 2131493043;
+			// aapt resource value: 0x7f0c00b4
+			public const int actions = 2131493044;
 			
 			// aapt resource value: 0x7f0c003d
 			public const int activity_chooser_view_content = 2131492925;
@@ -2331,38 +2331,38 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c0015
 			public const int box_count = 2131492885;
 			
-			// aapt resource value: 0x7f0c00a2
-			public const int btnAccountSubmit = 2131493026;
+			// aapt resource value: 0x7f0c00a3
+			public const int btnAccountSubmit = 2131493027;
 			
-			// aapt resource value: 0x7f0c00bd
-			public const int btnAmazon = 2131493053;
+			// aapt resource value: 0x7f0c00be
+			public const int btnAmazon = 2131493054;
 			
-			// aapt resource value: 0x7f0c00c2
-			public const int btnBodyShop = 2131493058;
+			// aapt resource value: 0x7f0c00c3
+			public const int btnBodyShop = 2131493059;
 			
 			// aapt resource value: 0x7f0c0072
 			public const int btnCaptchaSubmit = 2131492978;
 			
-			// aapt resource value: 0x7f0c00bf
-			public const int btnEbay = 2131493055;
-			
 			// aapt resource value: 0x7f0c00c0
-			public const int btnFlipkart = 2131493056;
+			public const int btnEbay = 2131493056;
 			
 			// aapt resource value: 0x7f0c00c1
-			public const int btnHnm = 2131493057;
+			public const int btnFlipkart = 2131493057;
 			
-			// aapt resource value: 0x7f0c00be
-			public const int btnMns = 2131493054;
+			// aapt resource value: 0x7f0c00c2
+			public const int btnHnm = 2131493058;
 			
-			// aapt resource value: 0x7f0c0087
-			public const int btnPlayMinesBoom = 2131492999;
-			
-			// aapt resource value: 0x7f0c00c3
-			public const int btnShopBack = 2131493059;
+			// aapt resource value: 0x7f0c00bf
+			public const int btnMns = 2131493055;
 			
 			// aapt resource value: 0x7f0c0088
-			public const int btnShopVouchers = 2131493000;
+			public const int btnPlayMinesBoom = 2131493000;
+			
+			// aapt resource value: 0x7f0c00c4
+			public const int btnShopBack = 2131493060;
+			
+			// aapt resource value: 0x7f0c0089
+			public const int btnShopVouchers = 2131493001;
 			
 			// aapt resource value: 0x7f0c0085
 			public const int btnSubmit = 2131492997;
@@ -2373,8 +2373,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c0044
 			public const int buttonPanel = 2131492932;
 			
-			// aapt resource value: 0x7f0c00a7
-			public const int cancel_action = 2131493031;
+			// aapt resource value: 0x7f0c00a8
+			public const int cancel_action = 2131493032;
 			
 			// aapt resource value: 0x7f0c0077
 			public const int cancel_button = 2131492983;
@@ -2385,8 +2385,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c0054
 			public const int checkbox = 2131492948;
 			
-			// aapt resource value: 0x7f0c00af
-			public const int chronometer = 2131493039;
+			// aapt resource value: 0x7f0c00b0
+			public const int chronometer = 2131493040;
 			
 			// aapt resource value: 0x7f0c0036
 			public const int collapseActionView = 2131492918;
@@ -2454,8 +2454,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c0033
 			public const int end = 2131492915;
 			
-			// aapt resource value: 0x7f0c00b9
-			public const int end_padder = 2131493049;
+			// aapt resource value: 0x7f0c00ba
+			public const int end_padder = 2131493050;
 			
 			// aapt resource value: 0x7f0c003e
 			public const int expand_activities_button = 2131492926;
@@ -2472,8 +2472,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c0042
 			public const int icon = 2131492930;
 			
-			// aapt resource value: 0x7f0c00b4
-			public const int icon_group = 2131493044;
+			// aapt resource value: 0x7f0c00b5
+			public const int icon_group = 2131493045;
 			
 			// aapt resource value: 0x7f0c000c
 			public const int icon_only = 2131492876;
@@ -2490,8 +2490,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c006d
 			public const int imgHeader = 2131492973;
 			
-			// aapt resource value: 0x7f0c00b0
-			public const int info = 2131493040;
+			// aapt resource value: 0x7f0c00b1
+			public const int info = 2131493041;
 			
 			// aapt resource value: 0x7f0c0018
 			public const int inline = 2131492888;
@@ -2499,23 +2499,23 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c0020
 			public const int large = 2131492896;
 			
-			// aapt resource value: 0x7f0c008b
-			public const int lblLogIn = 2131493003;
+			// aapt resource value: 0x7f0c008c
+			public const int lblLogIn = 2131493004;
 			
-			// aapt resource value: 0x7f0c0089
-			public const int lblMyAccount = 2131493001;
+			// aapt resource value: 0x7f0c008a
+			public const int lblMyAccount = 2131493002;
 			
 			// aapt resource value: 0x7f0c006f
 			public const int lblNewUser = 2131492975;
 			
-			// aapt resource value: 0x7f0c00a1
-			public const int lblUpdateCountry = 2131493025;
+			// aapt resource value: 0x7f0c00a2
+			public const int lblUpdateCountry = 2131493026;
 			
-			// aapt resource value: 0x7f0c009f
-			public const int lblUpdateEmail = 2131493023;
+			// aapt resource value: 0x7f0c00a0
+			public const int lblUpdateEmail = 2131493024;
 			
-			// aapt resource value: 0x7f0c00bb
-			public const int lblVoucherHeader = 2131493051;
+			// aapt resource value: 0x7f0c00bc
+			public const int lblVoucherHeader = 2131493052;
 			
 			// aapt resource value: 0x7f0c001b
 			public const int left = 2131492891;
@@ -2526,11 +2526,11 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c006e
 			public const int linBase = 2131492974;
 			
-			// aapt resource value: 0x7f0c00b5
-			public const int line1 = 2131493045;
+			// aapt resource value: 0x7f0c00b6
+			public const int line1 = 2131493046;
 			
-			// aapt resource value: 0x7f0c00b7
-			public const int line3 = 2131493047;
+			// aapt resource value: 0x7f0c00b8
+			public const int line3 = 2131493048;
 			
 			// aapt resource value: 0x7f0c0023
 			public const int listMode = 2131492899;
@@ -2541,11 +2541,11 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c006c
 			public const int main_layout = 2131492972;
 			
-			// aapt resource value: 0x7f0c00a9
-			public const int media_actions = 2131493033;
+			// aapt resource value: 0x7f0c00aa
+			public const int media_actions = 2131493034;
 			
-			// aapt resource value: 0x7f0c008a
-			public const int messenger_send_button = 2131493002;
+			// aapt resource value: 0x7f0c008b
+			public const int messenger_send_button = 2131493003;
 			
 			// aapt resource value: 0x7f0c0034
 			public const int middle = 2131492916;
@@ -2568,14 +2568,14 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c0021
 			public const int normal = 2131492897;
 			
-			// aapt resource value: 0x7f0c00b2
-			public const int notification_background = 2131493042;
+			// aapt resource value: 0x7f0c00b3
+			public const int notification_background = 2131493043;
+			
+			// aapt resource value: 0x7f0c00ad
+			public const int notification_main_column = 2131493037;
 			
 			// aapt resource value: 0x7f0c00ac
-			public const int notification_main_column = 2131493036;
-			
-			// aapt resource value: 0x7f0c00ab
-			public const int notification_main_column_container = 2131493035;
+			public const int notification_main_column_container = 2131493036;
 			
 			// aapt resource value: 0x7f0c0012
 			public const int open_graph = 2131492882;
@@ -2601,11 +2601,11 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c001c
 			public const int right = 2131492892;
 			
-			// aapt resource value: 0x7f0c00b1
-			public const int right_icon = 2131493041;
+			// aapt resource value: 0x7f0c00b2
+			public const int right_icon = 2131493042;
 			
-			// aapt resource value: 0x7f0c00ad
-			public const int right_side = 2131493037;
+			// aapt resource value: 0x7f0c00ae
+			public const int right_side = 2131493038;
 			
 			// aapt resource value: 0x7f0c002d
 			public const int screen = 2131492909;
@@ -2688,8 +2688,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c000d
 			public const int standard = 2131492877;
 			
-			// aapt resource value: 0x7f0c00a8
-			public const int status_bar_latest_event_content = 2131493032;
+			// aapt resource value: 0x7f0c00a9
+			public const int status_bar_latest_event_content = 2131493033;
 			
 			// aapt resource value: 0x7f0c0057
 			public const int submenuarrow = 2131492951;
@@ -2700,11 +2700,11 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c0024
 			public const int tabMode = 2131492900;
 			
-			// aapt resource value: 0x7f0c00b8
-			public const int text = 2131493048;
+			// aapt resource value: 0x7f0c00b9
+			public const int text = 2131493049;
 			
-			// aapt resource value: 0x7f0c00b6
-			public const int text2 = 2131493046;
+			// aapt resource value: 0x7f0c00b7
+			public const int text2 = 2131493047;
 			
 			// aapt resource value: 0x7f0c004b
 			public const int textSpacerNoButtons = 2131492939;
@@ -2712,11 +2712,11 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c004a
 			public const int textSpacerNoTitle = 2131492938;
 			
-			// aapt resource value: 0x7f0c00ba
-			public const int textView1 = 2131493050;
+			// aapt resource value: 0x7f0c00bb
+			public const int textView1 = 2131493051;
 			
-			// aapt resource value: 0x7f0c00ae
-			public const int time = 2131493038;
+			// aapt resource value: 0x7f0c00af
+			public const int time = 2131493039;
 			
 			// aapt resource value: 0x7f0c0043
 			public const int title = 2131492931;
@@ -2739,17 +2739,20 @@ namespace Kalingo
 			// aapt resource value: 0x7f0c0083
 			public const int txtEmail = 2131492995;
 			
+			// aapt resource value: 0x7f0c0087
+			public const int txtLoading = 2131492999;
+			
 			// aapt resource value: 0x7f0c0086
 			public const int txtMinesBoom = 2131492998;
 			
-			// aapt resource value: 0x7f0c008c
-			public const int txtMinesChances = 2131493004;
+			// aapt resource value: 0x7f0c008d
+			public const int txtMinesChances = 2131493005;
 			
 			// aapt resource value: 0x7f0c0081
 			public const int txtPassword = 2131492993;
 			
-			// aapt resource value: 0x7f0c00a0
-			public const int txtUpdateEmail = 2131493024;
+			// aapt resource value: 0x7f0c00a1
+			public const int txtUpdateEmail = 2131493025;
 			
 			// aapt resource value: 0x7f0c0080
 			public const int txtUserName = 2131492992;

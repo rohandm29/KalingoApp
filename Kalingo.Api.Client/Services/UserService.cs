@@ -40,6 +40,7 @@ namespace Kalingo.Api.Client.Services
             App.Gold = user.Gold;
             App.Silver = user.Silver;
             App.CountryId = user.CountryId;
+            App.PromoUser = user.PromoId;
         }
 
         public async Task<int> RegisterUser(string userName, string password, string email, string country)

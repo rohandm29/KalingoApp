@@ -10,7 +10,7 @@ using Kalingo.Api.Client.Services;
 namespace Kalingo.Activities
 {
     [Activity(Label = "Captcha", /*MainLauncher = true,*/ Icon = "@drawable/icon")]
-    public class CaptchaActivity : BaseActivity
+    public class CaptchaActivity : Activity
     {
         private CaptchaService _captchaService;
 

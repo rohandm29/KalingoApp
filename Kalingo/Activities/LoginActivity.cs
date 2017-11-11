@@ -11,7 +11,7 @@ using Object = Java.Lang.Object;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "Login",/* MainLauncher = true,*/ Icon = "@drawable/icon")]
+    [Activity(Label = "Login", /*MainLauncher = true,*/ Icon = "@drawable/icon")]
     public class LoginActivity : Activity
     {
         public UserService UserService;
@@ -31,9 +31,6 @@ namespace Kalingo.Activities
             var username = FindViewById<EditText>(Resource.Id.txtUserName).Text;
             var password = FindViewById<EditText>(Resource.Id.txtPassword).Text;
 
-            var intent = new Intent(this, typeof(MenuActivity));
-            intent.PutExtra("credentials", username + ";" + password);
-
             if (await UserService.AuthenticateUser(username, password))
             {
                 App.IsUserLoggedIn = true;
@@ -41,6 +38,7 @@ namespace Kalingo.Activities
                 Settings.Add("username", username);
                 Settings.Add("password", password);
 
+                var intent = new Intent(this, typeof(MenuActivity));
                 StartActivity(intent);
             }
             else
@@ -64,26 +62,26 @@ namespace Kalingo.Activities
 
         private async void btnRegister_Click(object sender, EventArgs eventArgs)
         {
-            var username = FindViewById<EditText>(Resource.Id.txtUserName).Text;
-            var password = FindViewById<EditText>(Resource.Id.txtPassword).Text;
-            var email = FindViewById<EditText>(Resource.Id.txtEmail).Text;
-            var country = FindViewById<Spinner>(Resource.Id.spnCountry).SelectedItem;
+            //var username = FindViewById<EditText>(Resource.Id.txtUserName).Text;
+            //var password = FindViewById<EditText>(Resource.Id.txtPassword).Text;
+            //var email = FindViewById<EditText>(Resource.Id.txtEmail).Text;
+            //var country = FindViewById<Spinner>(Resource.Id.spnCountry).SelectedItem;
 
-            if (!IsValidRegistration(username, email, country))
-                return;
+            //if (!IsValidRegistration(username, email, country))
+            //    return;
 
-            var intent = new Intent(this, typeof(MenuActivity));
-            intent.PutExtra("credentials", username + ";" + password);
+            //var intent = new Intent(this, typeof(MenuActivity));
+            //intent.PutExtra("credentials", username + ";" + password);
 
-            if (await UserService.RegisterUser(username, password, email, country.ToString()) != -1)
-            {
-                App.IsUserLoggedIn = true;
-                StartActivity(intent);
-            }
-            else
-            {
-                Toast.MakeText(this, "Sorry! username has been taken.", ToastLength.Short).Show();
-            }
+            //if (await UserService.RegisterUser(username, password, email, country.ToString()) != -1)
+            //{
+            //    App.IsUserLoggedIn = true;
+            //    StartActivity(intent);
+            //}
+            //else
+            //{
+            //    Toast.MakeText(this, "Sorry! username has been taken.", ToastLength.Short).Show();
+            //}
         }
 
         private void Login_OnClick(object sender, EventArgs eventArgs)

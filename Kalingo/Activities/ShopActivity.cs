@@ -9,7 +9,7 @@ using Kalingo.Master;
 namespace Kalingo.Activities
 {
     [Activity(Label = "Kalingo", /*MainLauncher = true,*/ Icon = "@drawable/icon")]
-    public class ShopActivity : BaseActivity
+    public class ShopActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {

@@ -14,7 +14,7 @@ using Kalingo.Master;
 namespace Kalingo.Activities
 {
     [Activity(Label = "MinesBoomActivity"/*, MainLauncher = true*/)]
-    public class MinesBoomActivity : BaseActivity
+    public class MinesBoomActivity : Activity
     {
         private readonly MinesBoomService _minesBoomService = new MinesBoomService();
         private MediaPlayer _playerRed, _playerGreen;
