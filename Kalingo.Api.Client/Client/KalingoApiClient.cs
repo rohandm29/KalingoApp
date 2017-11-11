@@ -14,7 +14,7 @@ namespace Kalingo.Api.Client.Client
     public class KalingoApiClient
     {
         private readonly string _baseAddress;
-        private const int MinesBoomId = 2;
+        private const int MinesBoomId = 1;
 
         public KalingoApiClient()
         {

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
@@ -19,6 +21,7 @@ namespace Kalingo.Activities
         private readonly MinesBoomService _minesBoomService = new MinesBoomService();
         private MediaPlayer _playerRed, _playerGreen;
         private ProgressDialog _progress;
+        private bool _playAgain;
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -66,8 +69,14 @@ namespace Kalingo.Activities
 
         private void ProcessResult(MinesBoomGameResult result)
         {
+
             if (result.HasWon)
             {
+                if (result.TotalChances == 0)
+                {
+                    GoToMenu();
+                }
+
                 Toast.MakeText(this, "Game Won.", ToastLength.Long).Show();
 
                 var txtMinesChances = FindViewById<TextView>(Resource.Id.txtMinesChances);
@@ -80,18 +89,24 @@ namespace Kalingo.Activities
                 if (result.TotalChances == 0)
                 {
                     Toast.MakeText(this, "Game lost.", ToastLength.Long).Show();
+
+                    if (result.RandomSequence != null)
+                        ShowMissedThumbs(result.RandomSequence);
+
+                    ShowDialogPlayAgain();
                 }
                 else
+                {
+                    SetText(result.TotalChances, result.GiftsHidden);
                     return;
+                }
             }
+        }
 
-            if(result.RandomSequence != null)
-                ShowMissedThumbs(result.RandomSequence);
-
-            SetText(result.TotalChances, result.GiftsHidden);
-
-            var menuIntent = new Intent(this, typeof(MenuActivity));
-            StartActivity(menuIntent);
+        private async void PlayAgain()
+        {
+            await _minesBoomService.CreateMinesBoom(1);
+            ClearScreen();
         }
 
         private void ShowMissedThumbs(string resultRandomSequence)
@@ -99,8 +114,15 @@ namespace Kalingo.Activities
             foreach (var id in resultRandomSequence.Split('-'))
             {
                 var button = GetButton(int.Parse(id));
+                button.Text = "";
                 button.SetBackgroundResource(Resource.Drawable.GreenGift);
             }
+        }
+
+        private void ClearScreen()
+        {
+            SetContentView(Resource.Layout.MinesBoom);
+            RegisterControls();
         }
 
         private void ShowDialogCoinsEarned()
@@ -121,9 +143,49 @@ namespace Kalingo.Activities
             }
         }
 
+        private void ShowDialogPlayAgain()
+        {
+            if (_playAgain)
+            {
+                _playAgain = false;
+
+                RunOnUiThread(() =>
+                {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.SetTitle("Coins Earned On Wins");
+                    builder.SetMessage(" 5 Gifts = 1 Gold");
+                    builder.SetCancelable(false);
+                    builder.SetPositiveButton("Play Again", delegate { PlayAgain(builder); });
+                    builder.SetNeutralButton("Back", delegate { GoBack(builder); });
+                    builder.Show();
+                });
+            }
+            else
+            {
+                GoToMenu();
+            }
+        }
+
         public void DismissDialog(AlertDialog.Builder builder)
         {
             builder.Dispose();
+        }
+
+        public void GoBack(AlertDialog.Builder builder)
+        {
+            builder.Dispose();
+            GoToMenu();
+        }
+
+        public void PlayAgain(AlertDialog.Builder builder)
+        {
+            PlayAgain();
+        }
+
+        public void GoToMenu()
+        {
+            var menuIntent = new Intent(this, typeof(MenuActivity));
+            StartActivity(menuIntent);
         }
 
         private void SetText(int chances, int gifts)
