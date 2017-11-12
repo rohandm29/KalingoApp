@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Graphics;
@@ -11,7 +8,6 @@ using Android.Widget;
 using Kalingo.Api.Client.Services;
 using Kalingo.Core;
 using Kalingo.Games.Contract.Entity.MinesBoom;
-using Kalingo.Master;
 
 namespace Kalingo.Activities
 {
@@ -39,24 +35,29 @@ namespace Kalingo.Activities
 
         private async void ButtonOnClick(object sender, EventArgs eventArgs)
         {
-            _progress.Show();   
-            var btnSelected = (Button)sender;
+            _progress.Show();
+            var btnSelected = (Button) sender;
 
             var id = int.Parse(btnSelected.Text);
 
             var result = await _minesBoomService.Submit(id);
 
             //System.Threading.Thread.Sleep(2000);
-            
+
             btnSelected.Text = "";
 
-            btnSelected.SetBackgroundResource(result.SelectionCorrect ? Resource.Drawable.GreenThumb : Resource.Drawable.RedGift);
+            btnSelected.SetBackgroundResource(result.SelectionCorrect
+                ? Resource.Drawable.GreenThumb
+                : Resource.Drawable.RedGift);
+
+            //btnSelected.Enabled = false;
 
             PlaySound(result.SelectionCorrect);
 
             ProcessResult(result);
 
             _progress.Dismiss();
+
         }
 
         private void PlaySound(bool win)
@@ -199,6 +200,11 @@ namespace Kalingo.Activities
         {
             _playerRed = MediaPlayer.Create(this, Resource.Raw.Red);
             _playerGreen = MediaPlayer.Create(this, Resource.Raw.Win);
+        }
+
+        private void ShowMessage(string message)
+        {
+            Toast.MakeText(this, message, ToastLength.Short).Show();
         }
 
         private void SetupProgress()

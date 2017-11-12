@@ -19,5 +19,7 @@ namespace Kalingo.Core
         public static bool CoinsDialogShown { get; set; }
 
         public static int PromoUser { get; set; }
+
+        public static int MinesBoomId = 1;
     }
 }

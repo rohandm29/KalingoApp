@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Android.App;
+using Kalingo.Core;
 using Kalingo.Games.Contract.Entity;
 using Kalingo.Games.Contract.Entity.Captcha;
 using Kalingo.Games.Contract.Entity.MinesBoom;
@@ -14,11 +14,10 @@ namespace Kalingo.Api.Client.Client
     public class KalingoApiClient
     {
         private readonly string _baseAddress;
-        private const int MinesBoomId = 1;
 
         public KalingoApiClient()
         {
-            _baseAddress = "http://kalingoapi.cloudapp.net/"; 
+            _baseAddress = "http://kalingoapi.cloudapp.net/";
             //_baseAddress = "http://10.0.3.2:9988/";
         }
 
@@ -27,7 +26,7 @@ namespace Kalingo.Api.Client.Client
             try
             {
                 var client = new HttpClient();
-                
+
                 var response = await client.SendAsync(message);
 
                 if (response.IsSuccessStatusCode)
@@ -48,7 +47,7 @@ namespace Kalingo.Api.Client.Client
         public async Task<int> CreateMinesBoom(int userId)
         {
             //var uri = new Uri("http://10.0.3.2:9988/game/join?gameTypeId=2&userId=1");
-            var uri = new Uri(_baseAddress + $"/games/join?gameTypeId={MinesBoomId}&userId={userId}");
+            var uri = new Uri(_baseAddress + $"/games/join?gameTypeId={App.MinesBoomId}&userId={userId}");
 
             var message = new HttpRequestMessage(HttpMethod.Get, uri);
 
@@ -131,10 +130,23 @@ namespace Kalingo.Api.Client.Client
 
             var message = new HttpRequestMessage(HttpMethod.Post, uri)
             {
-                Content = new StringContent(JsonConvert.SerializeObject(captchaAnswer), Encoding.UTF8, "application/json")
+                Content = new StringContent(JsonConvert.SerializeObject(captchaAnswer), Encoding.UTF8,
+                    "application/json")
             };
 
             return await GetResponse<CaptchaResult>(message);
+        }
+
+        public async Task TerminateMinesBoom(GameArgs gameArgs)
+        {
+            var uri = new Uri(_baseAddress + "/games/terminate");
+
+            var message = new HttpRequestMessage(HttpMethod.Post, uri)
+            {
+                Content = new StringContent(JsonConvert.SerializeObject(gameArgs), Encoding.UTF8, "application/json")
+            };
+
+            await GetResponse<MinesBoomGameResult>(message);
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Runtime;
 using Android.Widget;
 using Kalingo.Core;
 
@@ -13,6 +15,11 @@ namespace Kalingo.Activities
         {
             base.OnCreate(savedInstanceState);
 
+            AppDomain currentDomain = AppDomain.CurrentDomain;
+            currentDomain.UnhandledException += HandleExceptions;
+
+            AndroidEnvironment.UnhandledExceptionRaiser += HandleAndroidException;
+
             if (!App.IsUserLoggedIn)
             {
                 var loginIntent = new Intent(this, typeof(LoginActivity));
@@ -23,6 +30,17 @@ namespace Kalingo.Activities
                 var menuIntent = new Intent(this, typeof(MenuActivity));
                 StartActivity(menuIntent);
             }
+        }
+        void HandleAndroidException(object sender, RaiseThrowableEventArgs e)
+        {
+            e.Handled = true;
+            Console.Write("HANDLED EXCEPTION");
+        }
+
+        static void HandleExceptions(object sender, UnhandledExceptionEventArgs e)
+        {
+            //Exception d = (Exception)e.ExceptionObject;
+            Console.WriteLine("TEST");
         }
     }
 }
