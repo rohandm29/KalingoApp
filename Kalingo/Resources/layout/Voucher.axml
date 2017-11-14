@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:minWidth="25px"
+              android:minHeight="50px">
+  <TextView
+    android:text="S H O P"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="30dp"
+    android:gravity="center_vertical|center"
+    android:id="@+id/textView1" />
+  <TextView
+    android:text=""
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical|center"
+    android:id="@+id/lblVoucherHeader" />
+  <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_margin="10dp"
+    android:gravity="center_vertical|center"
+    android:id="@+id/CoinsLayout">
+    <ImageButton
+      android:layout_width="170.0dp"
+      android:layout_height="100.0dp"
+      android:layout_gravity="center"
+      android:id="@+id/btnAmazon"
+      android:scaleType="fitXY" />
+    <ImageButton
+      android:layout_width="170.0dp"
+      android:layout_height="100.0dp"
+      android:layout_gravity="center"
+      android:id="@+id/btnMns"
+      android:scaleType="fitXY" />
+  </LinearLayout>
+  <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:gravity="center_vertical|center"
+    android:layout_margin="20dp"
+    android:id="@+id/CoinsLayout">
+    <ImageButton
+      android:layout_width="170.0dp"
+      android:layout_height="100.0dp"
+      android:layout_gravity="center"
+      android:id="@+id/btnEbay"
+      android:scaleType="fitXY" />
+    <ImageButton
+      android:layout_width="170.0dp"
+      android:layout_height="100.0dp"
+      android:layout_gravity="center"
+      android:id="@+id/btnFlipkart"
+      android:scaleType="fitXY" />
+  </LinearLayout>
+  <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:gravity="center_vertical|center"
+    android:layout_margin="20dp"
+    android:id="@+id/CoinsLayout">
+    <ImageButton
+      android:layout_width="170.0dp"
+      android:layout_height="100.0dp"
+      android:layout_gravity="center"
+      android:id="@+id/btnHnm"
+      android:scaleType="fitXY" />
+    <ImageButton
+      android:layout_width="170.0dp"
+      android:layout_height="100.0dp"
+      android:layout_gravity="center"
+      android:id="@+id/btnBodyShop"
+      android:scaleType="fitXY" />
+  </LinearLayout>
+  <Button
+    android:text="Back"
+    android:layout_width="100.0dp"
+    android:layout_height="50.0dp"
+    android:layout_gravity="center"
+    android:id="@+id/btnShopBack" />
+</LinearLayout>

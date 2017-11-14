@@ -78,7 +78,7 @@ namespace Kalingo.Activities
 
         private void BtnShopClick(object sender, EventArgs e)
         {
-            var intent = new Intent(this, typeof(ShopActivity));
+            var intent = new Intent(this, typeof(VoucherActivity));
             StartActivity(intent);
         }
 

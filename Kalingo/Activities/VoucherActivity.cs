@@ -3,19 +3,17 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using Kalingo.Core;
-using Kalingo.Master;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "Kalingo", /*MainLauncher = true,*/ Icon = "@drawable/icon")]
-    public class ShopActivity : Activity
+    [Activity(Label = "Kalingo", MainLauncher = true, Icon = "@drawable/icon")]
+    public class VoucherActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.Shop);
+            SetContentView(Resource.Layout.Voucher);
 
             RegisterControl();
         }

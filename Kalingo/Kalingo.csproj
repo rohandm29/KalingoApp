@@ -166,7 +166,7 @@
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\MenuActivity.cs" />
     <Compile Include="Activities\MinesBoomActivity.cs" />
-    <Compile Include="Activities\ShopActivity.cs" />
+    <Compile Include="Activities\VoucherActivity.cs" />
     <Compile Include="AdMob\InterstitialAdListener.cs" />
     <Compile Include="AdMob\RewardedAdListener.cs" />
     <Compile Include="Helpers\Settings.cs" />
@@ -188,7 +188,7 @@
     <AndroidResource Include="Resources\layout\MinesBoom.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\Shop.axml">
+    <AndroidResource Include="Resources\layout\Voucher.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\BaseActivity.axml">
