@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using Kalingo.Games.Contract.Entity;
 using Kalingo.Games.Contract.Entity.Captcha;
 using Kalingo.Games.Contract.Entity.MinesBoom;
 using Kalingo.Games.Contract.Entity.User;
+using Kalingo.Games.Contract.Entity.Voucher;
 using Newtonsoft.Json;
 
 namespace Kalingo.Api.Client.Client
@@ -70,6 +72,18 @@ namespace Kalingo.Api.Client.Client
             var gameResult = await GetResponse<MinesBoomGameResult>(message);
 
             return gameResult;
+        }
+
+        public async Task TerminateMinesBoom(GameArgs gameArgs)
+        {
+            var uri = new Uri(_baseAddress + "/games/terminate");
+
+            var message = new HttpRequestMessage(HttpMethod.Post, uri)
+            {
+                Content = new StringContent(JsonConvert.SerializeObject(gameArgs), Encoding.UTF8, "application/json")
+            };
+
+            await GetResponse<MinesBoomGameResult>(message);
         }
 
         public async Task<int> AddUser(NewUser user)
@@ -137,16 +151,25 @@ namespace Kalingo.Api.Client.Client
             return await GetResponse<CaptchaResult>(message);
         }
 
-        public async Task TerminateMinesBoom(GameArgs gameArgs)
+        public async Task<IEnumerable<Voucher>> GetVouchers(int countryId)
         {
-            var uri = new Uri(_baseAddress + "/games/terminate");
+            var uri = new Uri(_baseAddress + $"voucher/Get?countryId={countryId}");
+
+            var message = new HttpRequestMessage(HttpMethod.Get, uri);
+
+            return await GetResponse<IEnumerable<Voucher>>(message);
+        }
+
+        public async Task<VoucherClaimResponse> SubmitClaim(VoucherClaim claim)
+        {
+            var uri = new Uri(_baseAddress + "voucher/claim");
 
             var message = new HttpRequestMessage(HttpMethod.Post, uri)
             {
-                Content = new StringContent(JsonConvert.SerializeObject(gameArgs), Encoding.UTF8, "application/json")
+                Content = new StringContent(JsonConvert.SerializeObject(claim), Encoding.UTF8,"application/json")
             };
 
-            await GetResponse<MinesBoomGameResult>(message);
+            return await GetResponse<VoucherClaimResponse>(message);
         }
     }
 }

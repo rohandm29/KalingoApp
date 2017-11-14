@@ -1,6 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Kalingo.Api.Client.Client;
 using Kalingo.Core;
 using Kalingo.Core.Encryption;
