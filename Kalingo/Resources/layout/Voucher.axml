@@ -1,164 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:id="@+id/scroll"
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content">
-  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-      android:orientation="vertical"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center_vertical|center"
-        android:background="#c1c9b7"
-        android:id="@+id/VoucherHeaderLayout">
-      <Button
-          android:text="Back"
-          android:layout_width="100.0dp"
-          android:layout_height="50.0dp"
-          android:layout_gravity="left"
-          android:id="@+id/btnShopBack" />
-      <TextView
-          android:text="V O U C H E R S"
-          android:textAppearance="?android:attr/textAppearanceLarge"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:gravity="center_horizontal|center"
-          android:id="@+id/lblVoucher" />
-    </LinearLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:id="@+id/ClaimLayout">
-      <Spinner
-          android:layout_width="250dp"
-          android:layout_height="wrap_content"
-          android:textSize="18sp"
-          android:gravity="center_vertical|center"
-          android:layout_gravity="center"
-          android:layout_margin="10dp"
-          android:textColor="@android:color/white"
-          android:id="@+id/spnVoucher" />
-      <Spinner
-          android:layout_width="250dp"
-          android:layout_height="wrap_content"
-          android:textSize="18sp"
-          android:gravity="center_vertical|center"
-          android:layout_gravity="center"
-          android:layout_margin="10dp"
-          android:textColor="@android:color/white"
-          android:id="@+id/spnWorth" />
-      <TextView
-          android:text="COINS NEED : 10 GOLD"
-          android:textAppearance="?android:attr/textAppearanceMedium"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_margin="10dp"
-          android:gravity="center_horizontal|center"
-          android:id="@+id/lblVoucherCost" />
-      <Button
-          android:text="Claim"
-          android:layout_width="100.0dp"
-          android:layout_height="50.0dp"
-          android:layout_gravity="center"
-          android:id="@+id/btnClaimVoucher" />
-      <TextView
-          android:text=""
-          android:textAppearance="?android:attr/textAppearanceMedium"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:gravity="center_vertical|center"
-          android:id="@+id/lblVoucherNote" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical|center"
+            android:background="#c1c9b7"
+            android:id="@+id/VoucherHeaderLayout">
+            <Button
+                android:text="Back"
+                android:layout_width="100.0dp"
+                android:layout_height="50.0dp"
+                android:layout_gravity="left"
+                android:id="@+id/btnShopBack" />
+            <TextView
+                android:text="V O U C H E R S"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|center"
+                android:id="@+id/lblVoucher" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:id="@+id/ClaimLayout">
+            <Spinner
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:gravity="center_vertical|center"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:textColor="@android:color/white"
+                android:id="@+id/spnVoucher" />
+            <TextView
+                android:text="COINS NEED : 10 GOLD"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal|center"
+                android:id="@+id/lblVoucherCost" />
+            <Button
+                android:text="Claim"
+                android:layout_width="100.0dp"
+                android:layout_height="50.0dp"
+                android:layout_gravity="center"
+                android:id="@+id/btnClaimVoucher" />
+            <TextView
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|center"
+                android:id="@+id/lblVoucherNote" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:gravity="center_vertical|center"
+            android:id="@+id/CoinsLayout">
+            <ImageButton
+                android:layout_width="170.0dp"
+                android:layout_height="100.0dp"
+                android:layout_gravity="center"
+                android:id="@+id/btnAmazon"
+                android:scaleType="fitXY" />
+            <ImageButton
+                android:layout_width="170.0dp"
+                android:layout_height="100.0dp"
+                android:layout_gravity="center"
+                android:id="@+id/btnMns"
+                android:scaleType="fitXY" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical|center"
+            android:layout_margin="20dp"
+            android:id="@+id/CoinsLayout">
+            <ImageButton
+                android:layout_width="170.0dp"
+                android:layout_height="100.0dp"
+                android:layout_gravity="center"
+                android:id="@+id/btnEbay"
+                android:scaleType="fitXY" />
+            <ImageButton
+                android:layout_width="170.0dp"
+                android:layout_height="100.0dp"
+                android:layout_gravity="center"
+                android:id="@+id/btnFlipkart"
+                android:scaleType="fitXY" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical|center"
+            android:layout_margin="20dp"
+            android:id="@+id/CoinsLayout">
+            <ImageButton
+                android:layout_width="170.0dp"
+                android:layout_height="100.0dp"
+                android:layout_gravity="center"
+                android:id="@+id/btnHnm"
+                android:scaleType="fitXY" />
+            <ImageButton
+                android:layout_width="170.0dp"
+                android:layout_height="100.0dp"
+                android:layout_gravity="center"
+                android:id="@+id/btnBodyShop"
+                android:scaleType="fitXY" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical|center"
+            android:layout_margin="20dp"
+            android:id="@+id/CoinsLayout">
+            <ImageButton
+                android:layout_width="170.0dp"
+                android:layout_height="100.0dp"
+                android:layout_gravity="center"
+                android:id="@+id/btnHnm"
+                android:scaleType="fitXY" />
+            <ImageButton
+                android:layout_width="170.0dp"
+                android:layout_height="100.0dp"
+                android:layout_gravity="center"
+                android:id="@+id/btnBodyShop"
+                android:scaleType="fitXY" />
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
-        android:gravity="center_vertical|center"
-        android:id="@+id/CoinsLayout">
-      <ImageButton
-          android:layout_width="170.0dp"
-          android:layout_height="100.0dp"
-          android:layout_gravity="center"
-          android:id="@+id/btnAmazon"
-          android:scaleType="fitXY" />
-      <ImageButton
-          android:layout_width="170.0dp"
-          android:layout_height="100.0dp"
-          android:layout_gravity="center"
-          android:id="@+id/btnMns"
-          android:scaleType="fitXY" />
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center_vertical|center"
-        android:layout_margin="20dp"
-        android:id="@+id/CoinsLayout">
-      <ImageButton
-          android:layout_width="170.0dp"
-          android:layout_height="100.0dp"
-          android:layout_gravity="center"
-          android:id="@+id/btnEbay"
-          android:scaleType="fitXY" />
-      <ImageButton
-          android:layout_width="170.0dp"
-          android:layout_height="100.0dp"
-          android:layout_gravity="center"
-          android:id="@+id/btnFlipkart"
-          android:scaleType="fitXY" />
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center_vertical|center"
-        android:layout_margin="20dp"
-        android:id="@+id/CoinsLayout">
-      <ImageButton
-          android:layout_width="170.0dp"
-          android:layout_height="100.0dp"
-          android:layout_gravity="center"
-          android:id="@+id/btnHnm"
-          android:scaleType="fitXY" />
-      <ImageButton
-          android:layout_width="170.0dp"
-          android:layout_height="100.0dp"
-          android:layout_gravity="center"
-          android:id="@+id/btnBodyShop"
-          android:scaleType="fitXY" />
-    </LinearLayout>
-    <LinearLayout
-      android:orientation="horizontal"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:layout_alignParentBottom="true"
-      android:gravity="center_vertical|center"
-      android:layout_margin="20dp"
-      android:id="@+id/CoinsLayout">
-      <ImageButton
-        android:layout_width="170.0dp"
-        android:layout_height="100.0dp"
-        android:layout_gravity="center"
-        android:id="@+id/btnHnm"
-        android:scaleType="fitXY" />
-      <ImageButton
-        android:layout_width="170.0dp"
-        android:layout_height="100.0dp"
-        android:layout_gravity="center"
-        android:id="@+id/btnBodyShop"
-        android:scaleType="fitXY" />
-    </LinearLayout>
-  </LinearLayout>
 </ScrollView>

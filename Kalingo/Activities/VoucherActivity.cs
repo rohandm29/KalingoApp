@@ -7,6 +7,7 @@ using Android.Content;
 using Android.OS;
 using Android.Widget;
 using Kalingo.Api.Client.Services;
+using Kalingo.Games.Contract.Entity.Voucher;
 
 namespace Kalingo.Activities
 {
@@ -14,6 +15,7 @@ namespace Kalingo.Activities
     public class VoucherActivity : Activity
     {
         private VoucherService _voucherService;
+        private IEnumerable<Voucher> _voucherResponse;
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -28,25 +30,34 @@ namespace Kalingo.Activities
         private async Task Initialise()
         {
             _voucherService = new VoucherService();
-            var voucherResponse = await _voucherService.GetVouchers();
-            var vouchersList = voucherResponse.Select(x => x.Name).ToList();
-            var worthList = voucherResponse.Select(x => x.Worth.ToString()).ToList();
+            _voucherResponse = await _voucherService.GetVouchers();
+            var vouchersList = _voucherResponse.Select(x => x.Description).ToList();
 
             var spnVoucher = FindViewById<Spinner>(Resource.Id.spnVoucher);
             var voucherAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerItem, vouchersList);
             voucherAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spnVoucher.Adapter = voucherAdapter;
-
-            var spnWorth = FindViewById<Spinner>(Resource.Id.spnWorth);
-            var worthAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerItem, worthList);
-            worthAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            spnWorth.Adapter = worthAdapter;
         }
 
         private void BtnShopBackClicked(object sender, EventArgs e)
         {
             var intent = new Intent(this, typeof(MenuActivity));
             StartActivity(intent);
+        }
+
+        private async void Claim_Clicked(object sender, EventArgs e)
+        {
+            var voucher = FindViewById<Spinner>(Resource.Id.spnVoucher).SelectedItem;
+            var id = GetVoucherName(voucher.ToString());
+
+            var claimResponse = await _voucherService.ClaimVoucher(id);
+
+            Toast.MakeText(this, $"{claimResponse.Comment}", ToastLength.Long).Show();
+        }
+
+        private int GetVoucherName(string voucher)
+        {
+            return _voucherResponse.First(x => x.Description == voucher).Id;
         }
 
         private void RegisterControl()
@@ -56,7 +67,10 @@ namespace Kalingo.Activities
 
             var btnPlayGiftBoxes = FindViewById<Button>(Resource.Id.btnShopBack);
             btnPlayGiftBoxes.Click += BtnShopBackClicked;
-            
+
+            var btnClaimVoucher = FindViewById<Button>(Resource.Id.btnClaimVoucher);
+            btnClaimVoucher.Click += Claim_Clicked;
+
             LoadVoucherImages();
         }
 
@@ -79,28 +93,6 @@ namespace Kalingo.Activities
 
             var btnFlipkart = FindViewById<ImageButton>(Resource.Id.btnFlipkart);
             btnFlipkart.SetImageResource(Resource.Drawable.Flipkart);
-        }
-
-        private void Voucher_Click(object sender, EventArgs e)
-        {
-            var btnSelected = (ImageButton)sender;
-            var name = GetVoucherName(btnSelected.Id);
-
-            Toast.MakeText(this, $"{name}'s Voucher will be sent to your email address", ToastLength.Long).Show();
-        }
-
-        private string GetVoucherName(int id)
-        {
-            switch (id)
-            {
-                case Resource.Id.btnAmazon: return "Amazon";
-                case Resource.Id.btnEbay: return "Ebay";
-                case Resource.Id.btnMns: return "Mark&Spencer";
-                case Resource.Id.btnBodyShop: return "BodyShop";
-                case Resource.Id.btnHnm: return "HnM";
-                case Resource.Id.btnFlipkart: return "Flipkart";
-                default: return "";
-            }
         }
     }
 }
