@@ -43,7 +43,7 @@ namespace Kalingo.Api.Client.Services
 
         public async Task<int> RegisterUser(string userName, string password, string email, string country)
         {
-            var user = new NewUser(userName, Encryption.ComputeHash(password), email, country);
+            var user = new NewUserRequest(userName, Encryption.ComputeHash(password), email, country);
             var userId = await _apiClient.AddUser(user);
 
             App.UserId = userId;
@@ -62,7 +62,7 @@ namespace Kalingo.Api.Client.Services
 
         public async Task UpdateUser(string email, string country)
         {
-            var updateUser = new UpdateUser(App.UserId, email, country);
+            var updateUser = new UpdateUserRequest(App.UserId, email, country);
 
             await _apiClient.UpdateUser(updateUser);
         }

@@ -68,7 +68,7 @@ namespace Kalingo.Activities
                 _playerRed.Start();
         }
 
-        private void ProcessResult(MinesBoomGameResult result)
+        private void ProcessResult(MinesboomSelectionResponse result)
         {
 
             if (result.HasWon)

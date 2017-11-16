@@ -11,7 +11,7 @@ using Object = Java.Lang.Object;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "Login", /*MainLauncher = true,*/ Icon = "@drawable/icon")]
+    [Activity(Label = "Login", MainLauncher = true, Icon = "@drawable/icon")]
     public class LoginActivity : Activity
     {
         public UserService UserService;

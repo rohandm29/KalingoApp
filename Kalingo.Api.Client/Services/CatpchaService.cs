@@ -18,12 +18,12 @@ namespace Kalingo.Api.Client.Services
 
        public async Task<CaptchaResponse> GetCaptcha()
         {
-            var captcha = await _apiClient.GetCaptcha(new CaptchaArgs(4,2));
+            var captcha = await _apiClient.GetCaptcha(new CaptchaRequest(4,2));
 
             return captcha;
         }
 
-        public async Task<CaptchaResult> CaptchaSubmit(CaptchaAnswer captchaAnswer)
+        public async Task<CaptchaAnswerResponse> CaptchaSubmit(CaptchaAnswerRequest captchaAnswer)
         {
             var result = await _apiClient.SubmitCaptcha(captchaAnswer);
 

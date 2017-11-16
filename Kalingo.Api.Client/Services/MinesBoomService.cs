@@ -24,9 +24,9 @@ namespace Kalingo.Api.Client.Services
             return true;
         }
 
-        public async Task<MinesBoomGameResult> Submit(int optionSelected)
+        public async Task<MinesboomSelectionResponse> Submit(int optionSelected)
         {
-            var mbArgs = new MinesBoomArgs(App.GameId, App.UserId, optionSelected);
+            var mbArgs = new MinesboomSelectionRequest(App.GameId, App.UserId, optionSelected);
 
             var result = await _apiClient.SubmitMinesBoom(mbArgs);
 

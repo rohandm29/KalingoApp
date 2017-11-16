@@ -58,7 +58,7 @@ namespace Kalingo.Api.Client.Client
             return gameId;
         }
 
-        public async Task<MinesBoomGameResult> SubmitMinesBoom(MinesBoomArgs mbArgs)
+        public async Task<MinesboomSelectionResponse> SubmitMinesBoom(MinesboomSelectionRequest mbArgs)
         {
             var uri = new Uri(_baseAddress + "/games/submit/MinesBoomSession");
 
@@ -69,7 +69,7 @@ namespace Kalingo.Api.Client.Client
 
             // new ObjectContent(typeof(MinesBoomArgs), (MinesBoomArgs)gameArgs, new JsonMediaTypeFormatter());
 
-            var gameResult = await GetResponse<MinesBoomGameResult>(message);
+            var gameResult = await GetResponse<MinesboomSelectionResponse>(message);
 
             return gameResult;
         }
@@ -83,10 +83,10 @@ namespace Kalingo.Api.Client.Client
                 Content = new StringContent(JsonConvert.SerializeObject(gameArgs), Encoding.UTF8, "application/json")
             };
 
-            await GetResponse<MinesBoomGameResult>(message);
+            await GetResponse<MinesboomSelectionResponse>(message);
         }
 
-        public async Task<int> AddUser(NewUser user)
+        public async Task<int> AddUser(NewUserRequest user)
         {
             var uri = new Uri(_baseAddress + "/users/Add");
 
@@ -114,7 +114,7 @@ namespace Kalingo.Api.Client.Client
             return response;
         }
 
-        public async Task UpdateUser(UpdateUser updateUser)
+        public async Task UpdateUser(UpdateUserRequest updateUser)
         {
             var uri = new Uri(_baseAddress + "users/Update");
 
@@ -126,7 +126,7 @@ namespace Kalingo.Api.Client.Client
             await GetResponse<UserResponse>(message);
         }
 
-        public async Task<CaptchaResponse> GetCaptcha(CaptchaArgs captchaArgs)
+        public async Task<CaptchaResponse> GetCaptcha(CaptchaRequest captchaArgs)
         {
             var uri = new Uri(_baseAddress + "captcha/Get");
 
@@ -138,7 +138,7 @@ namespace Kalingo.Api.Client.Client
             return await GetResponse<CaptchaResponse>(message);
         }
 
-        public async Task<CaptchaResult> SubmitCaptcha(CaptchaAnswer captchaAnswer)
+        public async Task<CaptchaAnswerResponse> SubmitCaptcha(CaptchaAnswerRequest captchaAnswer)
         {
             var uri = new Uri(_baseAddress + "captcha/Submit");
 
@@ -148,19 +148,19 @@ namespace Kalingo.Api.Client.Client
                     "application/json")
             };
 
-            return await GetResponse<CaptchaResult>(message);
+            return await GetResponse<CaptchaAnswerResponse>(message);
         }
 
-        public async Task<IEnumerable<Voucher>> GetVouchers(int countryId)
+        public async Task<IEnumerable<VoucherResponse>> GetVouchers(int countryId)
         {
             var uri = new Uri(_baseAddress + $"voucher/Get?countryId={countryId}");
 
             var message = new HttpRequestMessage(HttpMethod.Get, uri);
 
-            return await GetResponse<IEnumerable<Voucher>>(message);
+            return await GetResponse<IEnumerable<VoucherResponse>>(message);
         }
 
-        public async Task<VoucherClaimResponse> SubmitClaim(VoucherClaim claim)
+        public async Task<VoucherClaimResponse> SubmitClaim(VoucherClaimRequest claim)
         {
             var uri = new Uri(_baseAddress + "voucher/claim");
 

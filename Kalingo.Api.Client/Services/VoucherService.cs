@@ -15,7 +15,7 @@ namespace Kalingo.Api.Client.Services
             _apiClient = new KalingoApiClient();
         }
 
-        public async Task<IEnumerable<Voucher>> GetVouchers()
+        public async Task<IEnumerable<VoucherResponse>> GetVouchers()
         {
             var vouchers = await _apiClient.GetVouchers(2);
 
@@ -24,7 +24,7 @@ namespace Kalingo.Api.Client.Services
 
         public async Task<VoucherClaimResponse> ClaimVoucher(int voucherId)
         {
-            var claimRequest = new VoucherClaim(voucherId, App.UserId);
+            var claimRequest = new VoucherClaimRequest(voucherId, App.UserId);
 
             var claimResponse = await _apiClient.SubmitClaim(claimRequest);
 

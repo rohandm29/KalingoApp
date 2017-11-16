@@ -11,11 +11,11 @@ using Kalingo.Games.Contract.Entity.Voucher;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "Kalingo", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Kalingo", /*MainLauncher = true,*/ Icon = "@drawable/icon")]
     public class VoucherActivity : Activity
     {
         private VoucherService _voucherService;
-        private IEnumerable<Voucher> _voucherResponse;
+        private IEnumerable<VoucherResponse> _voucherResponse;
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
