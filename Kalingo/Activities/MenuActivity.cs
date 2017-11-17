@@ -45,10 +45,10 @@ namespace Kalingo.Activities
 
         private void BtnPlayMinesBoomOnClick(object sender, EventArgs e)
         {
-            var intent = new Intent(this, typeof(MinesBoomActivity));
-            StartActivity(intent);
+            //var intent = new Intent(this, typeof(MinesBoomActivity));
+            //StartActivity(intent);
 
-            //ShowAd();
+            ShowAd();
         }
 
         private void ShowAd()
@@ -137,11 +137,11 @@ namespace Kalingo.Activities
             _rewardedVideoAd = MobileAds.GetRewardedVideoAdInstance(this);
             _rewardedVideoAd.RewardedVideoAdListener = this;
 
-            // prod rewarded ad
-            // _rewardedVideoAd.LoadAd("ca-app-pub-7100837506775638/6637403349", new AdRequest.Builder().Build());
+            //prod rewarded ad
+             _rewardedVideoAd.LoadAd("ca-app-pub-7100837506775638/6637403349", new AdRequest.Builder().Build());
 
             // test Adunit
-            _rewardedVideoAd.LoadAd("ca-app-pub-3940256099942544/5224354917", new AdRequest.Builder().Build());
+            //_rewardedVideoAd.LoadAd("ca-app-pub-3940256099942544/5224354917", new AdRequest.Builder().Build());
         }
 
         private void LoadInterstistialAd()

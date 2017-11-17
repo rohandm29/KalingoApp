@@ -6,50 +6,50 @@
     android:background="@drawable/Plain"
     android:minWidth="25px"
     android:minHeight="50px">
-  <TextView
-      android:text="MinesBoom"
-      android:textAppearance="?android:attr/textAppearanceLarge"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="80dp"
-      android:layout_marginBottom="30dp"
-      android:gravity="center_vertical|center"
-      android:id="@+id/txtMinesBoom" />
-  <TextView
-      android:text="Loading.. Please wait"
-      android:textAppearance="?android:attr/textAppearanceMedium"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="30dp"
-      android:gravity="center_vertical|center"
-      android:id="@+id/txtLoading" />
-  <Button
-      android:text="Play MinesBoom"
-      android:textAppearance="?android:attr/textAppearanceMedium"
-      android:layout_width="220.0dp"
-      android:layout_height="100.0dp"
-      android:layout_marginBottom="30dp"
-      android:layout_gravity="center"
-      android:id="@+id/btnPlayMinesBoom" />
-  <Button
-      android:text="Shop Vouchers"
-      android:textAppearance="?android:attr/textAppearanceMedium"
-      android:layout_width="220.0dp"
-      android:layout_height="100.0dp"
-      android:layout_margin="20dp"
-      android:layout_gravity="center"
-      android:id="@+id/btnShopVouchers" />
-  <TextView
-      android:text="My Account"
-      android:textSize="18sp"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="80dp"
-      android:layout_margin="20dp"
-      android:gravity="center_vertical|center"
-      android:id="@+id/lblMyAccount"
-      android:textColor="@android:color/holo_blue_dark" />
-  <!--<Button
+    <TextView
+        android:text="MinesBoom"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center_vertical|center"
+        android:id="@+id/txtMinesBoom" />
+    <TextView
+        android:text="Loading.. Please wait"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical|center"
+        android:id="@+id/txtLoading" />
+    <Button
+        android:text="Play MinesBoom"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="220.0dp"
+        android:layout_height="100.0dp"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="center"
+        android:id="@+id/btnPlayMinesBoom" />
+    <Button
+        android:text="Shop Vouchers"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="220.0dp"
+        android:layout_height="100.0dp"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        android:id="@+id/btnShopVouchers" />
+    <TextView
+        android:text="My Account"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_margin="20dp"
+        android:gravity="center_vertical|center"
+        android:id="@+id/lblMyAccount"
+        android:textColor="@android:color/holo_blue_dark" />
+<!--<Button
         android:text="Play Ladders"
         android:layout_width="200.0dp"
         android:layout_height="80.0dp"
