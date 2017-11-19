@@ -20,6 +20,8 @@ namespace Kalingo.Core
 
         public static int PromoUser { get; set; }
 
+        public static bool InterstitialMode { get; private set; }
+
         public static int MinesBoomId = 1;
     }
 }

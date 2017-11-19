@@ -187,7 +187,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Resources\AboutResources.txt" />
-    <None Include="Assets\AboutAssets.txt" />
+    <None Include="Master\Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\Menu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>

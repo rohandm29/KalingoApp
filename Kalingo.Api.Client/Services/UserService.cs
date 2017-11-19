@@ -23,11 +23,11 @@ namespace Kalingo.Api.Client.Services
             return validUser;
         }
 
-        public async Task<int> RegisterUser(string userName, string password, string email, string country)
+        public async Task<int> RegisterUser(string userName, string password, string email, int countryId)
         {
             try
             {
-                var user = new NewUserRequest(userName, Encryption.ComputeHash(password), email, country);
+                var user = new NewUserRequest(userName, Encryption.ComputeHash(password), email, countryId);
                 var userId = await _apiClient.AddUser(user);
 
                 App.UserId = userId;
@@ -40,11 +40,11 @@ namespace Kalingo.Api.Client.Services
             }
         }
 
-        public async Task UpdateUser(string email, string country)
+        public async Task UpdateUser(string email, int countryId)
         {
             try
             {
-                var updateUser = new UpdateUserRequest(App.UserId, email, country);
+                var updateUser = new UpdateUserRequest(App.UserId, email, countryId);
 
                 await _apiClient.UpdateUser(updateUser);
             }

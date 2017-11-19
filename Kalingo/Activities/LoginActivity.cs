@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -17,6 +18,7 @@ namespace Kalingo.Activities
     public class LoginActivity : Activity
     {
         private UserService _userService;
+        private CountryService _countryService;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -83,10 +85,8 @@ namespace Kalingo.Activities
             if (!IsValidRegistration(username, email, country))
                 return;
 
-            var intent = new Intent(this, typeof(MenuActivity));
-            intent.PutExtra("credentials", username + ";" + password);
-
-            var response = await _userService.RegisterUser(username, password, email, country.ToString());
+            var response = await _userService.RegisterUser(username, password, email,
+                CountryService.GetCountryId(country.ToString()));
 
             if (response == -1)
             {
@@ -99,6 +99,7 @@ namespace Kalingo.Activities
             else
             {
                 App.IsUserLoggedIn = true;
+                var intent = new Intent(this, typeof(MenuActivity));
                 StartActivity(intent);
             }
         }
@@ -127,6 +128,7 @@ namespace Kalingo.Activities
         private void Initialise()
         {
             _userService = new UserService();
+            _countryService = new CountryService();
         }
 
         private void RegisterUser()
@@ -146,16 +148,17 @@ namespace Kalingo.Activities
             ShowRegistration(ViewStates.Visible);
         }
 
-        private void ShowRegistration(ViewStates state)
+        private async void ShowRegistration(ViewStates state)
         {
             var lblemail = FindViewById<GridLayout>(Resource.Id.newUserLayout);
             lblemail.Visibility = state;
 
+            var countryList = (await _countryService.GetCountries()).Select(x => x.Name).ToList();
+
             var spnCountry = FindViewById<Spinner>(Resource.Id.spnCountry);
-            var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.country_array,
-                Android.Resource.Layout.SimpleSpinnerItem);
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            spnCountry.Adapter = adapter;
+            var countryAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerItem, countryList);
+            countryAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spnCountry.Adapter = countryAdapter;
         }
 
         private void RegisterControls()

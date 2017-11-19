@@ -35,7 +35,7 @@ namespace Kalingo.Api.Client.Client
                 return JsonConvert.DeserializeObject<T>(result);
             }
 
-            throw new System.Exception();
+            throw new Exception();
         }
 
         // USER
@@ -166,6 +166,16 @@ namespace Kalingo.Api.Client.Client
             };
 
             return await GetResponse<VoucherClaimResponse>(message);
+        }
+
+        // COUNTRY
+        public async Task<IEnumerable<CountryResponse>> GetCountries()
+        {
+            var uri = new Uri(_baseAddress + "country/Get");
+
+            var message = new HttpRequestMessage(HttpMethod.Get, uri);
+
+            return await GetResponse<IEnumerable<CountryResponse>>(message);
         }
     }
 }

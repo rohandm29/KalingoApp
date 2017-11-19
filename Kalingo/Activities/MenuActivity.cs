@@ -33,7 +33,7 @@ namespace Kalingo.Activities
 
         private void LoadAd()
         {
-            if (App.PromoUser != 0)
+            if (App.InterstitialMode || App.PromoUser == 1)
             {
                 LoadInterstistialAd();
             }
@@ -53,8 +53,6 @@ namespace Kalingo.Activities
 
         private void ShowAd()
         {
-            var count = 0;
-
             if (App.PromoUser != 1)
             {
                 if (_rewardedVideoAd.IsLoaded)
@@ -86,19 +84,36 @@ namespace Kalingo.Activities
         public void OnRewarded(IRewardItem reward)
         {
             var intent = new Intent(this, typeof(MinesBoomActivity));
-            StartActivity(intent);
-
             //intent.PutExtra("Reward", reward.Amount.ToString());
             //intent.PutExtra("Type", reward.Type);
+            StartActivity(intent);
         }
 
         public void OnRewardedVideoAdClosed()
         {
+            ShowMessage("Minesboom will be enabled on completion of the Advert");
         }
 
         public void OnRewardedVideoAdFailedToLoad(int errorCode)
         {
-            ShowMessage($"FailedToLoad {errorCode}");
+            _minesboom = FindViewById<Button>(Resource.Id.btnPlayMinesBoom);
+            _minesboom.Text = "Refresh";
+            _minesboom.Enabled = true;
+            _minesboom.Click -= BtnPlayMinesBoomOnClick;
+            _minesboom.Click += Refresh_Clicked;
+
+            ShowMessage($"Failed To Load {errorCode}. Try refreshing.");
+        }
+
+        private void Refresh_Clicked(object sender, EventArgs eventArgs)
+        {
+            LoadAd();
+
+            _minesboom = FindViewById<Button>(Resource.Id.btnPlayMinesBoom);
+            _minesboom.Text = "Play Minesboom \n_____\n Attempts Left : 3";
+            _minesboom.Enabled = false;
+            _minesboom.Click -= Refresh_Clicked;
+            _minesboom.Click += BtnPlayMinesBoomOnClick;
         }
 
         public void OnRewardedVideoAdLeftApplication()
@@ -173,19 +188,5 @@ namespace Kalingo.Activities
             lblMyAccount.Clickable = true;
             lblMyAccount.Click += MyAccount_OnClick;
         }
-
-        #region  Unused
-
-        private void BtnPlayLaddersOnClick(object sender, EventArgs e)
-        {
-            if (_interstitialAd.IsLoaded)
-                _interstitialAd.Show();
-            else
-            {
-                ShowMessage("Failed to load ad");
-            }
-        }
-
-        #endregion
     }
 }

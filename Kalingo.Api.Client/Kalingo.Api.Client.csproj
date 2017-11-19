@@ -61,6 +61,7 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\MinesBoomService.cs" />
+    <Compile Include="Services\CountryService.cs" />
     <Compile Include="Services\VoucherService.cs" />
   </ItemGroup>
   <ItemGroup>
