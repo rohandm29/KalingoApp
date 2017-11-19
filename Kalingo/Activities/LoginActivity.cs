@@ -6,6 +6,8 @@ using Android.Views;
 using Android.Widget;
 using Kalingo.Api.Client.Services;
 using Kalingo.Core;
+using Kalingo.Games.Contract.Entity;
+using Kalingo.Games.Contract.Entity.User;
 using Kalingo.Helpers;
 using Object = Java.Lang.Object;
 
@@ -14,24 +16,31 @@ namespace Kalingo.Activities
     [Activity(Label = "Login", MainLauncher = true, Icon = "@drawable/icon")]
     public class LoginActivity : Activity
     {
-        public UserService UserService;
+        private UserService _userService;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            SetContentView (Resource.Layout.Login);
+            SetContentView(Resource.Layout.Login);
 
             Initialise();
             RegisterControls();
         }
-        
-        private  async void btnSubmit_OnClick(object sender, EventArgs eventArgs)
+
+        private async void btnSubmit_OnClick(object sender, EventArgs eventArgs)
         {
             var username = FindViewById<EditText>(Resource.Id.txtUserName).Text;
             var password = FindViewById<EditText>(Resource.Id.txtPassword).Text;
 
-            if (await UserService.AuthenticateUser(username, password))
+            var response = await _userService.AuthenticateUser(username, password);
+
+            HandleUserResponse(username, password, response);
+        }
+
+        private void HandleUserResponse(string username, string password, UserResponse response)
+        {
+            if (response.Code == UserCodes.Valid)
             {
                 App.IsUserLoggedIn = true;
 
@@ -41,47 +50,57 @@ namespace Kalingo.Activities
                 var intent = new Intent(this, typeof(MenuActivity));
                 StartActivity(intent);
             }
-            else
+            if (response.Code == UserCodes.Invalid)
             {
                 App.IsUserLoggedIn = false;
                 Toast.MakeText(this, "user authentication failed", ToastLength.Short).Show();
+            }
+            if (response.Code == UserCodes.NotFound)
+            {
+                App.IsUserLoggedIn = false;
+                Toast.MakeText(this, "Please Register!!", ToastLength.Short).Show();
+                RegisterUser();
+            }
+            if (response.Code == UserCodes.Inactive)
+            {
+                App.IsUserLoggedIn = false;
+                Toast.MakeText(this, "Please try after sometime!!", ToastLength.Short).Show();
             }
         }
 
         private void lblNewUser_OnClick(object sender, EventArgs eventArgs)
         {
-            var lblNewUser = FindViewById<TextView>(Resource.Id.lblNewUser);
-            lblNewUser.Clickable = true;
-            lblNewUser.Text = "Login";
-
-            lblNewUser.Click -= lblNewUser_OnClick;
-            lblNewUser.Click += ShowLogin_OnClick;
-
             RegisterUser();
         }
 
         private async void btnRegister_Click(object sender, EventArgs eventArgs)
         {
-            //var username = FindViewById<EditText>(Resource.Id.txtUserName).Text;
-            //var password = FindViewById<EditText>(Resource.Id.txtPassword).Text;
-            //var email = FindViewById<EditText>(Resource.Id.txtEmail).Text;
-            //var country = FindViewById<Spinner>(Resource.Id.spnCountry).SelectedItem;
+            var username = FindViewById<EditText>(Resource.Id.txtUserName).Text;
+            var password = FindViewById<EditText>(Resource.Id.txtPassword).Text;
+            var email = FindViewById<EditText>(Resource.Id.txtEmail).Text;
+            var country = FindViewById<Spinner>(Resource.Id.spnCountry).SelectedItem;
 
-            //if (!IsValidRegistration(username, email, country))
-            //    return;
+            if (!IsValidRegistration(username, email, country))
+                return;
 
-            //var intent = new Intent(this, typeof(MenuActivity));
-            //intent.PutExtra("credentials", username + ";" + password);
+            var intent = new Intent(this, typeof(MenuActivity));
+            intent.PutExtra("credentials", username + ";" + password);
 
-            //if (await UserService.RegisterUser(username, password, email, country.ToString()) != -1)
-            //{
-            //    App.IsUserLoggedIn = true;
-            //    StartActivity(intent);
-            //}
-            //else
-            //{
-            //    Toast.MakeText(this, "Sorry! username has been taken.", ToastLength.Short).Show();
-            //}
+            var response = await _userService.RegisterUser(username, password, email, country.ToString());
+
+            if (response == -1)
+            {
+                Toast.MakeText(this, "Sorry! username has been taken.", ToastLength.Short).Show();
+            }
+            if (response == 0)
+            {
+                Toast.MakeText(this, "Error! Try again later", ToastLength.Short).Show();
+            }
+            else
+            {
+                App.IsUserLoggedIn = true;
+                StartActivity(intent);
+            }
         }
 
         private void ShowLogin_OnClick(object sender, EventArgs eventArgs)
@@ -93,7 +112,7 @@ namespace Kalingo.Activities
 
         private bool IsValidRegistration(string username, string email, Object country)
         {
-            if (string.IsNullOrEmpty(username) 
+            if (string.IsNullOrEmpty(username)
                 || string.IsNullOrEmpty(email)
                 || string.IsNullOrEmpty(country.ToString())
                 || string.Equals(country.ToString(), "Select"))
@@ -107,15 +126,22 @@ namespace Kalingo.Activities
 
         private void Initialise()
         {
-            UserService = new UserService();
+            _userService = new UserService();
         }
 
         private void RegisterUser()
         {
+            var lblNewUser = FindViewById<TextView>(Resource.Id.lblNewUser);
+            lblNewUser.Clickable = true;
+            lblNewUser.Text = "Login";
+
             var btnSubmit = FindViewById<Button>(Resource.Id.btnSubmit);
             btnSubmit.Text = "Register User";
             btnSubmit.Click -= btnSubmit_OnClick;
             btnSubmit.Click += btnRegister_Click;
+
+            lblNewUser.Click -= lblNewUser_OnClick;
+            lblNewUser.Click += ShowLogin_OnClick;
 
             ShowRegistration(ViewStates.Visible);
         }
@@ -126,11 +152,12 @@ namespace Kalingo.Activities
             lblemail.Visibility = state;
 
             var spnCountry = FindViewById<Spinner>(Resource.Id.spnCountry);
-            var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.country_array, Android.Resource.Layout.SimpleSpinnerItem);
+            var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.country_array,
+                Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spnCountry.Adapter = adapter;
         }
-            
+
         private void RegisterControls()
         {
             var btnSubmit = FindViewById<Button>(Resource.Id.btnSubmit);
@@ -149,4 +176,3 @@ namespace Kalingo.Activities
         }
     }
 }
-

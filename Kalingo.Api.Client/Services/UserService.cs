@@ -16,7 +16,7 @@ namespace Kalingo.Api.Client.Services
             _apiClient = new KalingoApiClient();
         }
 
-        public async Task<bool> AuthenticateUser(string username, string password)
+        public async Task<UserResponse> AuthenticateUser(string username, string password)
         {
             var validUser = await IsUserValid(username, password);
 
@@ -40,7 +40,21 @@ namespace Kalingo.Api.Client.Services
             }
         }
 
-        public async Task<UserResponse> GetUser(string userName, string password)
+        public async Task UpdateUser(string email, string country)
+        {
+            try
+            {
+                var updateUser = new UpdateUserRequest(App.UserId, email, country);
+
+                await _apiClient.UpdateUser(updateUser);
+            }
+            catch (System.Exception)
+            {
+                // ignored
+            }
+        }
+
+        private async Task<UserResponse> GetUser(string userName, string password)
         {
             try
             {
@@ -56,26 +70,13 @@ namespace Kalingo.Api.Client.Services
             }
         }
 
-        public async Task UpdateUser(string email, string country)
-        {
-            try
-            {
-                var updateUser = new UpdateUserRequest(App.UserId, email, country);
-
-                await _apiClient.UpdateUser(updateUser);
-            }
-            catch (System.Exception)
-            {
-                // ignored
-            }
-        }
-        private async Task<bool> IsUserValid(string username, string password)
+        private async Task<UserResponse> IsUserValid(string username, string password)
         {
             var user = await GetUser(username, password);
 
             SaveSessionState(user);
 
-            return user.UserId != 0;
+            return user;
         }
 
         private void SaveSessionState(UserResponse user)
