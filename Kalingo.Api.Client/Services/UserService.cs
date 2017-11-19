@@ -23,12 +23,58 @@ namespace Kalingo.Api.Client.Services
             return validUser;
         }
 
+        public async Task<int> RegisterUser(string userName, string password, string email, string country)
+        {
+            try
+            {
+                var user = new NewUserRequest(userName, Encryption.ComputeHash(password), email, country);
+                var userId = await _apiClient.AddUser(user);
+
+                App.UserId = userId;
+
+                return userId;
+            }
+            catch (System.Exception)
+            {
+                return 0;
+            }
+        }
+
+        public async Task<UserResponse> GetUser(string userName, string password)
+        {
+            try
+            {
+                var userArgs = new UserArgs(userName, password);
+
+                var user = await _apiClient.GetUser(userArgs);
+
+                return user;
+            }
+            catch (System.Exception)
+            {
+                return new UserResponse(0);
+            }
+        }
+
+        public async Task UpdateUser(string email, string country)
+        {
+            try
+            {
+                var updateUser = new UpdateUserRequest(App.UserId, email, country);
+
+                await _apiClient.UpdateUser(updateUser);
+            }
+            catch (System.Exception)
+            {
+                // ignored
+            }
+        }
         private async Task<bool> IsUserValid(string username, string password)
         {
             var user = await GetUser(username, password);
 
             SaveSessionState(user);
-            
+
             return user.UserId != 0;
         }
 
@@ -39,32 +85,6 @@ namespace Kalingo.Api.Client.Services
             App.Silver = user.Silver;
             App.CountryId = user.CountryId;
             App.PromoUser = user.PromoId;
-        }
-
-        public async Task<int> RegisterUser(string userName, string password, string email, string country)
-        {
-            var user = new NewUserRequest(userName, Encryption.ComputeHash(password), email, country);
-            var userId = await _apiClient.AddUser(user);
-
-            App.UserId = userId;
-
-            return userId;
-        }
-
-        public async Task<UserResponse> GetUser(string userName, string password)
-        {
-            var userArgs = new UserArgs(userName, password);
-
-            var user = await _apiClient.GetUser(userArgs);
-
-            return user;
-        }
-
-        public async Task UpdateUser(string email, string country)
-        {
-            var updateUser = new UpdateUserRequest(App.UserId, email, country);
-
-            await _apiClient.UpdateUser(updateUser);
         }
     }
 }

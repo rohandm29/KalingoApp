@@ -25,67 +25,20 @@ namespace Kalingo.Api.Client.Client
 
         public async Task<T> GetResponse<T>(HttpRequestMessage message)
         {
-            try
+            var client = new HttpClient();
+
+            var response = await client.SendAsync(message);
+
+            if (response.IsSuccessStatusCode)
             {
-                var client = new HttpClient();
-
-                var response = await client.SendAsync(message);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<T>(result);
-                }
-
-                return default(T);
+                var result = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<T>(result);
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+
+            throw new System.Exception();
         }
 
-        public async Task<int> CreateMinesBoom(int userId)
-        {
-            //var uri = new Uri("http://10.0.3.2:9988/game/join?gameTypeId=2&userId=1");
-            var uri = new Uri(_baseAddress + $"/games/join?gameTypeId={App.MinesBoomId}&userId={userId}");
-
-            var message = new HttpRequestMessage(HttpMethod.Get, uri);
-
-            var gameId = await GetResponse<int>(message);
-
-            return gameId;
-        }
-
-        public async Task<MinesboomSelectionResponse> SubmitMinesBoom(MinesboomSelectionRequest mbArgs)
-        {
-            var uri = new Uri(_baseAddress + "/games/submit/MinesBoomSession");
-
-            var message = new HttpRequestMessage(HttpMethod.Post, uri)
-            {
-                Content = new StringContent(JsonConvert.SerializeObject(mbArgs), Encoding.UTF8, "application/json")
-            };
-
-            // new ObjectContent(typeof(MinesBoomArgs), (MinesBoomArgs)gameArgs, new JsonMediaTypeFormatter());
-
-            var gameResult = await GetResponse<MinesboomSelectionResponse>(message);
-
-            return gameResult;
-        }
-
-        public async Task TerminateMinesBoom(GameArgs gameArgs)
-        {
-            var uri = new Uri(_baseAddress + "/games/terminate");
-
-            var message = new HttpRequestMessage(HttpMethod.Post, uri)
-            {
-                Content = new StringContent(JsonConvert.SerializeObject(gameArgs), Encoding.UTF8, "application/json")
-            };
-
-            await GetResponse<MinesboomSelectionResponse>(message);
-        }
-
+        // USER
         public async Task<int> AddUser(NewUserRequest user)
         {
             var uri = new Uri(_baseAddress + "/users/Add");
@@ -126,6 +79,48 @@ namespace Kalingo.Api.Client.Client
             await GetResponse<UserResponse>(message);
         }
 
+        // MINESBOOM
+        public async Task<int> CreateMinesBoom(int userId)
+        {
+            //var uri = new Uri("http://10.0.3.2:9988/game/join?gameTypeId=2&userId=1");
+            var uri = new Uri(_baseAddress + $"/games/join?gameTypeId={App.MinesBoomId}&userId={userId}");
+
+            var message = new HttpRequestMessage(HttpMethod.Get, uri);
+
+            var gameId = await GetResponse<int>(message);
+
+            return gameId;
+        }
+
+        public async Task<MinesboomSelectionResponse> SubmitMinesBoom(MinesboomSelectionRequest mbArgs)
+        {
+            var uri = new Uri(_baseAddress + "/games/submit/MinesBoomSession");
+
+            var message = new HttpRequestMessage(HttpMethod.Post, uri)
+            {
+                Content = new StringContent(JsonConvert.SerializeObject(mbArgs), Encoding.UTF8, "application/json")
+            };
+
+            // new ObjectContent(typeof(MinesBoomArgs), (MinesBoomArgs)gameArgs, new JsonMediaTypeFormatter());
+
+            var gameResult = await GetResponse<MinesboomSelectionResponse>(message);
+
+            return gameResult;
+        }
+
+        public async Task TerminateMinesBoom(GameArgs gameArgs)
+        {
+            var uri = new Uri(_baseAddress + "/games/terminate");
+
+            var message = new HttpRequestMessage(HttpMethod.Post, uri)
+            {
+                Content = new StringContent(JsonConvert.SerializeObject(gameArgs), Encoding.UTF8, "application/json")
+            };
+
+            await GetResponse<MinesboomSelectionResponse>(message);
+        }
+
+        // CAPTCHA
         public async Task<CaptchaResponse> GetCaptcha(CaptchaRequest captchaArgs)
         {
             var uri = new Uri(_baseAddress + "captcha/Get");
@@ -151,6 +146,7 @@ namespace Kalingo.Api.Client.Client
             return await GetResponse<CaptchaAnswerResponse>(message);
         }
 
+        // VOUCHER
         public async Task<IEnumerable<VoucherResponse>> GetVouchers(int countryId)
         {
             var uri = new Uri(_baseAddress + $"voucher/Get?countryId={countryId}");
@@ -166,7 +162,7 @@ namespace Kalingo.Api.Client.Client
 
             var message = new HttpRequestMessage(HttpMethod.Post, uri)
             {
-                Content = new StringContent(JsonConvert.SerializeObject(claim), Encoding.UTF8,"application/json")
+                Content = new StringContent(JsonConvert.SerializeObject(claim), Encoding.UTF8, "application/json")
             };
 
             return await GetResponse<VoucherClaimResponse>(message);

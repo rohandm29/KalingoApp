@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Kalingo.Api.Client.Client;
 using Kalingo.Core;
+using Kalingo.Games.Contract.Entity;
 using Kalingo.Games.Contract.Entity.Voucher;
 
 namespace Kalingo.Api.Client.Services
@@ -17,18 +18,32 @@ namespace Kalingo.Api.Client.Services
 
         public async Task<IEnumerable<VoucherResponse>> GetVouchers()
         {
-            var vouchers = await _apiClient.GetVouchers(2);
+            try
+            {
+                var vouchers = await _apiClient.GetVouchers(2);
 
-            return vouchers;
+                return vouchers;
+            }
+            catch (System.Exception)
+            {
+                return new List<VoucherResponse>();
+            }
         }
 
         public async Task<VoucherClaimResponse> ClaimVoucher(int voucherId)
         {
-            var claimRequest = new VoucherClaimRequest(voucherId, App.UserId);
+            try
+            {
+                var claimRequest = new VoucherClaimRequest(voucherId, App.UserId);
 
-            var claimResponse = await _apiClient.SubmitClaim(claimRequest);
+                var claimResponse = await _apiClient.SubmitClaim(claimRequest);
 
-            return claimResponse;
+                return claimResponse;
+            }
+            catch (System.Exception)
+            {
+                return new VoucherClaimResponse(VoucherCodes.NoVouchers);
+            }
         }
     }
 }

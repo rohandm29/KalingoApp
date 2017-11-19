@@ -52,7 +52,7 @@ namespace Kalingo.Activities
 
             var claimResponse = await _voucherService.ClaimVoucher(id);
 
-            Toast.MakeText(this, $"{claimResponse.Comment}", ToastLength.Long).Show();
+            Toast.MakeText(this, $"{claimResponse.Error.First()}", ToastLength.Long).Show();
         }
 
         private int GetVoucherName(string voucher)

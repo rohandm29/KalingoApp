@@ -16,18 +16,32 @@ namespace Kalingo.Api.Client.Services
             _apiClient = new KalingoApiClient();
         }
 
-       public async Task<CaptchaResponse> GetCaptcha()
+        public async Task<CaptchaResponse> GetCaptcha()
         {
-            var captcha = await _apiClient.GetCaptcha(new CaptchaRequest(4,2));
+            try
+            {
+                var captcha = await _apiClient.GetCaptcha(new CaptchaRequest(4, 2));
 
-            return captcha;
+                return captcha;
+            }
+            catch (System.Exception)
+            {
+                return new CaptchaResponse(0, "");
+            }
         }
 
         public async Task<CaptchaAnswerResponse> CaptchaSubmit(CaptchaAnswerRequest captchaAnswer)
         {
-            var result = await _apiClient.SubmitCaptcha(captchaAnswer);
+            try
+            {
+                var result = await _apiClient.SubmitCaptcha(captchaAnswer);
 
-            return result;
+                return result;
+            }
+            catch (System.Exception)
+            {
+                return new CaptchaAnswerResponse(0, CaptchaCodes.NotFound);
+            }
         }
     }
 }
