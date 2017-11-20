@@ -79,6 +79,17 @@ namespace Kalingo.Api.Client.Client
             await GetResponse<UserResponse>(message);
         }
 
+        public async Task<int> GetUserLimit(int userId)
+        {
+            var uri = new Uri(_baseAddress + "users/GetLimit");
+
+            var message = new HttpRequestMessage(HttpMethod.Get, uri);
+
+            var gameId = await GetResponse<int>(message);
+
+            return gameId;
+        }
+
         // MINESBOOM
         public async Task<int> CreateMinesBoom(int userId)
         {

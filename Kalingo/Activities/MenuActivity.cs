@@ -7,6 +7,7 @@ using Android.Gms.Ads;
 using Android.Gms.Ads.Reward;
 using Android.Views;
 using Kalingo.AdMob;
+using Kalingo.Api.Client.Services;
 using Kalingo.Core;
 
 namespace Kalingo.Activities
@@ -14,12 +15,14 @@ namespace Kalingo.Activities
     [Activity(Label = "M E N U"  /*,MainLauncher = true */  )]
     public class MenuActivity : Activity, IRewardedVideoAdListener
     {
+        private UserService _userService;
         private Button _minesboom;
 
         private InterstitialAd _interstitialAd;
         private InterstitialAdListener _interstitialAdListener;
 
         private IRewardedVideoAd _rewardedVideoAd;
+        private int _playCount;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,8 +30,14 @@ namespace Kalingo.Activities
             SetContentView(Resource.Layout.Menu);
 
             LoadAd();
-
+            Initialise();
             RegisterControl();
+        }
+
+        private async void Initialise()
+        {
+            _userService = new UserService();
+            _playCount = await _userService.GetUserLimit(App.UserId);
         }
 
         private void LoadAd()
@@ -110,7 +119,7 @@ namespace Kalingo.Activities
             LoadAd();
 
             _minesboom = FindViewById<Button>(Resource.Id.btnPlayMinesBoom);
-            _minesboom.Text = "Play Minesboom \n_____\n Attempts Left : 3";
+            _minesboom.Text = $"Play Minesboom \n_____\n Attempts Left : {_playCount}";
             _minesboom.Enabled = false;
             _minesboom.Click -= Refresh_Clicked;
             _minesboom.Click += BtnPlayMinesBoomOnClick;
@@ -177,7 +186,7 @@ namespace Kalingo.Activities
         {
             _minesboom = FindViewById<Button>(Resource.Id.btnPlayMinesBoom);
             _minesboom.Click += BtnPlayMinesBoomOnClick;
-            _minesboom.Text += "\n_____\n Attempts Left : 3";
+            _minesboom.Text += $"\n_____\n Attempts Left : {_playCount}";
             _minesboom.Enabled = false;
 
             var btnShopVouchers = FindViewById<Button>(Resource.Id.btnShopVouchers);

@@ -14,7 +14,7 @@ using Object = Java.Lang.Object;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "Login", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Login",/* MainLauncher = true,*/ Icon = "@drawable/icon")]
     public class LoginActivity : Activity
     {
         private UserService _userService;
@@ -49,6 +49,8 @@ namespace Kalingo.Activities
                 Settings.Add("username", username);
                 Settings.Add("password", password);
 
+                UpdateSettings(response.MbConfig);
+
                 var intent = new Intent(this, typeof(MenuActivity));
                 StartActivity(intent);
             }
@@ -68,6 +70,12 @@ namespace Kalingo.Activities
                 App.IsUserLoggedIn = false;
                 Toast.MakeText(this, "Please try after sometime!!", ToastLength.Short).Show();
             }
+        }
+
+        private void UpdateSettings(Config config)
+        {
+            App.Update(config.TotalChances, config.TotalGifts, config.InterstitialMode,
+                config.MaintenanceMode, config.PlayAgainEnabled);
         }
 
         private void lblNewUser_OnClick(object sender, EventArgs eventArgs)

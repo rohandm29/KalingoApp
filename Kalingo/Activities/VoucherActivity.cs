@@ -11,7 +11,7 @@ using Kalingo.Games.Contract.Entity.Voucher;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "Kalingo", /*MainLauncher = true,*/ Icon = "@drawable/icon")]
+    [Activity(Label = "Kalingo", MainLauncher = true, Icon = "@drawable/icon")]
     public class VoucherActivity : Activity
     {
         private VoucherService _voucherService;
@@ -37,6 +37,16 @@ namespace Kalingo.Activities
             var voucherAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerItem, vouchersList);
             voucherAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spnVoucher.Adapter = voucherAdapter;
+
+            spnVoucher.ItemSelected += Voucher_OnSelected;
+        }
+
+        private void Voucher_OnSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            var cost = _voucherResponse.First(x => x.Id == e.Id).Coins;
+
+            var lblVoucherCost = FindViewById<TextView>(Resource.Id.lblVoucherCost);
+            lblVoucherCost.Text = $"COINS NEED : {cost} GOLD";
         }
 
         private void BtnShopBackClicked(object sender, EventArgs e)

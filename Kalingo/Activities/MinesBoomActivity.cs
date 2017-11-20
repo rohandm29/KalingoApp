@@ -17,7 +17,7 @@ namespace Kalingo.Activities
         private readonly MinesBoomService _minesBoomService = new MinesBoomService();
         private MediaPlayer _playerRed, _playerGreen;
         private ProgressDialog _progress;
-        private bool _playAgain;
+        private bool _playAgain = App.PlayAgainEnabled;
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -36,13 +36,14 @@ namespace Kalingo.Activities
         private async void ButtonOnClick(object sender, EventArgs eventArgs)
         {
             _progress.Show();
-            var btnSelected = (Button) sender;
 
+            var btnSelected = (Button) sender;
+            btnSelected.Enabled = false;
             var id = int.Parse(btnSelected.Text);
 
             var result = await _minesBoomService.Submit(id);
 
-            //System.Threading.Thread.Sleep(2000);
+            System.Threading.Thread.Sleep(1000);
 
             btnSelected.Text = "";
 
@@ -50,14 +51,11 @@ namespace Kalingo.Activities
                 ? Resource.Drawable.GreenThumb
                 : Resource.Drawable.RedGift);
 
-            //btnSelected.Enabled = false;
-
             PlaySound(result.SelectionCorrect);
 
             ProcessResult(result);
 
             _progress.Dismiss();
-
         }
 
         private void PlaySound(bool win)
@@ -192,7 +190,7 @@ namespace Kalingo.Activities
         private void SetText(int chances, int gifts)
         {
             var txtMinesChances = FindViewById<TextView>(Resource.Id.txtMinesChances);
-            txtMinesChances.Text = $"Gift - {gifts} | lives remaining - {chances} | watch mines!!";
+            txtMinesChances.Text = $"GIFT - {App.TotalGifts} | LIVES - {App.TotalChances} ";
             txtMinesChances.SetTypeface(null, TypefaceStyle.Bold);
         }
 

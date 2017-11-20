@@ -70,6 +70,19 @@ namespace Kalingo.Api.Client.Services
             }
         }
 
+        public async Task<int> GetUserLimit(int userId)
+        {
+            try
+            {
+                return await _apiClient.GetUserLimit(App.UserId);
+            }
+            catch (System.Exception)
+            {
+                return 0;
+                // ignored
+            }
+        }
+
         private async Task<UserResponse> IsUserValid(string username, string password)
         {
             var user = await GetUser(username, password);
