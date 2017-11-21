@@ -68,37 +68,31 @@ namespace Kalingo.Activities
 
         private void ProcessResult(MinesboomSelectionResponse result)
         {
-
             if (result.HasWon)
             {
-                if (result.TotalChances == 0)
-                {
-                    GoToMenu();
-                }
-
-                Toast.MakeText(this, "Game Won.", ToastLength.Long).Show();
+                if (result.TotalChances != 0)
+                    return;
 
                 var txtMinesChances = FindViewById<TextView>(Resource.Id.txtMinesChances);
                 var coinType = result.CoinType == 1 ? "Gold" : "Silver";
                 txtMinesChances.Text = $"You have won {result.CoinsWon} {coinType} coins.";
                 txtMinesChances.SetTypeface(null, TypefaceStyle.BoldItalic);
+
+                GoToMenu();
+            }
+            else if (result.TotalChances == 0)
+            {
+                Toast.MakeText(this, "Game lost.", ToastLength.Long).Show();
+
+                if (result.RandomSequence != null)
+                    ShowMissedThumbs(result.RandomSequence);
+
+                if (App.PlayAgainEnabled)
+                    ShowDialogPlayAgain();
             }
             else
             {
-                if (result.TotalChances == 0)
-                {
-                    Toast.MakeText(this, "Game lost.", ToastLength.Long).Show();
-
-                    if (result.RandomSequence != null)
-                        ShowMissedThumbs(result.RandomSequence);
-
-                    ShowDialogPlayAgain();
-                }
-                else
-                {
-                    SetText(result.TotalChances, result.GiftsHidden);
-                    return;
-                }
+                SetText(result.TotalChances, result.GiftsHidden);
             }
         }
 
@@ -184,6 +178,12 @@ namespace Kalingo.Activities
         public void GoToMenu()
         {
             var menuIntent = new Intent(this, typeof(MenuActivity));
+            StartActivity(menuIntent);
+        }
+
+        public void GoToCaptcha()
+        {
+            var menuIntent = new Intent(this, typeof(CaptchaActivity));
             StartActivity(menuIntent);
         }
 

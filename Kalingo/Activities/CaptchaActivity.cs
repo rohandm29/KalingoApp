@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Android.App;
+using Android.Content;
 using Android.Graphics;
 using Android.OS;
 using Android.Widget;
-using Kalingo.Master;
 using Kalingo.Api.Client.Services;
+using Kalingo.Core;
+using Kalingo.Games.Contract.Entity;
+using Kalingo.Games.Contract.Entity.Captcha;
 
 namespace Kalingo.Activities
 {
@@ -14,7 +17,7 @@ namespace Kalingo.Activities
     {
         private CaptchaService _captchaService;
 
-        private int captchaId;
+        private int _captchaId;
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -28,9 +31,20 @@ namespace Kalingo.Activities
 
         private async Task Initialise()
         {
+            _captchaService = new CaptchaService();
+
+            await LoadCaptcha();
+        }
+        private async Task LoadCaptcha()
+        {
+            var image = await _captchaService.GetCaptcha();
+
+            _captchaId = image.CaptchaId;
+
+            SetImage(image.Image);
         }
 
-        public void GetImage(string stream)
+        public void SetImage(string stream)
         {
             var imageBytes = Convert.FromBase64String(stream);
             Bitmap bitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
@@ -48,26 +62,26 @@ namespace Kalingo.Activities
 
         private async void btnSubmit_OnClick(object sender, EventArgs eventArgs)
         {
-            _captchaService = new CaptchaService();
+            var captchaAnswer = FindViewById<TextView>(Resource.Id.txtCaptcha);
 
-            var image = await _captchaService.GetCaptcha();
+            var result = await _captchaService.CaptchaSubmit(
+                    new CaptchaAnswerRequest(_captchaId, captchaAnswer.Text.ToUpper(), App.GameId));
 
-            captchaId = image.Id;
+            if (result.Code == CaptchaCodes.Valid)
+            {
+                GoToMenu();
+            }
+            else
+            {
+                Toast.MakeText(this, "Please try again. .", ToastLength.Long).Show();
+                await LoadCaptcha();
+            }
+        }
 
-            GetImage(image.Image);
-
-            //var captchaAnswer = FindViewById<TextView>(Resource.Id.txtCaptcha);
-
-            //var result = await _captchaService.CaptchaSubmit(new CaptchaAnswer(captchaId, captchaAnswer.Text, App.GameId));
-
-            //if (result.Match)
-            //{
-            //    // allocate coins
-            //}
-            //else
-            //{
-            //    // captcha
-            //}
+        public void GoToMenu()
+        {
+            var menuIntent = new Intent(this, typeof(MenuActivity));
+            StartActivity(menuIntent);
         }
     }
 }

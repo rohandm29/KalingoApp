@@ -31,22 +31,29 @@ namespace Kalingo.Activities
         {
             _voucherService = new VoucherService();
             _voucherResponse = await _voucherService.GetVouchers();
-            var vouchersList = _voucherResponse.Select(x => x.Description).ToList();
+            var vouchersList = new List<string> {"Select Voucher"};
+            vouchersList.AddRange(_voucherResponse.Select(x => x.Description).ToList());
 
             var spnVoucher = FindViewById<Spinner>(Resource.Id.spnVoucher);
+            spnVoucher.ItemSelected += Voucher_OnSelected;
+
             var voucherAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerItem, vouchersList);
             voucherAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spnVoucher.Adapter = voucherAdapter;
-
-            spnVoucher.ItemSelected += Voucher_OnSelected;
         }
 
         private void Voucher_OnSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            var cost = _voucherResponse.First(x => x.Id == e.Id).Coins;
+            if (e.Position != 0)
+            {
+                Spinner spinner = (Spinner)sender;
 
-            var lblVoucherCost = FindViewById<TextView>(Resource.Id.lblVoucherCost);
-            lblVoucherCost.Text = $"COINS NEED : {cost} GOLD";
+                var sel = spinner.GetItemAtPosition(e.Position).ToString();
+                var cost = _voucherResponse.First(x => x.Description == sel).Coins;
+
+                var lblVoucherCost = FindViewById<TextView>(Resource.Id.lblVoucherCost);
+                lblVoucherCost.Text = $"COINS NEED : {cost} GOLD";
+            }
         }
 
         private void BtnShopBackClicked(object sender, EventArgs e)
@@ -58,14 +65,14 @@ namespace Kalingo.Activities
         private async void Claim_Clicked(object sender, EventArgs e)
         {
             var voucher = FindViewById<Spinner>(Resource.Id.spnVoucher).SelectedItem;
-            var id = GetVoucherName(voucher.ToString());
+            var id = GetVoucherId(voucher.ToString());
 
             var claimResponse = await _voucherService.ClaimVoucher(id);
 
             Toast.MakeText(this, $"{claimResponse.Error.First()}", ToastLength.Long).Show();
         }
 
-        private int GetVoucherName(string voucher)
+        private int GetVoucherId(string voucher)
         {
             return _voucherResponse.First(x => x.Description == voucher).Id;
         }
