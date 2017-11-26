@@ -27,5 +27,14 @@ namespace Kalingo.Core
             MaintenanceMode = maintenanceMode;
             PlayAgainEnabled = playAgainEnabled;
         }
+
+        public static void ClearSession()
+        {
+            IsUserLoggedIn = false;
+            UserId = 0;
+            Gold = 0;
+            Silver = 0;
+            CountryId = 0;
+        }
     }
 }

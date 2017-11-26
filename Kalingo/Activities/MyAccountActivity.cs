@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Linq;
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Widget;
 using Kalingo.Api.Client.Services;
+using Kalingo.Core;
 
 namespace Kalingo.Activities
 {
@@ -11,7 +13,6 @@ namespace Kalingo.Activities
     public class MyAccountActivity : Activity
     {
         private UserService _userService;
-        private CountryService _countryService;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -26,20 +27,24 @@ namespace Kalingo.Activities
         private void Initialise()
         {
             _userService = new UserService();
-            _countryService = new CountryService();
         }
 
-        private async void RegisterControls()
+        private void RegisterControls()
         {
             var btnSubmit = FindViewById<Button>(Resource.Id.btnAccountSubmit);
             btnSubmit.Click += btnSubmit_OnClick;
 
-            var countryList = (await _countryService.GetCountries()).Select(x => x.Name).ToList();
-            
-            var spnCountry = FindViewById<Spinner>(Resource.Id.spnCountry);
-            var countryAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerItem, countryList);
-            countryAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            spnCountry.Adapter = countryAdapter;
+            var lblLogout = FindViewById<TextView>(Resource.Id.lblLogout);
+            lblLogout.Clickable = true;
+            lblLogout.Click += LblLogout_Click; ;
+        }
+
+        private void LblLogout_Click(object sender, EventArgs e)
+        {
+            App.ClearSession();
+
+            var menuIntent = new Intent(this, typeof(MainActivity));
+            StartActivity(menuIntent);
         }
 
         private async void btnSubmit_OnClick(object sender, EventArgs eventArgs)

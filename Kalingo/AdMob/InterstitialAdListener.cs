@@ -1,6 +1,7 @@
 ﻿using Android.Content;
 using Android.Gms.Ads;
 using Android.Widget;
+using Kalingo.Activities;
 
 namespace Kalingo.AdMob
 {
@@ -15,8 +16,8 @@ namespace Kalingo.AdMob
 
         public override void OnAdClosed()
         {
-            Toast.MakeText(_context, "OnAdClosed called", ToastLength.Short).Show();
-            base.OnAdClosed();
+            var intent = new Intent(_context, typeof(MinesBoomActivity));
+            _context.StartActivity(intent);
         }
 
         public override void OnAdLeftApplication()

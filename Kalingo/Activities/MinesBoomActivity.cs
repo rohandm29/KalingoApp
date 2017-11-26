@@ -1,6 +1,7 @@
 ﻿using System;
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.Graphics;
 using Android.Media;
 using Android.OS;
@@ -11,7 +12,7 @@ using Kalingo.Games.Contract.Entity.MinesBoom;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "MinesBoomActivity"/*, MainLauncher = true*/)]
+    [Activity(Label = "MinesBoomActivity"/*, MainLauncher = true*/, ScreenOrientation = ScreenOrientation.Portrait)]
     public class MinesBoomActivity : Activity
     {
         private readonly MinesBoomService _minesBoomService = new MinesBoomService();
@@ -68,11 +69,14 @@ namespace Kalingo.Activities
 
         private void ProcessResult(MinesboomSelectionResponse result)
         {
+            if (result.TotalChances != 0)
+            {
+                SetText(result.TotalChances, result.GiftsHidden);
+                return;
+            }
+
             if (result.HasWon)
             {
-                if (result.TotalChances != 0)
-                    return;
-
                 var txtMinesChances = FindViewById<TextView>(Resource.Id.txtMinesChances);
                 var coinType = result.CoinType == 1 ? "Gold" : "Silver";
                 txtMinesChances.Text = $"You have won {result.CoinsWon} {coinType} coins.";
@@ -89,10 +93,6 @@ namespace Kalingo.Activities
 
                 if (App.PlayAgainEnabled)
                     ShowDialogPlayAgain();
-            }
-            else
-            {
-                SetText(result.TotalChances, result.GiftsHidden);
             }
         }
 

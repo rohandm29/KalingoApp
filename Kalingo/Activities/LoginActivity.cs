@@ -14,7 +14,7 @@ using Object = Java.Lang.Object;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "Login",/* MainLauncher = true,*/ Icon = "@drawable/icon")]
+    [Activity(Label = "Login", MainLauncher = true, Icon = "@drawable/icon")]
     public class LoginActivity : Activity
     {
         private UserService _userService;
@@ -38,11 +38,15 @@ namespace Kalingo.Activities
             var response = await _userService.AuthenticateUser(username, password);
 
             HandleUserResponse(username, password, response);
-        }
+        }   
 
         private void HandleUserResponse(string username, string password, UserResponse response)
         {
-            if (response.Code == UserCodes.Valid)
+            if (response.MbConfig.MaintenanceMode)
+            {
+                Toast.MakeText(this, "Under Maintenance.. \nPlease try again later.", ToastLength.Long).Show();
+            }
+            else if (response.Code == UserCodes.Valid)
             {
                 App.IsUserLoggedIn = true;
 
@@ -54,18 +58,18 @@ namespace Kalingo.Activities
                 var intent = new Intent(this, typeof(MenuActivity));
                 StartActivity(intent);
             }
-            if (response.Code == UserCodes.Invalid)
+            else if(response.Code == UserCodes.Invalid)
             {
                 App.IsUserLoggedIn = false;
                 Toast.MakeText(this, "user authentication failed", ToastLength.Short).Show();
             }
-            if (response.Code == UserCodes.NotFound)
+            else if(response.Code == UserCodes.NotFound)
             {
                 App.IsUserLoggedIn = false;
                 Toast.MakeText(this, "Please Register!!", ToastLength.Short).Show();
                 RegisterUser();
             }
-            if (response.Code == UserCodes.Inactive)
+            else if(response.Code == UserCodes.Inactive)
             {
                 App.IsUserLoggedIn = false;
                 Toast.MakeText(this, "Please try after sometime!!", ToastLength.Short).Show();

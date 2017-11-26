@@ -54,10 +54,10 @@ namespace Kalingo.Activities
 
         private void BtnPlayMinesBoomOnClick(object sender, EventArgs e)
         {
-            //var intent = new Intent(this, typeof(MinesBoomActivity));
-            //StartActivity(intent);
+            var intent = new Intent(this, typeof(MinesBoomActivity));
+            StartActivity(intent);
 
-            ShowAd();
+            //ShowAd();
         }
 
         private void ShowAd()

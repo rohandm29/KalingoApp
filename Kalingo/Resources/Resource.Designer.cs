@@ -2247,14 +2247,14 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0080
 			public const int lblLogIn = 2131427456;
 			
+			// aapt resource value: 0x7f0b0096
+			public const int lblLogout = 2131427478;
+			
 			// aapt resource value: 0x7f0b007f
 			public const int lblMyAccount = 2131427455;
 			
 			// aapt resource value: 0x7f0b0065
 			public const int lblNewUser = 2131427429;
-			
-			// aapt resource value: 0x7f0b0096
-			public const int lblUpdateCountry = 2131427478;
 			
 			// aapt resource value: 0x7f0b0094
 			public const int lblUpdateEmail = 2131427476;
