@@ -1,4 +1,5 @@
-﻿using Android.Content;
+﻿using System;
+using Android.Content;
 using Android.Gms.Ads;
 using Android.Widget;
 using Kalingo.Activities;
@@ -8,10 +9,12 @@ namespace Kalingo.AdMob
     public class InterstitialAdListener : AdListener
     {
         private readonly Context _context;
+        private readonly Action _callBackOnInsterstitialLoaded;
 
-        public InterstitialAdListener(Context context)
+        public InterstitialAdListener(Context context, Action callBackOnInsterstitialLoaded)
         {
             _context = context;
+            _callBackOnInsterstitialLoaded = callBackOnInsterstitialLoaded;
         }
 
         public override void OnAdClosed()
@@ -22,26 +25,21 @@ namespace Kalingo.AdMob
 
         public override void OnAdLeftApplication()
         {
-            Toast.MakeText(_context, "OnAdLeftApplication called", ToastLength.Short).Show();
-            base.OnAdLeftApplication();
         }
 
         public override void OnAdFailedToLoad(int errorCode)
         {
-            Toast.MakeText(_context, "OnAdFailedToLoad called", ToastLength.Short).Show();
-            base.OnAdLeftApplication();
         }
 
         public override void OnAdLoaded()
         {
-            Toast.MakeText(_context, "OnAdLoaded called", ToastLength.Short).Show();
-            base.OnAdLeftApplication();
+            Toast.MakeText(_context, "Interstitial Loaded", ToastLength.Short).Show();
+
+            _callBackOnInsterstitialLoaded();
         }
 
         public override void OnAdOpened()
         {
-            Toast.MakeText(_context, "OnAdOpened called", ToastLength.Short).Show();
-            base.OnAdLeftApplication();
         }
 
     }

@@ -62,18 +62,18 @@ namespace Kalingo.Activities
 
         private void ShowAd()
         {
-            if (App.PromoUser != 1)
-            {
-                if (_rewardedVideoAd.IsLoaded)
-                {
-                    _rewardedVideoAd.Show();
-                }
-            }
-            else
+            if (App.InterstitialMode || App.PromoUser == 1)
             {
                 if (_interstitialAd.IsLoaded)
                 {
                     _interstitialAd.Show();
+                }
+            }
+            else
+            {
+                if (_rewardedVideoAd.IsLoaded)
+                {
+                    _rewardedVideoAd.Show();
                 }
             }
         }
@@ -170,16 +170,24 @@ namespace Kalingo.Activities
 
         private void LoadInterstistialAd()
         {
-            _interstitialAdListener = new InterstitialAdListener(ApplicationContext);
+            _interstitialAdListener = new InterstitialAdListener(ApplicationContext, CallBack_OnInsterstitial_Loaded);
 
             _interstitialAd = new InterstitialAd(this)
             {
-                AdUnitId = "ca-app-pub-3940256099942544/1033173712",    // test ad
-                //AdUnitId = "ca-app-pub-7100837506775638/6637403349",  // prod interstitial ad
+                //AdUnitId = "ca-app-pub-3940256099942544/1033173712",    // test ad
+                AdUnitId = "ca-app-pub-7100837506775638/6637403349",  // prod interstitial ad
                 AdListener = _interstitialAdListener,
             };
 
             _interstitialAd.LoadAd(new AdRequest.Builder().Build());
+        }
+
+        public void CallBack_OnInsterstitial_Loaded()
+        {
+            _minesboom.Enabled = true;
+
+            var txtLoading = FindViewById<TextView>(Resource.Id.txtLoading);
+            txtLoading.Visibility = ViewStates.Invisible;
         }
 
         private void RegisterControl()

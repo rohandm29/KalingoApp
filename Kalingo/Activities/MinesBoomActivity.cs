@@ -44,7 +44,7 @@ namespace Kalingo.Activities
 
             var result = await _minesBoomService.Submit(id);
 
-            System.Threading.Thread.Sleep(1000);
+            //System.Threading.Thread.Sleep(1000);
 
             btnSelected.Text = "";
 
@@ -82,7 +82,7 @@ namespace Kalingo.Activities
                 txtMinesChances.Text = $"You have won {result.CoinsWon} {coinType} coins.";
                 txtMinesChances.SetTypeface(null, TypefaceStyle.BoldItalic);
 
-                GoToMenu();
+                GoToCaptcha();
             }
             else if (result.TotalChances == 0)
             {

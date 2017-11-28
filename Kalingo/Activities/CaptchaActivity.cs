@@ -74,7 +74,7 @@ namespace Kalingo.Activities
             else
             {
                 Toast.MakeText(this, "Please try again. .", ToastLength.Long).Show();
-                await LoadCaptcha();
+                //await LoadCaptcha();
             }
         }
 

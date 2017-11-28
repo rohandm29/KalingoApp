@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
-using Android.App;
 using Kalingo.Api.Client.Client;
+using Kalingo.Core;
 using Kalingo.Games.Contract.Entity;
 using Kalingo.Games.Contract.Entity.Captcha;
-using Kalingo.Games.Contract.Entity.User;
 
 namespace Kalingo.Api.Client.Services
 {
@@ -20,7 +19,7 @@ namespace Kalingo.Api.Client.Services
         {
             try
             {
-                var captcha = await _apiClient.GetCaptcha(new CaptchaRequest(4, 2));
+                var captcha = await _apiClient.GetCaptcha(new CaptchaRequest(App.UserId, App.GameId));
 
                 return captcha;
             }
