@@ -23,20 +23,18 @@ namespace Kalingo.Api.Client.Services
             return validUser;
         }
 
-        public async Task<int> RegisterUser(string userName, string password, string email, int countryId)
+        public async Task<AddUserResponse> RegisterUser(string userName, string password, string email, int countryId)
         {
             try
             {
                 var user = new NewUserRequest(userName, Encryption.ComputeHash(password), email, countryId);
                 var userId = await _apiClient.AddUser(user);
-
-                App.UserId = userId;
-
+                
                 return userId;
             }
             catch (System.Exception)
             {
-                return 0;
+                return new AddUserResponse(UserCodes.Invalid);
             }
         }
 
@@ -66,11 +64,11 @@ namespace Kalingo.Api.Client.Services
             }
             catch (System.Exception)
             {
-                return new UserResponse(0);
+                return new UserResponse("0");
             }
         }
 
-        public async Task<int> GetUserLimit(int userId)
+        public async Task<int> GetUserLimit(string userId)
         {
             try
             {

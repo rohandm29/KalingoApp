@@ -29,7 +29,7 @@ namespace Kalingo.Activities
             SetupAudio();
             RegisterControls();
 
-            await _minesBoomService.CreateMinesBoom(1);
+            await _minesBoomService.CreateMinesBoom("1");
 
             ShowDialogCoinsEarned();
         }
@@ -98,7 +98,7 @@ namespace Kalingo.Activities
 
         private async void PlayAgain()
         {
-            await _minesBoomService.CreateMinesBoom(1);
+            await _minesBoomService.CreateMinesBoom("1");
             ClearScreen();
         }
 

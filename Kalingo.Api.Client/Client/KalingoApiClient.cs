@@ -45,7 +45,7 @@ namespace Kalingo.Api.Client.Client
         }
 
         // USER
-        public async Task<int> AddUser(NewUserRequest user)
+        public async Task<AddUserResponse> AddUser(NewUserRequest user)
         {
             var uri = new Uri(_baseAddress + "/users/Add");
 
@@ -54,7 +54,7 @@ namespace Kalingo.Api.Client.Client
                 Content = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json")
             };
 
-            var response = await GetResponse<int>(message);
+            var response = await GetResponse<AddUserResponse>(message);
 
             return response;
         }
@@ -88,12 +88,12 @@ namespace Kalingo.Api.Client.Client
             {
                 Content = new StringContent(JsonConvert.SerializeObject(updateUser), Encoding.UTF8, "application/json")
             };
-            AddHeader(message, updateUser.UserId.ToString());
+            AddHeader(message, updateUser.UserId);
 
             await GetResponse<UserResponse>(message);
         }
 
-        public async Task<int> GetUserLimit(int userId)
+        public async Task<int> GetUserLimit(string userId)
         {
             var uri = new Uri(_baseAddress + "users/GetLimit");
 
@@ -106,7 +106,7 @@ namespace Kalingo.Api.Client.Client
         }
 
         // MINESBOOM
-        public async Task<int> CreateMinesBoom(int userId)
+        public async Task<int> CreateMinesBoom(string userId)
         {
             //var uri = new Uri("http://10.0.3.2:9988/game/join?gameTypeId=2&userId=1");
             var uri = new Uri(_baseAddress + $"/games/join?gameTypeId={App.MinesBoomId}&userId={userId}");

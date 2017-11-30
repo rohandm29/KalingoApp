@@ -15,7 +15,7 @@ namespace Kalingo.Api.Client.Services
             _apiClient = new KalingoApiClient();
         }
 
-        public async Task<bool> CreateMinesBoom(int userId)
+        public async Task<bool> CreateMinesBoom(string userId)
         {
             try
             {

@@ -5,7 +5,7 @@ namespace Kalingo.Core
     public class App : Application
     {
         public static bool IsUserLoggedIn { get; set; }
-        public static int UserId { get; set; }
+        public static string UserId { get; set; }
         public static int GameId { get; set; }
         public static int CountryId { get; set; }
         public static int Gold { get; set; }
@@ -31,7 +31,7 @@ namespace Kalingo.Core
         public static void ClearSession()
         {
             IsUserLoggedIn = false;
-            UserId = 0;
+            UserId = "0";
             Gold = 0;
             Silver = 0;
             CountryId = 0;
