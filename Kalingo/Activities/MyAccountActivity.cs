@@ -50,9 +50,9 @@ namespace Kalingo.Activities
         private async void btnSubmit_OnClick(object sender, EventArgs eventArgs)
         {
             var txtEmail = FindViewById<EditText>(Resource.Id.txtUpdateEmail).Text;
-            var country = FindViewById<Spinner>(Resource.Id.spnCountry).SelectedItem.ToString();
+            //var country = FindViewById<Spinner>(Resource.Id.spnCountry).SelectedItem.ToString();
 
-            await _userService.UpdateUser(txtEmail, CountryService.GetCountryId(country));
+            //await _userService.UpdateUser(txtEmail, CountryService.GetCountryId(country));
         }
     }
 }

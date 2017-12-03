@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="Kalingo.Kalingo" android:versionName="1.0" android:installLocation="auto" android:versionCode="16">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="kalingo.beta" android:versionName="1.0" android:installLocation="auto" android:versionCode="29">
 	<uses-sdk android:minSdkVersion="23" android:targetSdkVersion="25" />
-	<application android:label="Kalingo" android:theme="@style/MyTheme" android:icon="@drawable/Icon"></application>
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <application android:label="Kalingo" android:theme="@style/MyTheme" android:icon="@drawable/Icon">
+    <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id" />
+    <meta-data android:name="com.facebook.sdk.ApplicationName" android:value="KalingoApp" />
+  </application>
 </manifest>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+  <item>
+    <color
+        android:color="#003d98"/>
+  </item>
+
+  <!--<item>
+    <shape android:shape="rectangle" >
+      <solid android:color="#003d98" />
+
+      <corners android:radius="3dp" />
+    </shape>
+  </item>
+  <item
+      android:bottom="1dp"
+      android:left="1dp"
+      android:right="1dp"
+      android:top="1dp">
+    <shape android:shape="rectangle" >
+      <solid android:color="@android:color/white" />
+
+      <corners android:radius="3dp" />
+    </shape>
+  </item>-->
+
+</layer-list>
+<!--<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+  <item>
+    <shape>
+      <solid android:color="@android:color/transparent" />
+
+      <stroke
+          android:width="1dp"
+          android:color="#6f94c7" />
+
+      <padding
+          android:bottom="10dp"
+          android:left="2dp"
+          android:right="10dp"
+          android:top="10dp" />
+    </shape>
+  </item>
+  <item>
+    <bitmap
+        android:gravity="end"
+        android:src="@drawable/dropdown_arrow" android:right="3dp" android:top="3dp"  />
+  </item>
+</layer-list>-->
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item>
+
+    <layer-list>
+      <item>
+        <color
+            android:color="#003d98"/>
+      </item>
+
+      <item>
+        <shape>
+          <gradient android:angle="90" android:endColor="#003d98" android:startColor="#003d98" android:type="linear" />
+
+          --><!--<stroke android:width="0.33dp" android:color="#003d98" />--><!--
+
+          <corners android:radius="0dp" />
+
+          <padding android:bottom="3dp" android:left="3dp" android:right="3dp" android:top="3dp" />
+        </shape>
+      </item>
+
+      <item android:right="1dp">
+
+        <bitmap android:gravity="center_vertical|right" android:src="@drawable/dropdown_arrow"/>
+
+      </item>
+
+    </layer-list>
+
+  </item>
+
+</selector>-->
+
+<!--<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item>
+
+    <layer-list>
+
+      <item>
+        <color
+            android:color="#003d98"/>
+      </item>
+
+      <item>
+        <bitmap
+            android:gravity="center_vertical|right"
+            android:src="@drawable/dropdown_arrow"
+            android:height="2dp"
+            android:width="2dp"/>
+      </item>
+
+    </layer-list>
+
+  </item>
+</selector>-->

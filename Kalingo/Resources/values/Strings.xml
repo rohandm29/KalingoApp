@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_id">147580782549401</string>
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">Kalingo</string>
     <string name="car_prompt">Country</string>
