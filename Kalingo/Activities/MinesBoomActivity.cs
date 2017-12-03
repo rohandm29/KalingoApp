@@ -29,7 +29,7 @@ namespace Kalingo.Activities
             SetupAudio();
             RegisterControls();
 
-            await _minesBoomService.CreateMinesBoom(1);
+            await _minesBoomService.CreateMinesBoom(2);
 
             ShowDialogCoinsEarned();
         }

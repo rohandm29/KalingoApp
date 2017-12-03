@@ -69,7 +69,8 @@ namespace Kalingo.Activities
 
             var claimResponse = await _voucherService.ClaimVoucher(id);
 
-            Toast.MakeText(this, $"{claimResponse.Error.First()}", ToastLength.Long).Show();
+            var claimed = claimResponse.Error.Any() ? claimResponse.Error.First() : "Claimed!!";
+            Toast.MakeText(this, claimed, ToastLength.Long).Show();
         }
 
         private int GetVoucherId(string voucher)

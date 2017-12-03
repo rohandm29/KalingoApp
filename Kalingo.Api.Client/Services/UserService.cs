@@ -69,7 +69,22 @@ namespace Kalingo.Api.Client.Services
                 return new UserResponse(0);
             }
         }
+        
+        public async Task<UserResponse> FbUserLogin(string userName, string token)
+        {
+            try
+            {
+                var userArgs = new UserArgs(userName, token);
 
+                var user = await _apiClient.GetUser(userArgs);
+
+                return user;
+            }
+            catch (System.Exception)
+            {
+                return new UserResponse(0);
+            }
+        }
         public async Task<int> GetUserLimit(int userId)
         {
             try

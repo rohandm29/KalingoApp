@@ -89,34 +89,39 @@ namespace Kalingo.Activities
 
         private async void btnRegister_Click(object sender, EventArgs eventArgs)
         {
-            //var username = FindViewById<EditText>(Resource.Id.txtUserName).Text;
-            //var password = FindViewById<EditText>(Resource.Id.txtPassword).Text;
-            //var email = FindViewById<EditText>(Resource.Id.txtEmail).Text;
-            //var country = FindViewById<Spinner>(Resource.Id.spnCountry).SelectedItem;
+            var username = FindViewById<EditText>(Resource.Id.txtUserName).Text;
+            var password = FindViewById<EditText>(Resource.Id.txtPassword).Text;
+            var email = FindViewById<EditText>(Resource.Id.txtEmail).Text;
+            var country = FindViewById<Spinner>(Resource.Id.spnCountry).SelectedItem;
 
-            //if (!IsValidRegistration(username, email, country))
-            //    return;
+            if (!IsValidRegistration(username, email, country))
+                return;
 
-            //var response = await _userService.RegisterUser(username, password, email,
-            //    CountryService.GetCountryId(country.ToString()));
+            var response = await _userService.RegisterUser(username, password, email,
+                CountryService.GetCountryId(country.ToString()));
 
-            //if (response == -1)
-            //{
-            //    Toast.MakeText(this, "Sorry! username has been taken.", ToastLength.Short).Show();
-            //}
-            //if (response == 0)
-            //{
-            //    Toast.MakeText(this, "Error! Try again later", ToastLength.Short).Show();
-            //}
-            //else
-            //{
-            //    Toast.MakeText(this, "Registered Succesfully!! \nPlease Login", ToastLength.Long).Show();
-            //    ShowLogin_OnClick(new object(), new EventArgs());
+            if (response == -1)
+            {
+                Toast.MakeText(this, "Sorry! username has been taken.", ToastLength.Short).Show();
+            }
+            if (response == 0)
+            {
+                Toast.MakeText(this, "Error! Try again later", ToastLength.Short).Show();
+            }
+            else
+            {
+                Toast.MakeText(this, "Registered Succesfully!! \nPlease Login", ToastLength.Long).Show();
+                ShowLogin_OnClick(new object(), new EventArgs());
 
-            //    //App.IsUserLoggedIn = true;
-            //    //var intent = new Intent(this, typeof(MenuActivity));
-            //    //StartActivity(intent);
-            //}
+                //App.IsUserLoggedIn = true;
+                //var intent = new Intent(this, typeof(MenuActivity));
+                //StartActivity(intent);
+            }
+        }
+
+        private async void RegisterFacebookUser(string userName, string token)
+        {
+            var userResponse = await _userService.FbUserLogin(userName, token);
         }
 
         private void ShowLogin_OnClick(object sender, EventArgs eventArgs)

@@ -2,7 +2,7 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <SelectedDevice>Genymotion Google Nexus 6 - 7.1.0 - API 25 - 1440x2560</SelectedDevice>
-    <DefaultDevice>AVD_for_5_1_WVGA</DefaultDevice>
+    <DefaultDevice>AVD_for_Nexus_4_by_Google</DefaultDevice>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
     <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
