@@ -18,7 +18,7 @@ using System.Collections.Generic;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "Login", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Login", /*MainLauncher = true,*/ Icon = "@drawable/icon")]
     public class LoginActivity : Activity, IFacebookCallback
     {
         private UserService _userService;

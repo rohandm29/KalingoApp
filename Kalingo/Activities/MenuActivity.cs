@@ -12,11 +12,11 @@ using Kalingo.Core;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "M E N U"  /*,MainLauncher = true */  )]
+    [Activity(Label = "M E N U", MainLauncher = true)]
     public class MenuActivity : Activity, IRewardedVideoAdListener
     {
         private UserService _userService;
-        private Button _minesboom;
+        private ImageView _minesboom;
 
         private InterstitialAd _interstitialAd;
         private InterstitialAdListener _interstitialAdListener;
@@ -105,8 +105,8 @@ namespace Kalingo.Activities
 
         public void OnRewardedVideoAdFailedToLoad(int errorCode)
         {
-            _minesboom = FindViewById<Button>(Resource.Id.btnPlayMinesBoom);
-            _minesboom.Text = "Refresh";
+            _minesboom = FindViewById<ImageView>(Resource.Id.btnPlayMinesBoom);
+            //_minesboom.Text = "Refresh";
             _minesboom.Enabled = true;
             _minesboom.Click -= BtnPlayMinesBoomOnClick;
             _minesboom.Click += Refresh_Clicked;
@@ -118,8 +118,8 @@ namespace Kalingo.Activities
         {
             LoadAd();
 
-            _minesboom = FindViewById<Button>(Resource.Id.btnPlayMinesBoom);
-            _minesboom.Text = $"Play Minesboom \n_____\n Attempts Left : {_playCount}";
+            _minesboom = FindViewById<ImageView>(Resource.Id.btnPlayMinesBoom);
+            //_minesboom.Text = $"Play Minesboom \n_____\n Attempts Left : {_playCount}";
             _minesboom.Enabled = false;
             _minesboom.Click -= Refresh_Clicked;
             _minesboom.Click += BtnPlayMinesBoomOnClick;
@@ -131,7 +131,7 @@ namespace Kalingo.Activities
 
         public void OnRewardedVideoAdLoaded()
         {
-            //var btnPlayMinesBoom = FindViewById<Button>(Resource.Id.btnPlayMinesBoom);
+            //var btnPlayMinesBoom = FindViewById<ImageView>(Resource.Id.btnPlayMinesBoom);
             _minesboom.Enabled = true;
 
             var txtLoading = FindViewById<TextView>(Resource.Id.txtLoading);
@@ -192,13 +192,13 @@ namespace Kalingo.Activities
 
         private void RegisterControl()
         {
-            _minesboom = FindViewById<Button>(Resource.Id.btnPlayMinesBoom);
+            _minesboom = FindViewById<ImageView>(Resource.Id.btnPlayMinesBoom);
             _minesboom.Click += BtnPlayMinesBoomOnClick;
-            _minesboom.Text += $"\n_____\n Attempts Left : {_playCount}";
+            //_minesboom.Text += $"\n_____\n Attempts Left : {_playCount}";
             _minesboom.Enabled = false;
 
-            var btnShopVouchers = FindViewById<Button>(Resource.Id.btnShopVouchers);
-            btnShopVouchers.Text += $"\n_____\n Gold Coins : {App.Gold}";
+            var btnShopVouchers = FindViewById<ImageView>(Resource.Id.btnShopVouchers);
+            //btnShopVouchers.Text += $"\n_____\n Gold Coins : {App.Gold}";
             btnShopVouchers.Click += BtnShopClick;
 
             var lblMyAccount = FindViewById<TextView>(Resource.Id.lblMyAccount);

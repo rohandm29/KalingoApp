@@ -1959,313 +1959,322 @@ namespace Kalingo
 			public const int Amazon = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int BodyShop = 2130837588;
+			public const int backbtn = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int button_bg_transparent = 2130837589;
+			public const int BodyShop = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int cardviewstyle = 2130837590;
+			public const int button_bg_transparent = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int com_facebook_auth_dialog_background = 2130837591;
+			public const int cardviewstyle = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int com_facebook_auth_dialog_cancel_background = 2130837592;
+			public const int com_facebook_auth_dialog_background = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int com_facebook_auth_dialog_header_background = 2130837593;
+			public const int com_facebook_auth_dialog_cancel_background = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int com_facebook_button_background = 2130837594;
+			public const int com_facebook_auth_dialog_header_background = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int com_facebook_button_icon = 2130837595;
+			public const int com_facebook_button_background = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int com_facebook_button_icon_blue = 2130837596;
+			public const int com_facebook_button_icon = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int com_facebook_button_icon_white = 2130837597;
+			public const int com_facebook_button_icon_blue = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int com_facebook_button_like_background = 2130837598;
+			public const int com_facebook_button_icon_white = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int com_facebook_button_like_icon_selected = 2130837599;
+			public const int com_facebook_button_like_background = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int com_facebook_button_login_background = 2130837600;
+			public const int com_facebook_button_like_icon_selected = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int com_facebook_button_login_logo = 2130837601;
+			public const int com_facebook_button_login_background = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int com_facebook_button_login_silver_background = 2130837602;
+			public const int com_facebook_button_login_logo = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int com_facebook_button_send_background = 2130837603;
+			public const int com_facebook_button_login_silver_background = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int com_facebook_button_send_icon_blue = 2130837604;
+			public const int com_facebook_button_send_background = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int com_facebook_button_send_icon_white = 2130837605;
+			public const int com_facebook_button_send_icon_blue = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int com_facebook_close = 2130837606;
+			public const int com_facebook_button_send_icon_white = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int com_facebook_favicon_blue = 2130837607;
+			public const int com_facebook_close = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int com_facebook_profile_picture_blank_portrait = 2130837608;
+			public const int com_facebook_favicon_blue = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int com_facebook_profile_picture_blank_square = 2130837609;
+			public const int com_facebook_profile_picture_blank_portrait = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int com_facebook_send_button_icon = 2130837610;
+			public const int com_facebook_profile_picture_blank_square = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int com_facebook_tooltip_black_background = 2130837611;
+			public const int com_facebook_send_button_icon = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int com_facebook_tooltip_black_bottomnub = 2130837612;
+			public const int com_facebook_tooltip_black_background = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int com_facebook_tooltip_black_topnub = 2130837613;
+			public const int com_facebook_tooltip_black_bottomnub = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int com_facebook_tooltip_black_xout = 2130837614;
+			public const int com_facebook_tooltip_black_topnub = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int com_facebook_tooltip_blue_background = 2130837615;
+			public const int com_facebook_tooltip_black_xout = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int com_facebook_tooltip_blue_bottomnub = 2130837616;
+			public const int com_facebook_tooltip_blue_background = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int com_facebook_tooltip_blue_topnub = 2130837617;
+			public const int com_facebook_tooltip_blue_bottomnub = 2130837617;
 			
 			// aapt resource value: 0x7f020072
-			public const int com_facebook_tooltip_blue_xout = 2130837618;
+			public const int com_facebook_tooltip_blue_topnub = 2130837618;
 			
 			// aapt resource value: 0x7f020073
-			public const int common_full_open_on_phone = 2130837619;
+			public const int com_facebook_tooltip_blue_xout = 2130837619;
 			
 			// aapt resource value: 0x7f020074
-			public const int common_google_signin_btn_icon_dark = 2130837620;
+			public const int common_full_open_on_phone = 2130837620;
 			
 			// aapt resource value: 0x7f020075
-			public const int common_google_signin_btn_icon_dark_disabled = 2130837621;
+			public const int common_google_signin_btn_icon_dark = 2130837621;
 			
 			// aapt resource value: 0x7f020076
-			public const int common_google_signin_btn_icon_dark_focused = 2130837622;
+			public const int common_google_signin_btn_icon_dark_disabled = 2130837622;
 			
 			// aapt resource value: 0x7f020077
-			public const int common_google_signin_btn_icon_dark_normal = 2130837623;
+			public const int common_google_signin_btn_icon_dark_focused = 2130837623;
 			
 			// aapt resource value: 0x7f020078
-			public const int common_google_signin_btn_icon_dark_pressed = 2130837624;
+			public const int common_google_signin_btn_icon_dark_normal = 2130837624;
 			
 			// aapt resource value: 0x7f020079
-			public const int common_google_signin_btn_icon_light = 2130837625;
+			public const int common_google_signin_btn_icon_dark_pressed = 2130837625;
 			
 			// aapt resource value: 0x7f02007a
-			public const int common_google_signin_btn_icon_light_disabled = 2130837626;
+			public const int common_google_signin_btn_icon_light = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int common_google_signin_btn_icon_light_focused = 2130837627;
+			public const int common_google_signin_btn_icon_light_disabled = 2130837627;
 			
 			// aapt resource value: 0x7f02007c
-			public const int common_google_signin_btn_icon_light_normal = 2130837628;
+			public const int common_google_signin_btn_icon_light_focused = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int common_google_signin_btn_icon_light_pressed = 2130837629;
+			public const int common_google_signin_btn_icon_light_normal = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int common_google_signin_btn_text_dark = 2130837630;
+			public const int common_google_signin_btn_icon_light_pressed = 2130837630;
 			
 			// aapt resource value: 0x7f02007f
-			public const int common_google_signin_btn_text_dark_disabled = 2130837631;
+			public const int common_google_signin_btn_text_dark = 2130837631;
 			
 			// aapt resource value: 0x7f020080
-			public const int common_google_signin_btn_text_dark_focused = 2130837632;
+			public const int common_google_signin_btn_text_dark_disabled = 2130837632;
 			
 			// aapt resource value: 0x7f020081
-			public const int common_google_signin_btn_text_dark_normal = 2130837633;
+			public const int common_google_signin_btn_text_dark_focused = 2130837633;
 			
 			// aapt resource value: 0x7f020082
-			public const int common_google_signin_btn_text_dark_pressed = 2130837634;
+			public const int common_google_signin_btn_text_dark_normal = 2130837634;
 			
 			// aapt resource value: 0x7f020083
-			public const int common_google_signin_btn_text_light = 2130837635;
+			public const int common_google_signin_btn_text_dark_pressed = 2130837635;
 			
 			// aapt resource value: 0x7f020084
-			public const int common_google_signin_btn_text_light_disabled = 2130837636;
+			public const int common_google_signin_btn_text_light = 2130837636;
 			
 			// aapt resource value: 0x7f020085
-			public const int common_google_signin_btn_text_light_focused = 2130837637;
+			public const int common_google_signin_btn_text_light_disabled = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int common_google_signin_btn_text_light_normal = 2130837638;
+			public const int common_google_signin_btn_text_light_focused = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int common_google_signin_btn_text_light_pressed = 2130837639;
+			public const int common_google_signin_btn_text_light_normal = 2130837639;
 			
 			// aapt resource value: 0x7f020088
-			public const int dropdown_arrow = 2130837640;
+			public const int common_google_signin_btn_text_light_pressed = 2130837640;
 			
 			// aapt resource value: 0x7f020089
-			public const int Ebay = 2130837641;
+			public const int dropdown_arrow = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int edittext_bg = 2130837642;
+			public const int Ebay = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
-			public const int edt_bg_normal = 2130837643;
+			public const int edittext_bg = 2130837643;
 			
 			// aapt resource value: 0x7f02008c
-			public const int edt_bg_selected = 2130837644;
+			public const int edt_bg_normal = 2130837644;
 			
 			// aapt resource value: 0x7f02008d
-			public const int exo_controls_fastforward = 2130837645;
+			public const int edt_bg_selected = 2130837645;
 			
 			// aapt resource value: 0x7f02008e
-			public const int exo_controls_next = 2130837646;
+			public const int exo_controls_fastforward = 2130837646;
 			
 			// aapt resource value: 0x7f02008f
-			public const int exo_controls_pause = 2130837647;
+			public const int exo_controls_next = 2130837647;
 			
 			// aapt resource value: 0x7f020090
-			public const int exo_controls_play = 2130837648;
+			public const int exo_controls_pause = 2130837648;
 			
 			// aapt resource value: 0x7f020091
-			public const int exo_controls_previous = 2130837649;
+			public const int exo_controls_play = 2130837649;
 			
 			// aapt resource value: 0x7f020092
-			public const int exo_controls_rewind = 2130837650;
+			public const int exo_controls_previous = 2130837650;
 			
 			// aapt resource value: 0x7f020093
-			public const int fb_button = 2130837651;
+			public const int exo_controls_rewind = 2130837651;
 			
 			// aapt resource value: 0x7f020094
-			public const int Flipkart = 2130837652;
+			public const int fb_button = 2130837652;
 			
 			// aapt resource value: 0x7f020095
-			public const int GreenGift = 2130837653;
+			public const int Flipkart = 2130837653;
 			
 			// aapt resource value: 0x7f020096
-			public const int GreenThumb = 2130837654;
+			public const int GreenGift = 2130837654;
 			
 			// aapt resource value: 0x7f020097
-			public const int Header = 2130837655;
+			public const int GreenThumb = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int Hnm = 2130837656;
+			public const int Header = 2130837656;
 			
 			// aapt resource value: 0x7f020099
-			public const int Icon = 2130837657;
+			public const int Hnm = 2130837657;
 			
 			// aapt resource value: 0x7f02009a
-			public const int KalingoIcon = 2130837658;
+			public const int Icon = 2130837658;
 			
 			// aapt resource value: 0x7f02009b
-			public const int layout_border = 2130837659;
+			public const int KalingoIcon = 2130837659;
 			
 			// aapt resource value: 0x7f02009c
-			public const int loginbtn_selected = 2130837660;
+			public const int layout_border = 2130837660;
 			
 			// aapt resource value: 0x7f02009d
-			public const int loginbtn_unselected = 2130837661;
+			public const int loginbtn_selected = 2130837661;
 			
 			// aapt resource value: 0x7f02009e
-			public const int LoginPic = 2130837662;
+			public const int loginbtn_unselected = 2130837662;
 			
 			// aapt resource value: 0x7f02009f
-			public const int logo = 2130837663;
+			public const int LoginPic = 2130837663;
 			
 			// aapt resource value: 0x7f0200a0
-			public const int main_bg = 2130837664;
+			public const int logo = 2130837664;
 			
 			// aapt resource value: 0x7f0200a1
-			public const int messenger_bubble_large_blue = 2130837665;
+			public const int main_bg = 2130837665;
 			
 			// aapt resource value: 0x7f0200a2
-			public const int messenger_bubble_large_white = 2130837666;
+			public const int messenger_bubble_large_blue = 2130837666;
 			
 			// aapt resource value: 0x7f0200a3
-			public const int messenger_bubble_small_blue = 2130837667;
+			public const int messenger_bubble_large_white = 2130837667;
 			
 			// aapt resource value: 0x7f0200a4
-			public const int messenger_bubble_small_white = 2130837668;
+			public const int messenger_bubble_small_blue = 2130837668;
 			
 			// aapt resource value: 0x7f0200a5
-			public const int messenger_button_blue_bg_round = 2130837669;
+			public const int messenger_bubble_small_white = 2130837669;
 			
 			// aapt resource value: 0x7f0200a6
-			public const int messenger_button_blue_bg_selector = 2130837670;
+			public const int messenger_button_blue_bg_round = 2130837670;
 			
 			// aapt resource value: 0x7f0200a7
-			public const int messenger_button_send_round_shadow = 2130837671;
+			public const int messenger_button_blue_bg_selector = 2130837671;
 			
 			// aapt resource value: 0x7f0200a8
-			public const int messenger_button_white_bg_round = 2130837672;
+			public const int messenger_button_send_round_shadow = 2130837672;
 			
 			// aapt resource value: 0x7f0200a9
-			public const int messenger_button_white_bg_selector = 2130837673;
+			public const int messenger_button_white_bg_round = 2130837673;
 			
 			// aapt resource value: 0x7f0200aa
-			public const int Mns = 2130837674;
+			public const int messenger_button_white_bg_selector = 2130837674;
 			
 			// aapt resource value: 0x7f0200ab
-			public const int notification_action_background = 2130837675;
+			public const int minesboom = 2130837675;
 			
 			// aapt resource value: 0x7f0200ac
-			public const int notification_bg = 2130837676;
+			public const int Mns = 2130837676;
 			
 			// aapt resource value: 0x7f0200ad
-			public const int notification_bg_low = 2130837677;
+			public const int notification_action_background = 2130837677;
 			
 			// aapt resource value: 0x7f0200ae
-			public const int notification_bg_low_normal = 2130837678;
+			public const int notification_bg = 2130837678;
 			
 			// aapt resource value: 0x7f0200af
-			public const int notification_bg_low_pressed = 2130837679;
+			public const int notification_bg_low = 2130837679;
 			
 			// aapt resource value: 0x7f0200b0
-			public const int notification_bg_normal = 2130837680;
+			public const int notification_bg_low_normal = 2130837680;
 			
 			// aapt resource value: 0x7f0200b1
-			public const int notification_bg_normal_pressed = 2130837681;
+			public const int notification_bg_low_pressed = 2130837681;
 			
 			// aapt resource value: 0x7f0200b2
-			public const int notification_icon_background = 2130837682;
-			
-			// aapt resource value: 0x7f0200b9
-			public const int notification_template_icon_bg = 2130837689;
-			
-			// aapt resource value: 0x7f0200ba
-			public const int notification_template_icon_low_bg = 2130837690;
+			public const int notification_bg_normal = 2130837682;
 			
 			// aapt resource value: 0x7f0200b3
-			public const int notification_tile_bg = 2130837683;
+			public const int notification_bg_normal_pressed = 2130837683;
 			
 			// aapt resource value: 0x7f0200b4
-			public const int notify_panel_notification_icon_bg = 2130837684;
+			public const int notification_icon_background = 2130837684;
+			
+			// aapt resource value: 0x7f0200bc
+			public const int notification_template_icon_bg = 2130837692;
+			
+			// aapt resource value: 0x7f0200bd
+			public const int notification_template_icon_low_bg = 2130837693;
 			
 			// aapt resource value: 0x7f0200b5
-			public const int Plain = 2130837685;
+			public const int notification_tile_bg = 2130837685;
 			
 			// aapt resource value: 0x7f0200b6
-			public const int RedGift = 2130837686;
+			public const int notify_panel_notification_icon_bg = 2130837686;
 			
 			// aapt resource value: 0x7f0200b7
-			public const int spinner_bg = 2130837687;
+			public const int Plain = 2130837687;
 			
 			// aapt resource value: 0x7f0200b8
-			public const int ticket_bg = 2130837688;
+			public const int RedGift = 2130837688;
+			
+			// aapt resource value: 0x7f0200b9
+			public const int spinner_bg = 2130837689;
+			
+			// aapt resource value: 0x7f0200ba
+			public const int ticket_bg = 2130837690;
+			
+			// aapt resource value: 0x7f0200bb
+			public const int vouchers = 2130837691;
 			
 			static Drawable()
 			{
@@ -2280,71 +2289,74 @@ namespace Kalingo
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0b00b2
-			public const int Button1 = 2131427506;
-			
-			// aapt resource value: 0x7f0b00a9
-			public const int Button10 = 2131427497;
-			
-			// aapt resource value: 0x7f0b00a8
-			public const int Button11 = 2131427496;
-			
-			// aapt resource value: 0x7f0b00a7
-			public const int Button12 = 2131427495;
-			
-			// aapt resource value: 0x7f0b00a5
-			public const int Button13 = 2131427493;
-			
-			// aapt resource value: 0x7f0b00a4
-			public const int Button14 = 2131427492;
-			
-			// aapt resource value: 0x7f0b00a3
-			public const int Button15 = 2131427491;
-			
-			// aapt resource value: 0x7f0b00a2
-			public const int Button16 = 2131427490;
+			// aapt resource value: 0x7f0b00ba
+			public const int Button1 = 2131427514;
 			
 			// aapt resource value: 0x7f0b00b1
-			public const int Button2 = 2131427505;
+			public const int Button10 = 2131427505;
 			
 			// aapt resource value: 0x7f0b00b0
-			public const int Button3 = 2131427504;
+			public const int Button11 = 2131427504;
 			
 			// aapt resource value: 0x7f0b00af
-			public const int Button4 = 2131427503;
-			
-			// aapt resource value: 0x7f0b00ae
-			public const int Button5 = 2131427502;
+			public const int Button12 = 2131427503;
 			
 			// aapt resource value: 0x7f0b00ad
-			public const int Button6 = 2131427501;
+			public const int Button13 = 2131427501;
 			
 			// aapt resource value: 0x7f0b00ac
-			public const int Button7 = 2131427500;
+			public const int Button14 = 2131427500;
 			
 			// aapt resource value: 0x7f0b00ab
-			public const int Button8 = 2131427499;
+			public const int Button15 = 2131427499;
 			
 			// aapt resource value: 0x7f0b00aa
-			public const int Button9 = 2131427498;
+			public const int Button16 = 2131427498;
 			
-			// aapt resource value: 0x7f0b00d1
-			public const int ClaimLayout = 2131427537;
+			// aapt resource value: 0x7f0b00b9
+			public const int Button2 = 2131427513;
 			
-			// aapt resource value: 0x7f0b00d6
-			public const int CoinsLayout = 2131427542;
+			// aapt resource value: 0x7f0b00b8
+			public const int Button3 = 2131427512;
 			
-			// aapt resource value: 0x7f0b00a1
-			public const int FourthRow = 2131427489;
+			// aapt resource value: 0x7f0b00b7
+			public const int Button4 = 2131427511;
 			
-			// aapt resource value: 0x7f0b00a6
-			public const int ThirdRow = 2131427494;
+			// aapt resource value: 0x7f0b00b6
+			public const int Button5 = 2131427510;
 			
-			// aapt resource value: 0x7f0b00ce
-			public const int VoucherHeaderLayout = 2131427534;
+			// aapt resource value: 0x7f0b00b5
+			public const int Button6 = 2131427509;
 			
-			// aapt resource value: 0x7f0b00ba
-			public const int action0 = 2131427514;
+			// aapt resource value: 0x7f0b00b4
+			public const int Button7 = 2131427508;
+			
+			// aapt resource value: 0x7f0b00b3
+			public const int Button8 = 2131427507;
+			
+			// aapt resource value: 0x7f0b00b2
+			public const int Button9 = 2131427506;
+			
+			// aapt resource value: 0x7f0b00d8
+			public const int ClaimLayout = 2131427544;
+			
+			// aapt resource value: 0x7f0b00dd
+			public const int CoinsLayout = 2131427549;
+			
+			// aapt resource value: 0x7f0b00a9
+			public const int FourthRow = 2131427497;
+			
+			// aapt resource value: 0x7f0b00ae
+			public const int ThirdRow = 2131427502;
+			
+			// aapt resource value: 0x7f0b009a
+			public const int TicketHeader = 2131427482;
+			
+			// aapt resource value: 0x7f0b00d5
+			public const int VoucherHeaderLayout = 2131427541;
+			
+			// aapt resource value: 0x7f0b00c2
+			public const int action0 = 2131427522;
 			
 			// aapt resource value: 0x7f0b0061
 			public const int action_bar = 2131427425;
@@ -2367,17 +2379,17 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b003e
 			public const int action_bar_title = 2131427390;
 			
-			// aapt resource value: 0x7f0b00b7
-			public const int action_container = 2131427511;
+			// aapt resource value: 0x7f0b00bf
+			public const int action_container = 2131427519;
 			
 			// aapt resource value: 0x7f0b0062
 			public const int action_context_bar = 2131427426;
 			
-			// aapt resource value: 0x7f0b00be
-			public const int action_divider = 2131427518;
+			// aapt resource value: 0x7f0b00c6
+			public const int action_divider = 2131427526;
 			
-			// aapt resource value: 0x7f0b00b8
-			public const int action_image = 2131427512;
+			// aapt resource value: 0x7f0b00c0
+			public const int action_image = 2131427520;
 			
 			// aapt resource value: 0x7f0b0003
 			public const int action_menu_divider = 2131427331;
@@ -2394,11 +2406,11 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0040
 			public const int action_mode_close_button = 2131427392;
 			
-			// aapt resource value: 0x7f0b00b9
-			public const int action_text = 2131427513;
+			// aapt resource value: 0x7f0b00c1
+			public const int action_text = 2131427521;
 			
-			// aapt resource value: 0x7f0b00c6
-			public const int actions = 2131427526;
+			// aapt resource value: 0x7f0b00ce
+			public const int actions = 2131427534;
 			
 			// aapt resource value: 0x7f0b0041
 			public const int activity_chooser_view_content = 2131427393;
@@ -2433,44 +2445,47 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0016
 			public const int box_count = 2131427350;
 			
-			// aapt resource value: 0x7f0b00b6
-			public const int btnAccountSubmit = 2131427510;
+			// aapt resource value: 0x7f0b00be
+			public const int btnAccountSubmit = 2131427518;
 			
-			// aapt resource value: 0x7f0b00d7
-			public const int btnAmazon = 2131427543;
+			// aapt resource value: 0x7f0b00de
+			public const int btnAmazon = 2131427550;
 			
-			// aapt resource value: 0x7f0b00dc
-			public const int btnBodyShop = 2131427548;
+			// aapt resource value: 0x7f0b009b
+			public const int btnBack = 2131427483;
+			
+			// aapt resource value: 0x7f0b00e3
+			public const int btnBodyShop = 2131427555;
 			
 			// aapt resource value: 0x7f0b0076
 			public const int btnCaptchaSubmit = 2131427446;
 			
-			// aapt resource value: 0x7f0b00d4
-			public const int btnClaimVoucher = 2131427540;
-			
-			// aapt resource value: 0x7f0b00d9
-			public const int btnEbay = 2131427545;
-			
-			// aapt resource value: 0x7f0b00da
-			public const int btnFlipkart = 2131427546;
-			
 			// aapt resource value: 0x7f0b00db
-			public const int btnHnm = 2131427547;
+			public const int btnClaimVoucher = 2131427547;
+			
+			// aapt resource value: 0x7f0b00e0
+			public const int btnEbay = 2131427552;
+			
+			// aapt resource value: 0x7f0b00e1
+			public const int btnFlipkart = 2131427553;
+			
+			// aapt resource value: 0x7f0b00e2
+			public const int btnHnm = 2131427554;
 			
 			// aapt resource value: 0x7f0b0095
 			public const int btnLogIn = 2131427477;
 			
-			// aapt resource value: 0x7f0b00d8
-			public const int btnMns = 2131427544;
+			// aapt resource value: 0x7f0b00df
+			public const int btnMns = 2131427551;
 			
-			// aapt resource value: 0x7f0b009b
-			public const int btnPlayMinesBoom = 2131427483;
+			// aapt resource value: 0x7f0b00a0
+			public const int btnPlayMinesBoom = 2131427488;
 			
-			// aapt resource value: 0x7f0b00cf
-			public const int btnShopBack = 2131427535;
+			// aapt resource value: 0x7f0b00d6
+			public const int btnShopBack = 2131427542;
 			
-			// aapt resource value: 0x7f0b009c
-			public const int btnShopVouchers = 2131427484;
+			// aapt resource value: 0x7f0b00a3
+			public const int btnShopVouchers = 2131427491;
 			
 			// aapt resource value: 0x7f0b0098
 			public const int btnfbLogin = 2131427480;
@@ -2481,8 +2496,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0048
 			public const int buttonPanel = 2131427400;
 			
-			// aapt resource value: 0x7f0b00bb
-			public const int cancel_action = 2131427515;
+			// aapt resource value: 0x7f0b00c3
+			public const int cancel_action = 2131427523;
 			
 			// aapt resource value: 0x7f0b007b
 			public const int cancel_button = 2131427451;
@@ -2493,8 +2508,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0058
 			public const int checkbox = 2131427416;
 			
-			// aapt resource value: 0x7f0b00c2
-			public const int chronometer = 2131427522;
+			// aapt resource value: 0x7f0b00ca
+			public const int chronometer = 2131427530;
 			
 			// aapt resource value: 0x7f0b0037
 			public const int collapseActionView = 2131427383;
@@ -2565,8 +2580,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0034
 			public const int end = 2131427380;
 			
-			// aapt resource value: 0x7f0b00cc
-			public const int end_padder = 2131427532;
+			// aapt resource value: 0x7f0b00d4
+			public const int end_padder = 2131427540;
 			
 			// aapt resource value: 0x7f0b0042
 			public const int expand_activities_button = 2131427394;
@@ -2595,8 +2610,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0046
 			public const int icon = 2131427398;
 			
-			// aapt resource value: 0x7f0b00c7
-			public const int icon_group = 2131427527;
+			// aapt resource value: 0x7f0b00cf
+			public const int icon_group = 2131427535;
 			
 			// aapt resource value: 0x7f0b000d
 			public const int icon_only = 2131427341;
@@ -2613,8 +2628,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0071
 			public const int imgHeader = 2131427441;
 			
-			// aapt resource value: 0x7f0b00c3
-			public const int info = 2131427523;
+			// aapt resource value: 0x7f0b00cb
+			public const int info = 2131427531;
 			
 			// aapt resource value: 0x7f0b0019
 			public const int inline = 2131427353;
@@ -2625,14 +2640,14 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0021
 			public const int large = 2131427361;
 			
-			// aapt resource value: 0x7f0b009f
-			public const int lblLogIn = 2131427487;
+			// aapt resource value: 0x7f0b00a7
+			public const int lblLogIn = 2131427495;
 			
-			// aapt resource value: 0x7f0b00b5
-			public const int lblLogout = 2131427509;
+			// aapt resource value: 0x7f0b00bd
+			public const int lblLogout = 2131427517;
 			
-			// aapt resource value: 0x7f0b009d
-			public const int lblMyAccount = 2131427485;
+			// aapt resource value: 0x7f0b00a5
+			public const int lblMyAccount = 2131427493;
 			
 			// aapt resource value: 0x7f0b0073
 			public const int lblNewUser = 2131427443;
@@ -2640,23 +2655,32 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0093
 			public const int lblPassword = 2131427475;
 			
+			// aapt resource value: 0x7f0b00a1
+			public const int lblPlayMinesboom = 2131427489;
+			
 			// aapt resource value: 0x7f0b0097
 			public const int lblSignUp = 2131427479;
 			
-			// aapt resource value: 0x7f0b00b3
-			public const int lblUpdateEmail = 2131427507;
+			// aapt resource value: 0x7f0b009c
+			public const int lblTickets = 2131427484;
+			
+			// aapt resource value: 0x7f0b00bb
+			public const int lblUpdateEmail = 2131427515;
 			
 			// aapt resource value: 0x7f0b0091
 			public const int lblUsername = 2131427473;
 			
-			// aapt resource value: 0x7f0b00d0
-			public const int lblVoucher = 2131427536;
+			// aapt resource value: 0x7f0b00d7
+			public const int lblVoucher = 2131427543;
 			
-			// aapt resource value: 0x7f0b00d3
-			public const int lblVoucherCost = 2131427539;
+			// aapt resource value: 0x7f0b00da
+			public const int lblVoucherCost = 2131427546;
 			
-			// aapt resource value: 0x7f0b00d5
-			public const int lblVoucherNote = 2131427541;
+			// aapt resource value: 0x7f0b00dc
+			public const int lblVoucherNote = 2131427548;
+			
+			// aapt resource value: 0x7f0b00a4
+			public const int lblbuyVoucher = 2131427492;
 			
 			// aapt resource value: 0x7f0b001c
 			public const int left = 2131427356;
@@ -2667,11 +2691,11 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0072
 			public const int linBase = 2131427442;
 			
-			// aapt resource value: 0x7f0b00c8
-			public const int line1 = 2131427528;
+			// aapt resource value: 0x7f0b00d0
+			public const int line1 = 2131427536;
 			
-			// aapt resource value: 0x7f0b00ca
-			public const int line3 = 2131427530;
+			// aapt resource value: 0x7f0b00d2
+			public const int line3 = 2131427538;
 			
 			// aapt resource value: 0x7f0b0024
 			public const int listMode = 2131427364;
@@ -2682,14 +2706,14 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0070
 			public const int main_layout = 2131427440;
 			
-			// aapt resource value: 0x7f0b00bd
-			public const int media_actions = 2131427517;
+			// aapt resource value: 0x7f0b00c5
+			public const int media_actions = 2131427525;
 			
 			// aapt resource value: 0x7f0b008a
 			public const int mediacontroller_progress = 2131427466;
 			
-			// aapt resource value: 0x7f0b009e
-			public const int messenger_send_button = 2131427486;
+			// aapt resource value: 0x7f0b00a6
+			public const int messenger_send_button = 2131427494;
 			
 			// aapt resource value: 0x7f0b0035
 			public const int middle = 2131427381;
@@ -2715,14 +2739,14 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0022
 			public const int normal = 2131427362;
 			
-			// aapt resource value: 0x7f0b00c5
-			public const int notification_background = 2131427525;
+			// aapt resource value: 0x7f0b00cd
+			public const int notification_background = 2131427533;
 			
-			// aapt resource value: 0x7f0b00c0
-			public const int notification_main_column = 2131427520;
+			// aapt resource value: 0x7f0b00c8
+			public const int notification_main_column = 2131427528;
 			
-			// aapt resource value: 0x7f0b00bf
-			public const int notification_main_column_container = 2131427519;
+			// aapt resource value: 0x7f0b00c7
+			public const int notification_main_column_container = 2131427527;
 			
 			// aapt resource value: 0x7f0b0013
 			public const int open_graph = 2131427347;
@@ -2757,17 +2781,17 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b001d
 			public const int right = 2131427357;
 			
-			// aapt resource value: 0x7f0b00c4
-			public const int right_icon = 2131427524;
+			// aapt resource value: 0x7f0b00cc
+			public const int right_icon = 2131427532;
 			
-			// aapt resource value: 0x7f0b00c1
-			public const int right_side = 2131427521;
+			// aapt resource value: 0x7f0b00c9
+			public const int right_side = 2131427529;
 			
 			// aapt resource value: 0x7f0b002e
 			public const int screen = 2131427374;
 			
-			// aapt resource value: 0x7f0b00cd
-			public const int scroll = 2131427533;
+			// aapt resource value: 0x7f0b0099
+			public const int scroll = 2131427481;
 			
 			// aapt resource value: 0x7f0b0050
 			public const int scrollIndicatorDown = 2131427408;
@@ -2835,8 +2859,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0008
 			public const int split_action_bar = 2131427336;
 			
-			// aapt resource value: 0x7f0b00d2
-			public const int spnVoucher = 2131427538;
+			// aapt resource value: 0x7f0b00d9
+			public const int spnVoucher = 2131427545;
 			
 			// aapt resource value: 0x7f0b002f
 			public const int src_atop = 2131427375;
@@ -2850,8 +2874,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b000e
 			public const int standard = 2131427342;
 			
-			// aapt resource value: 0x7f0b00bc
-			public const int status_bar_latest_event_content = 2131427516;
+			// aapt resource value: 0x7f0b00c4
+			public const int status_bar_latest_event_content = 2131427524;
 			
 			// aapt resource value: 0x7f0b005b
 			public const int submenuarrow = 2131427419;
@@ -2865,17 +2889,23 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0025
 			public const int tabMode = 2131427365;
 			
-			// aapt resource value: 0x7f0b00cb
-			public const int text = 2131427531;
+			// aapt resource value: 0x7f0b00d3
+			public const int text = 2131427539;
 			
-			// aapt resource value: 0x7f0b00c9
-			public const int text2 = 2131427529;
+			// aapt resource value: 0x7f0b00d1
+			public const int text2 = 2131427537;
 			
 			// aapt resource value: 0x7f0b004f
 			public const int textSpacerNoButtons = 2131427407;
 			
 			// aapt resource value: 0x7f0b004e
 			public const int textSpacerNoTitle = 2131427406;
+			
+			// aapt resource value: 0x7f0b009f
+			public const int ticket_layout = 2131427487;
+			
+			// aapt resource value: 0x7f0b009e
+			public const int ticket_voucher_layout = 2131427486;
 			
 			// aapt resource value: 0x7f0b008b
 			public const int time = 2131427467;
@@ -2904,20 +2934,17 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0074
 			public const int txtCaptcha = 2131427444;
 			
-			// aapt resource value: 0x7f0b009a
-			public const int txtLoading = 2131427482;
+			// aapt resource value: 0x7f0b009d
+			public const int txtLoading = 2131427485;
 			
-			// aapt resource value: 0x7f0b0099
-			public const int txtMinesBoom = 2131427481;
-			
-			// aapt resource value: 0x7f0b00a0
-			public const int txtMinesChances = 2131427488;
+			// aapt resource value: 0x7f0b00a8
+			public const int txtMinesChances = 2131427496;
 			
 			// aapt resource value: 0x7f0b0094
 			public const int txtPassword = 2131427476;
 			
-			// aapt resource value: 0x7f0b00b4
-			public const int txtUpdateEmail = 2131427508;
+			// aapt resource value: 0x7f0b00bc
+			public const int txtUpdateEmail = 2131427516;
 			
 			// aapt resource value: 0x7f0b0092
 			public const int txtUsername = 2131427474;
@@ -2933,6 +2960,9 @@ namespace Kalingo
 			
 			// aapt resource value: 0x7f0b008c
 			public const int video_frame = 2131427468;
+			
+			// aapt resource value: 0x7f0b00a2
+			public const int voucher_layout = 2131427490;
 			
 			// aapt resource value: 0x7f0b000f
 			public const int wide = 2131427343;
