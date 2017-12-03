@@ -12,7 +12,7 @@ using Kalingo.Core;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "M E N U", MainLauncher = true)]
+    [Activity(Label = "M E N U"/*, MainLauncher = true*/)]
     public class MenuActivity : Activity, IRewardedVideoAdListener
     {
         private UserService _userService;

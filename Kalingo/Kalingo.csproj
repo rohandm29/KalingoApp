@@ -176,6 +176,8 @@
     <Compile Include="Activities\MenuActivity.cs" />
     <Compile Include="Activities\MinesBoomActivity.cs" />
     <Compile Include="Activities\VoucherActivity.cs" />
+    <Compile Include="Adapter\GridTicketImage.cs" />
+    <Compile Include="Adapter\GTAdapter.cs" />
     <Compile Include="AdMob\InterstitialAdListener.cs" />
     <Compile Include="AdMob\RewardedAdListener.cs" />
     <Compile Include="Helpers\Settings.cs" />
@@ -207,6 +209,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\MyAccount.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\TicketCards.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

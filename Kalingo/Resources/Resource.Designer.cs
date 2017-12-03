@@ -2338,22 +2338,22 @@ namespace Kalingo
 			public const int Button9 = 2131427506;
 			
 			// aapt resource value: 0x7f0b00d8
-			public const int ClaimLayout = 2131427544;
-			
-			// aapt resource value: 0x7f0b00dd
-			public const int CoinsLayout = 2131427549;
+			public const int BuyLayout = 2131427544;
 			
 			// aapt resource value: 0x7f0b00a9
 			public const int FourthRow = 2131427497;
+			
+			// aapt resource value: 0x7f0b00d7
+			public const int HLine1 = 2131427543;
+			
+			// aapt resource value: 0x7f0b00e0
+			public const int HLine2 = 2131427552;
 			
 			// aapt resource value: 0x7f0b00ae
 			public const int ThirdRow = 2131427502;
 			
 			// aapt resource value: 0x7f0b009a
 			public const int TicketHeader = 2131427482;
-			
-			// aapt resource value: 0x7f0b00d5
-			public const int VoucherHeaderLayout = 2131427541;
 			
 			// aapt resource value: 0x7f0b00c2
 			public const int action0 = 2131427522;
@@ -2427,6 +2427,9 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0055
 			public const int alertTitle = 2131427413;
 			
+			// aapt resource value: 0x7f0b00e1
+			public const int alltickets = 2131427553;
+			
 			// aapt resource value: 0x7f0b0036
 			public const int always = 2131427382;
 			
@@ -2448,35 +2451,17 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b00be
 			public const int btnAccountSubmit = 2131427518;
 			
-			// aapt resource value: 0x7f0b00de
-			public const int btnAmazon = 2131427550;
-			
 			// aapt resource value: 0x7f0b009b
 			public const int btnBack = 2131427483;
-			
-			// aapt resource value: 0x7f0b00e3
-			public const int btnBodyShop = 2131427555;
 			
 			// aapt resource value: 0x7f0b0076
 			public const int btnCaptchaSubmit = 2131427446;
 			
-			// aapt resource value: 0x7f0b00db
-			public const int btnClaimVoucher = 2131427547;
-			
-			// aapt resource value: 0x7f0b00e0
-			public const int btnEbay = 2131427552;
-			
-			// aapt resource value: 0x7f0b00e1
-			public const int btnFlipkart = 2131427553;
-			
-			// aapt resource value: 0x7f0b00e2
-			public const int btnHnm = 2131427554;
+			// aapt resource value: 0x7f0b00df
+			public const int btnClaimVoucher = 2131427551;
 			
 			// aapt resource value: 0x7f0b0095
 			public const int btnLogIn = 2131427477;
-			
-			// aapt resource value: 0x7f0b00df
-			public const int btnMns = 2131427551;
 			
 			// aapt resource value: 0x7f0b00a0
 			public const int btnPlayMinesBoom = 2131427488;
@@ -2670,17 +2655,14 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0091
 			public const int lblUsername = 2131427473;
 			
-			// aapt resource value: 0x7f0b00d7
-			public const int lblVoucher = 2131427543;
-			
-			// aapt resource value: 0x7f0b00da
-			public const int lblVoucherCost = 2131427546;
-			
-			// aapt resource value: 0x7f0b00dc
-			public const int lblVoucherNote = 2131427548;
+			// aapt resource value: 0x7f0b00dd
+			public const int lblVoucherCost = 2131427549;
 			
 			// aapt resource value: 0x7f0b00a4
 			public const int lblbuyVoucher = 2131427492;
+			
+			// aapt resource value: 0x7f0b00d9
+			public const int lbldropdownlist = 2131427545;
 			
 			// aapt resource value: 0x7f0b001c
 			public const int left = 2131427356;
@@ -2720,6 +2702,9 @@ namespace Kalingo
 			
 			// aapt resource value: 0x7f0b002d
 			public const int multiply = 2131427373;
+			
+			// aapt resource value: 0x7f0b00de
+			public const int name = 2131427550;
 			
 			// aapt resource value: 0x7f0b0039
 			public const int never = 2131427385;
@@ -2762,6 +2747,12 @@ namespace Kalingo
 			
 			// aapt resource value: 0x7f0b0084
 			public const int prev = 2131427460;
+			
+			// aapt resource value: 0x7f0b00dc
+			public const int priceLayout = 2131427548;
+			
+			// aapt resource value: 0x7f0b00db
+			public const int pricemainLayout = 2131427547;
 			
 			// aapt resource value: 0x7f0b0079
 			public const int progress_bar = 2131427449;
@@ -2859,8 +2850,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0008
 			public const int split_action_bar = 2131427336;
 			
-			// aapt resource value: 0x7f0b00d9
-			public const int spnVoucher = 2131427545;
+			// aapt resource value: 0x7f0b00da
+			public const int spnVoucher = 2131427546;
 			
 			// aapt resource value: 0x7f0b002f
 			public const int src_atop = 2131427375;
@@ -2900,6 +2891,9 @@ namespace Kalingo
 			
 			// aapt resource value: 0x7f0b004e
 			public const int textSpacerNoTitle = 2131427406;
+			
+			// aapt resource value: 0x7f0b00d5
+			public const int ticketImg = 2131427541;
 			
 			// aapt resource value: 0x7f0b009f
 			public const int ticket_layout = 2131427487;
@@ -3210,7 +3204,10 @@ namespace Kalingo
 			public const int support_simple_spinner_dropdown_item = 2130903104;
 			
 			// aapt resource value: 0x7f030041
-			public const int Voucher = 2130903105;
+			public const int TicketCards = 2130903105;
+			
+			// aapt resource value: 0x7f030042
+			public const int Voucher = 2130903106;
 			
 			static Layout()
 			{
