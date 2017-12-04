@@ -9,10 +9,11 @@ using Android.Widget;
 using Kalingo.Api.Client.Services;
 using Kalingo.Games.Contract.Entity.Voucher;
 using Kalingo.Adapters;
+using Kalingo.Core;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "Kalingo", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Kalingo", /*MainLauncher = true, */Icon = "@drawable/icon")]
     public class VoucherActivity : Activity
     {
         private VoucherService _voucherService;
@@ -25,7 +26,7 @@ namespace Kalingo.Activities
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            
             SetContentView(Resource.Layout.Voucher);
 
             await Initialise();
@@ -62,7 +63,7 @@ namespace Kalingo.Activities
                 var cost = _voucherResponse.First(x => x.Description == sel).Coins;
 
                 var lblVoucherCost = FindViewById<TextView>(Resource.Id.lblVoucherCost);
-                lblVoucherCost.Text = $"COINS NEED : {cost} GOLD";
+                lblVoucherCost.Text = $"COINS NEED : {cost} GOLD. Availabe : {App.Gold}";
             }
         }
 

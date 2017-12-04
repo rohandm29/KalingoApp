@@ -20,7 +20,7 @@ namespace Kalingo.Api.Client.Services
         {
             try
             {
-                var vouchers = await _apiClient.GetVouchers(2);
+                var vouchers = await _apiClient.GetVouchers(1);
 
                 return vouchers;
             }
