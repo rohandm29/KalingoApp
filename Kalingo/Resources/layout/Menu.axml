@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/ticket_bg">
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="match_parent">
@@ -12,35 +13,36 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/white">
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center_vertical|center"
+                android:background="@android:color/white"
+                android:id="@+id/TicketHeader"
+                android:weightSum="1"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+                <TextView
+                    android:text="TICKETS"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:gravity="center_vertical|center"
+                    android:gravity="center_horizontal|center"
+                    android:id="@+id/lblTickets"
+                    android:textStyle="bold"
+                    android:layout_marginRight="0.0dp"
+                    android:layout_weight="0.6"
+                    android:textColor="@android:color/black"
+                    android:textSize="17dp" />
+                <LinearLayout
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/blanklayout"
                     android:background="@android:color/white"
-                    android:id="@+id/TicketHeader"
-                    android:padding="5dp"
-                    android:weightSum="2"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginBottom="3dp">
-                    <TextView
-                        android:text="GAMES"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal|center"
-                        android:id="@+id/lblTickets"
-                        android:textStyle="bold"
-                        android:layout_weight="0.8"
-                        android:textColor="@android:color/black"
-                        android:layout_marginRight="40dp" />
-                </LinearLayout>
+                    android:layout_weight="0.2"
+                    android:layout_marginRight="5dp" />
             </LinearLayout>
             <TextView
                 android:text="Loading...Please wait"
@@ -54,19 +56,20 @@
                 android:textSize="15sp"
                 android:layout_marginTop="35dp" />
             <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="250dp"
-                android:orientation="vertical"
-                android:weightSum="1"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
                 android:layout_marginTop="15dp"
-                android:gravity="center_horizontal|center"
+                android:gravity="center"
                 android:id="@+id/ticket_voucher_layout"
-                android:background="@android:color/transparent">
+                android:background="@android:color/transparent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="75dp"
+                android:layout_marginRight="75dp">
                 <android.support.v7.widget.CardView
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="0.5"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
                     android:gravity="center"
                     android:background="@android:color/white"
                     android:id="@+id/ticket_layout"
@@ -78,25 +81,34 @@
                         android:src="@drawable/minesboom"
                         android:id="@+id/btnPlayMinesBoom"
                         android:layout_width="match_parent"
-                        android:layout_marginTop="10dp" />
+                        android:layout_marginTop="20dp" />
                     <TextView
                         android:text="Play MinesBoom"
                         android:layout_width="match_parent"
                         android:gravity="center"
                         android:id="@+id/lblPlayMinesboom"
                         android:textStyle="bold"
-                        android:textSize="17sp"
+                        android:textSize="16sp"
                         android:layout_marginTop="20dp"
                         android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:textColor="#003d98" />
-                <!--</RelativeLayout>-->
                 </android.support.v7.widget.CardView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:id="@+id/voucher_layout"
+                android:background="@android:color/transparent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="75dp"
+                android:layout_marginRight="75dp">
                 <android.support.v7.widget.CardView
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="0.5"
+                    android:orientation="horizontal"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:background="@android:color/white"
@@ -109,7 +121,7 @@
                         android:src="@drawable/vouchers"
                         android:layout_width="match_parent"
                         android:id="@+id/btnShopVouchers"
-                        android:layout_marginTop="10dp" />
+                        android:layout_marginTop="20dp" />
                     <TextView
                         android:text="Vouchers"
                         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -120,9 +132,8 @@
                         android:textStyle="bold"
                         android:textColor="#003d98"
                         android:layout_marginTop="20dp"
-                        android:textSize="17sp"
+                        android:textSize="16sp"
                         android:layout_gravity="center" />
-                <!--</RelativeLayout>-->
                 </android.support.v7.widget.CardView>
             </LinearLayout>
             <LinearLayout
@@ -142,7 +153,7 @@
                     android:id="@+id/lblMyAccount"
                     android:textStyle="bold"
                     android:textColor="@android:color/white"
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"

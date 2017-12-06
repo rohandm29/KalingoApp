@@ -23,13 +23,13 @@ namespace Kalingo.Activities
     {
         private UserService _userService;
         private CountryService _countryService;
-        private ICallbackManager mFBCallManager;
+        private ICallbackManager _mFbCallManager;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            FacebookSdk.SdkInitialize(this.ApplicationContext);
+            FacebookSdk.SdkInitialize(ApplicationContext);
 
             SetContentView(Resource.Layout.Login);
 
@@ -83,7 +83,7 @@ namespace Kalingo.Activities
             }
         }
 
-        private void UpdateSettings(Config config)
+        private static void UpdateSettings(Config config)
         {
             App.Update(config.TotalChances, config.TotalGifts, config.InterstitialMode,
                 config.MaintenanceMode, config.PlayAgainEnabled);
@@ -160,8 +160,8 @@ namespace Kalingo.Activities
             _userService = new UserService();
             _countryService = new CountryService();
 
-            mFBCallManager = CallbackManagerFactory.Create();
-            LoginManager.Instance.RegisterCallback(mFBCallManager, this);
+            _mFbCallManager = CallbackManagerFactory.Create();
+            LoginManager.Instance.RegisterCallback(_mFbCallManager, this);
         }
 
         private void RegisterUser()
@@ -239,15 +239,14 @@ namespace Kalingo.Activities
             LogUnhandledException(newExc);
         }
 
-        internal static void LogUnhandledException(System.Exception exception)
+        internal static void LogUnhandledException(Exception exception)
         {
             try
             {
                 const string errorFileName = "Fatal.log";
                 var libraryPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // iOS: Environment.SpecialFolder.Resources
                 var errorFilePath = Path.Combine(libraryPath, errorFileName);
-                var errorMessage = string.Format("Time: {0}\r\nError: Unhandled Exception\r\n{1}",
-                DateTime.Now, exception.ToString());
+                var errorMessage = $"Time: {DateTime.Now}\r\nError: Unhandled Exception\r\n{exception}";
                 File.WriteAllText(errorFilePath, errorMessage);
 
                 // Log to Android Device Logging.
@@ -275,7 +274,7 @@ namespace Kalingo.Activities
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
-            mFBCallManager.OnActivityResult(requestCode, (int)resultCode, data);
+            _mFbCallManager.OnActivityResult(requestCode, (int)resultCode, data);
         }
     }
 }
