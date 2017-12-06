@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Kalingo.Api.Client.Client;
 using Kalingo.Core;
 using Kalingo.Games.Contract.Entity;
@@ -15,27 +16,27 @@ namespace Kalingo.Api.Client.Services
             _apiClient = new KalingoApiClient();
         }
 
-        public async Task<bool> CreateMinesBoom(int userId)
+        public async Task<IEnumerable<Settings>> CreateMinesBoom(int userId, bool playAgain)
         {
             try
             {
-                var gameId = await _apiClient.CreateMinesBoom(userId);
+                var newMinesboomResponse = await _apiClient.CreateMinesBoom(userId, playAgain);
 
-                SaveSessionGameId(gameId);
+                SaveSessionGameId(newMinesboomResponse.GameId);
 
-                return true;
+                return newMinesboomResponse.Settings;
             }
             catch (System.Exception)
             {
-                return false;
+                return new List<Settings>();
             }
         }
 
-        public async Task<MinesboomSelectionResponse> Submit(int optionSelected)
+        public async Task<MinesboomSelectionResponse> Submit(int optionSelected, bool playAgain)
         {
             try
             {
-                var mbArgs = new MinesboomSelectionRequest(App.GameId, App.UserId, optionSelected);
+                var mbArgs = new MinesboomSelectionRequest(App.GameId, App.UserId, optionSelected, playAgain);
 
                 var result = await _apiClient.SubmitMinesBoom(mbArgs);
 

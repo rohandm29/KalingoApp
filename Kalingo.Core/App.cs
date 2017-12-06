@@ -18,6 +18,7 @@ namespace Kalingo.Core
         public static bool InterstitialMode { get; set; }
         public static bool MaintenanceMode { get; set; }
         public static bool PlayAgainEnabled { get; set; }
+        public static string Reward { get; set; }
 
         public static void Update(int totalChances, int totalGifts, bool interstitialMode, bool maintenanceMode, bool playAgainEnabled)
         {

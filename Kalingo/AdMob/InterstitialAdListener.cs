@@ -20,6 +20,7 @@ namespace Kalingo.AdMob
         public override void OnAdClosed()
         {
             var intent = new Intent(_context, typeof(MinesBoomActivity));
+            intent.PutExtra("Reward", "Insterstitial-Ad");
             _context.StartActivity(intent);
         }
 

@@ -93,7 +93,7 @@ namespace Kalingo.Activities
         public void OnRewarded(IRewardItem reward)
         {
             var intent = new Intent(this, typeof(MinesBoomActivity));
-            //intent.PutExtra("Reward", reward.Amount.ToString());
+            intent.PutExtra("Reward", reward.Type + "-" + reward.Amount);
             //intent.PutExtra("Type", reward.Type);
             StartActivity(intent);
         }

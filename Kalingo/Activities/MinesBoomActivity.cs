@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -6,6 +8,7 @@ using Android.Graphics;
 using Android.Media;
 using Android.OS;
 using Android.Widget;
+using Java.Lang;
 using Kalingo.Api.Client.Services;
 using Kalingo.Core;
 using Kalingo.Games.Contract.Entity.MinesBoom;
@@ -19,6 +22,7 @@ namespace Kalingo.Activities
         private MediaPlayer _playerRed, _playerGreen;
         private ProgressDialog _progress;
         private bool _playAgain = App.PlayAgainEnabled;
+        private IEnumerable<Settings> _settings;
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -29,7 +33,9 @@ namespace Kalingo.Activities
             SetupAudio();
             RegisterControls();
 
-            await _minesBoomService.CreateMinesBoom(2);
+            App.Reward = Intent.GetStringExtra("Reward");
+
+            _settings = await _minesBoomService.CreateMinesBoom(App.UserId, false);
 
             ShowDialogCoinsEarned();
         }
@@ -42,7 +48,7 @@ namespace Kalingo.Activities
             btnSelected.Enabled = false;
             var id = int.Parse(btnSelected.Text);
 
-            var result = await _minesBoomService.Submit(id);
+            var result = await _minesBoomService.Submit(id, _playAgain);
 
             //System.Threading.Thread.Sleep(1000);
 
@@ -98,7 +104,8 @@ namespace Kalingo.Activities
 
         private async void PlayAgain()
         {
-            await _minesBoomService.CreateMinesBoom(1);
+            _settings = await _minesBoomService.CreateMinesBoom(App.UserId, true);
+
             ClearScreen();
         }
 
@@ -125,8 +132,8 @@ namespace Kalingo.Activities
                 RunOnUiThread(() =>
                 {
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.SetTitle("Coins Earned On Wins");
-                    builder.SetMessage(" 5 Gifts = 5 Gold \n\n 4 Gift = 2 Gold \n\n 3 Gifts =  5 Silver");
+                    builder.SetTitle("What Will You Win");
+                    builder.SetMessage(GetCoinsWonMessage(false));
                     builder.SetCancelable(false);
                     builder.SetNeutralButton("OK", delegate { DismissDialog(builder); });
                     builder.Show();
@@ -134,6 +141,23 @@ namespace Kalingo.Activities
 
                 App.CoinsDialogShown = true;
             }
+        }
+
+        private string GetCoinsWonMessage(bool playAgain)
+        {
+            var message = new StringBuilder();
+
+            foreach (var setting in _settings.Where(x=>x.PlayAgain == playAgain))
+            {
+                message.Append($"{setting.MinesCount} Gifts = {setting.CoinCount} {GetCoinName(setting.CoinTypeId)} \n\n");
+            }
+
+            return message.ToString();
+        }
+
+        private static string GetCoinName(int type)
+        {
+            return type == 1 ? "Gold" : "Silver";
         }
 
         private void ShowDialogPlayAgain()
@@ -144,9 +168,9 @@ namespace Kalingo.Activities
 
                 RunOnUiThread(() =>
                 {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.SetTitle("Coins Earned On Wins");
-                    builder.SetMessage(" 5 Gifts = 1 Gold");
+                    var builder = new AlertDialog.Builder(this);
+                    builder.SetTitle("What Will You Win");
+                    builder.SetMessage(GetCoinsWonMessage(true));
                     builder.SetCancelable(false);
                     builder.SetPositiveButton("Play Again", delegate { PlayAgain(builder); });
                     builder.SetNeutralButton("Back", delegate { GoBack(builder); });

@@ -74,13 +74,9 @@ namespace Kalingo.Api.Client.Services
         {
             try
             {
-                var stat = new UserResponse(1, new Config(1, 1, true, true, false, 1), 10, 10, 1, 1);
-                stat.Code = UserCodes.Valid;
-                return stat;
+                var fbUser = new FbUser(userName, token);
 
-                var userArgs = new UserArgs(userName, token);
-
-                var user = await _apiClient.GetUser(userArgs);
+                var user = await _apiClient.AddFbUser(fbUser);
 
                 return user;
             }
