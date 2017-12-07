@@ -85,8 +85,7 @@ namespace Kalingo.Activities
 
         private static void UpdateSettings(Config config)
         {
-            App.Update(config.TotalChances, config.TotalGifts, config.InterstitialMode,
-                config.MaintenanceMode, config.PlayAgainEnabled);
+            App.Update(config);
         }
 
         private void lblNewUser_OnClick(object sender, EventArgs eventArgs)

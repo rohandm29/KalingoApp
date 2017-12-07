@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Kalingo.Games.Contract.Entity;
 
 namespace Kalingo.Core
 {
@@ -19,14 +20,18 @@ namespace Kalingo.Core
         public static bool MaintenanceMode { get; set; }
         public static bool PlayAgainEnabled { get; set; }
         public static string Reward { get; set; }
+        public static string InterstitialAdUnit { get; set; }
+        public static string RewardedAdUnit { get; set; }
 
-        public static void Update(int totalChances, int totalGifts, bool interstitialMode, bool maintenanceMode, bool playAgainEnabled)
+        public static void Update(Config config)
         {
-            TotalChances = totalChances;
-            TotalGifts = totalGifts;
-            InterstitialMode = interstitialMode;
-            MaintenanceMode = maintenanceMode;
-            PlayAgainEnabled = playAgainEnabled;
+            TotalChances = config.TotalChances;
+            TotalGifts = config.TotalGifts;
+            InterstitialMode = config.InterstitialMode;
+            MaintenanceMode = config.MaintenanceMode;
+            PlayAgainEnabled = config.PlayAgainEnabled;
+            InterstitialAdUnit = config.InterstitialAdUnit;
+            RewardedAdUnit = config.RewardedAdUnit;
         }
 
         public static void ClearSession()

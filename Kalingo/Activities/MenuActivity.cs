@@ -107,7 +107,7 @@ namespace Kalingo.Activities
         {
             _minesboom = FindViewById<ImageView>(Resource.Id.btnPlayMinesBoom);
             //_minesboom.Text = "Refresh";
-            _minesboom.Enabled = true;
+            EnableMinesboom();
             _minesboom.Click -= BtnPlayMinesBoomOnClick;
             _minesboom.Click += Refresh_Clicked;
 
@@ -132,12 +132,22 @@ namespace Kalingo.Activities
         public void OnRewardedVideoAdLoaded()
         {
             //var btnPlayMinesBoom = FindViewById<ImageView>(Resource.Id.btnPlayMinesBoom);
-            _minesboom.Enabled = true;
+            EnableMinesboom();
 
             var txtLoading = FindViewById<TextView>(Resource.Id.txtLoading);
             txtLoading.Visibility = ViewStates.Invisible;
 
             ShowMessage("AdLoaded");
+        }
+
+        private void EnableMinesboom()
+        {
+            if(_playCount > 0)
+                _minesboom.Enabled = true;
+            else
+            {
+                ShowMessage("Total number of play per day are exhausted");
+            }
         }
 
         public void OnRewardedVideoAdOpened()
@@ -162,7 +172,7 @@ namespace Kalingo.Activities
             _rewardedVideoAd.RewardedVideoAdListener = this;
 
             //prod rewarded ad
-             _rewardedVideoAd.LoadAd("ca-app-pub-7100837506775638/6637403349", new AdRequest.Builder().Build());
+             _rewardedVideoAd.LoadAd(App.RewardedAdUnit, new AdRequest.Builder().Build());
 
             // test Adunit
             //_rewardedVideoAd.LoadAd("ca-app-pub-3940256099942544/5224354917", new AdRequest.Builder().Build());
@@ -175,7 +185,7 @@ namespace Kalingo.Activities
             _interstitialAd = new InterstitialAd(this)
             {
                 //AdUnitId = "ca-app-pub-3940256099942544/1033173712",    // test ad
-                AdUnitId = "ca-app-pub-7100837506775638/6637403349",  // prod interstitial ad
+                AdUnitId = App.InterstitialAdUnit,  // prod interstitial ad
                 AdListener = _interstitialAdListener,
             };
 
@@ -184,7 +194,7 @@ namespace Kalingo.Activities
 
         public void CallBack_OnInsterstitial_Loaded()
         {
-            _minesboom.Enabled = true;
+            EnableMinesboom();
 
             var txtLoading = FindViewById<TextView>(Resource.Id.txtLoading);
             txtLoading.Visibility = ViewStates.Invisible;

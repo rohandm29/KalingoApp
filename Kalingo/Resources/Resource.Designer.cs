@@ -3241,11 +3241,11 @@ namespace Kalingo
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f07005d
-			public const int ApplicationName = 2131165277;
+			// aapt resource value: 0x7f070055
+			public const int ApplicationName = 2131165269;
 			
-			// aapt resource value: 0x7f07005c
-			public const int Hello = 2131165276;
+			// aapt resource value: 0x7f070054
+			public const int Hello = 2131165268;
 			
 			// aapt resource value: 0x7f070033
 			public const int abc_action_bar_home_description = 2131165235;
@@ -3343,8 +3343,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f070011
 			public const int accept = 2131165201;
 			
-			// aapt resource value: 0x7f07005b
-			public const int app_id = 2131165275;
+			// aapt resource value: 0x7f07005d
+			public const int app_id = 2131165277;
 			
 			// aapt resource value: 0x7f07005e
 			public const int car_prompt = 2131165278;
@@ -3490,26 +3490,26 @@ namespace Kalingo
 			// aapt resource value: 0x7f070018
 			public const int decline = 2131165208;
 			
-			// aapt resource value: 0x7f070054
-			public const int exo_controls_fastforward_description = 2131165268;
-			
-			// aapt resource value: 0x7f070055
-			public const int exo_controls_next_description = 2131165269;
-			
 			// aapt resource value: 0x7f070056
-			public const int exo_controls_pause_description = 2131165270;
+			public const int exo_controls_fastforward_description = 2131165270;
 			
 			// aapt resource value: 0x7f070057
-			public const int exo_controls_play_description = 2131165271;
+			public const int exo_controls_next_description = 2131165271;
 			
 			// aapt resource value: 0x7f070058
-			public const int exo_controls_previous_description = 2131165272;
+			public const int exo_controls_pause_description = 2131165272;
 			
 			// aapt resource value: 0x7f070059
-			public const int exo_controls_rewind_description = 2131165273;
+			public const int exo_controls_play_description = 2131165273;
 			
 			// aapt resource value: 0x7f07005a
-			public const int exo_controls_stop_description = 2131165274;
+			public const int exo_controls_previous_description = 2131165274;
+			
+			// aapt resource value: 0x7f07005b
+			public const int exo_controls_rewind_description = 2131165275;
+			
+			// aapt resource value: 0x7f07005c
+			public const int exo_controls_stop_description = 2131165276;
 			
 			// aapt resource value: 0x7f070032
 			public const int messenger_send_button_text = 2131165234;
