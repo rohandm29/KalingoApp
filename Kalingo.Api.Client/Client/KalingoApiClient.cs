@@ -45,7 +45,7 @@ namespace Kalingo.Api.Client.Client
         }
 
         // USER
-        public async Task<int> AddUser(NewUserRequest user)
+        public async Task<UserResponse> AddUser(NewUserRequest user)
         {
             var uri = new Uri(_baseAddress + "/users/Add");
 
@@ -54,7 +54,7 @@ namespace Kalingo.Api.Client.Client
                 Content = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json")
             };
 
-            var response = await GetResponse<int>(message);
+            var response = await GetResponse<UserResponse>(message);
 
             return response;
         }
@@ -109,7 +109,7 @@ namespace Kalingo.Api.Client.Client
 
         public async Task<int> GetUserLimit(int userId)
         {
-            var uri = new Uri(_baseAddress + "users/GetLimit");
+            var uri = new Uri(_baseAddress + $"users/GetLimit?userId={App.UserId}");
 
             var message = new HttpRequestMessage(HttpMethod.Get, uri);
             AddHeader(message, userId.ToString());

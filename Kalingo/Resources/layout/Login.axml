@@ -86,6 +86,72 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     android:layout_width="match_parent" />
+                <TextView xmlns:tools="http://schemas.android.com/tools"
+                    android:text="EMAIL"
+                    android:id="@+id/lblEmail"
+                    android:gravity="center_vertical"
+                    android:textColorHint="@android:color/black"
+                    android:textColor="@android:color/black"
+                    android:layout_height="30dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_width="match_parent"
+                    android:visibility="visible"
+                    tools:visibility="gone" />
+                <EditText
+                    android:id="@+id/txtEmail"
+                    android:layout_height="35dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center_vertical"
+                    android:textColorHint="@android:color/black"
+                    android:textColor="@android:color/black"
+                    android:background="@drawable/edittext_bg"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_width="match_parent"
+                    android:visibility="gone" />
+                <TextView
+                    android:text="COUNTRY"
+                    android:id="@+id/lblCountry"
+                    android:gravity="center_vertical"
+                    android:textColorHint="@android:color/black"
+                    android:textColor="@android:color/black"
+                    android:layout_height="30dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_width="match_parent"
+                    android:visibility="gone" />
+                <Spinner
+                    android:id="@+id/spnCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="center_vertical"
+                    android:spinnerMode="dropdown"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:visibility="gone" />
+                <TextView
+                    android:id="@+id/btnTerm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="You agree to the term and condition by clicking signup"
+                    android:textColor="@android:color/black"
+                    android:textStyle="normal"
+                    android:paddingLeft="5dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
                 <Button
                     android:text="LOG IN"
                     android:layout_height="40dp"
@@ -98,7 +164,7 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     android:layout_width="match_parent" />
-                <LinearLayout
+              <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:orientation="horizontal"
@@ -107,7 +173,7 @@
                     android:layout_gravity="center"
                     android:gravity="center">
                     <TextView
-                        android:id="@+id/titlename"
+                        android:id="@+id/lblMessage"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"

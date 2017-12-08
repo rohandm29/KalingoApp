@@ -191,6 +191,7 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Privacy\PrivacyDoc.pdf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Master\Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\Menu.axml">

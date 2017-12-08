@@ -15,6 +15,7 @@ using Object = Java.Lang.Object;
 using Xamarin.Facebook;
 using Xamarin.Facebook.Login;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Kalingo.Activities
 {
@@ -24,6 +25,7 @@ namespace Kalingo.Activities
         private UserService _userService;
         private CountryService _countryService;
         private ICallbackManager _mFbCallManager;
+        private bool _registerCtrlFlag;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -37,7 +39,7 @@ namespace Kalingo.Activities
             RegisterControls();
         }
 
-        private async void btnSubmit_OnClick(object sender, EventArgs eventArgs)
+        private async void btnLogin_OnClick(object sender, EventArgs eventArgs)
         {
             var username = FindViewById<EditText>(Resource.Id.txtUsername).Text;
             var password = FindViewById<EditText>(Resource.Id.txtPassword).Text;
@@ -73,8 +75,8 @@ namespace Kalingo.Activities
             else if(response.Code == UserCodes.NotFound)
             {
                 App.IsUserLoggedIn = false;
-                Toast.MakeText(this, "Please Register!!", ToastLength.Short).Show();
-                RegisterUser();
+                Toast.MakeText(this, "Please Sign Up!!", ToastLength.Short).Show();
+                //RegisterUser();
             }
             else if(response.Code == UserCodes.Inactive)
             {
@@ -88,53 +90,41 @@ namespace Kalingo.Activities
             App.Update(config);
         }
 
-        private void lblNewUser_OnClick(object sender, EventArgs eventArgs)
-        {
-            RegisterUser();
-        }
-
         private async void btnRegister_Click(object sender, EventArgs eventArgs)
         {
-            //var username = FindViewById<EditText>(Resource.Id.txtUsername).Text;
-            //var password = FindViewById<EditText>(Resource.Id.txtPassword).Text;
-            //var email = FindViewById<EditText>(Resource.Id.txtEmail).Text;
-            //var country = FindViewById<Spinner>(Resource.Id.spnCountry).SelectedItem;
+            var username = FindViewById<EditText>(Resource.Id.txtUsername).Text;
+            var password = FindViewById<EditText>(Resource.Id.txtPassword).Text;
+            var email = FindViewById<EditText>(Resource.Id.txtEmail).Text;
+            var country = FindViewById<Spinner>(Resource.Id.spnCountry).SelectedItem;
 
-            //if (!IsValidRegistration(username, email, country))
-            //    return;
+            if (!IsValidRegistration(username, email, country))
+                return;
 
-            //var response = await _userService.RegisterUser(username, password, email,
-            //    CountryService.GetCountryId(country.ToString()));
+            var response = await _userService.RegisterUser(username, password, email,
+                CountryService.GetCountryId(country.ToString()));
 
-            //if (response == -1)
-            //{
-            //    Toast.MakeText(this, "Sorry! username has been taken.", ToastLength.Short).Show();
-            //}
-            //if (response == 0)
-            //{
-            //    Toast.MakeText(this, "Error! Try again later", ToastLength.Short).Show();
-            //}
-            //else
-            //{
-            //    Toast.MakeText(this, "Registered Succesfully!! \nPlease Login", ToastLength.Long).Show();
-            //    ShowLogin_OnClick(new object(), new EventArgs());
+            if (response.UserId == -1)
+            {
+                Toast.MakeText(this, "Sorry! username has been taken.", ToastLength.Short).Show();
+            }
+            if (response.UserId == 0)
+            {
+                Toast.MakeText(this, "Error! Try again later", ToastLength.Short).Show();
+            }
+            else
+            {
+                Toast.MakeText(this, "Registered Succesfully!!", ToastLength.Long).Show();
 
-            //    //App.IsUserLoggedIn = true;
-            //    //var intent = new Intent(this, typeof(MenuActivity));
-            //    //StartActivity(intent);
-            //}
-        }
+                App.IsUserLoggedIn = true;
 
-        private async void RegisterFacebookUser(string userName, string token)
-        {
-            var userResponse = await _userService.FbUserLogin(userName, token);
-        }
+                Settings.Add("username", username);
+                Settings.Add("password", password);
 
-        private void ShowLogin_OnClick(object sender, EventArgs eventArgs)
-        {
-            var btnSubmit = FindViewById<Button>(Resource.Id.btnLogIn);
-            btnSubmit.Click -= btnRegister_Click;
-            RegisterControls();
+                UpdateSettings(response.MbConfig);
+
+                var intent = new Intent(this, typeof(MenuActivity));
+                StartActivity(intent);
+            }
         }
 
         private bool IsValidRegistration(string username, string email, Object country)
@@ -159,73 +149,104 @@ namespace Kalingo.Activities
             _userService = new UserService();
             _countryService = new CountryService();
 
+            var btnTerm = FindViewById<TextView>(Resource.Id.btnTerm);
+
+            btnTerm.Click += delegate
+            {
+                var uri = Android.Net.Uri.Parse("https://www.dropbox.com/preview/Kalingo/PrivacyDoc.pdf");
+                var intent = new Intent(Intent.ActionView, uri);
+                StartActivity(intent);
+            };
+
             _mFbCallManager = CallbackManagerFactory.Create();
             LoginManager.Instance.RegisterCallback(_mFbCallManager, this);
         }
 
-        private void RegisterUser()
+        private async void RegisterSignUp()
         {
-            var lblNewUser = FindViewById<TextView>(Resource.Id.lblNewUser);
-            lblNewUser.Clickable = true;
-            lblNewUser.Text = "Login";
+            var btnLogIn = FindViewById<TextView>(Resource.Id.btnLogIn);
+            var lblMessage = FindViewById<TextView>(Resource.Id.lblMessage);
+            var lblSignUp = FindViewById<TextView>(Resource.Id.lblSignUp);
+            var lblEmail = FindViewById<TextView>(Resource.Id.lblEmail);
+            var txtEmail = FindViewById<TextView>(Resource.Id.txtEmail);
+            var lblCountry = FindViewById<TextView>(Resource.Id.lblCountry);
+            var spnCountry = FindViewById<Spinner>(Resource.Id.spnCountry);
+            var btnTerm = FindViewById<TextView>(Resource.Id.btnTerm);
+            var btnfbLogin = FindViewById<Button>(Resource.Id.btnfbLogin);
 
-            var btnLogIn = FindViewById<Button>(Resource.Id.btnLogIn);
-            btnLogIn.Text = "Register User";
-            btnLogIn.Click -= btnSubmit_OnClick;
-            btnLogIn.Click += btnRegister_Click;
+            lblSignUp.Click += async delegate
+            {
+                if (!_registerCtrlFlag)
+                {
+                    _registerCtrlFlag = true;
+                    btnLogIn.Text = "SIGNUP";
+                    lblEmail.Visibility = ViewStates.Visible;
+                    txtEmail.Visibility = ViewStates.Visible;
+                    lblCountry.Visibility = ViewStates.Visible;
+                    spnCountry.Visibility = ViewStates.Visible;
+                    btnfbLogin.Visibility = ViewStates.Gone;
+                    btnTerm.Visibility = ViewStates.Gone;
+                    lblMessage.Text = "ALREADY A MEMBER? ";
+                    lblSignUp.Text = "LOGIN";
 
-            lblNewUser.Click -= lblNewUser_OnClick;
-            lblNewUser.Click += ShowLogin_OnClick;
+                    var countryList = (await _countryService.GetCountries()).Select(x => x.Name).ToList();
 
-            ShowRegistration(ViewStates.Visible);
-        }
+                    var countryAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerItem, countryList);
+                    countryAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+                    spnCountry.Adapter = countryAdapter;
 
-        private async void ShowRegistration(ViewStates state)
-        {
-            var lblemail = FindViewById<GridLayout>(Resource.Id.newUserLayout);
-            lblemail.Visibility = state;
+                    btnLogIn.Click -= btnLogin_OnClick;
+                    btnLogIn.Click += btnRegister_Click;
+                }
+                else if (_registerCtrlFlag)
+                {
+                    _registerCtrlFlag = false;
+                    btnLogIn.Text = "LOGIN";
+                    lblEmail.Visibility = ViewStates.Gone;
+                    txtEmail.Visibility = ViewStates.Gone;
+                    lblCountry.Visibility = ViewStates.Gone;
+                    spnCountry.Visibility = ViewStates.Gone;
+                    btnfbLogin.Visibility = ViewStates.Visible;
+                    btnTerm.Visibility = ViewStates.Visible;
+                    lblMessage.Text = "DONT HAVE AN ACCOUNT? ";
+                    lblSignUp.Text = "SIGNUP";
 
-            //var countryList = (await _countryService.GetCountries()).Select(x => x.Name).ToList();
-
-            //var spnCountry = FindViewById<Spinner>(Resource.Id.spnCountry);
-            //var countryAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerItem, countryList);
-            //countryAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            //spnCountry.Adapter = countryAdapter;
+                    btnLogIn.Click += btnLogin_OnClick;
+                    btnLogIn.Click -= btnRegister_Click;
+                }
+            };
         }
 
         private void RegisterControls()
         {
-            var btnSubmit = FindViewById<Button>(Resource.Id.btnLogIn);
-            btnSubmit.Click += btnSubmit_OnClick;
-            btnSubmit.Text = "Login";
+            var btnLogin = FindViewById<Button>(Resource.Id.btnLogIn);
+            btnLogin.Click += btnLogin_OnClick;
 
-            //ShowRegistration(ViewStates.Invisible);
+            RegisterSignUp();
+            RegisterFacebookLogin();
 
-            var lblSignUp = FindViewById<TextView>(Resource.Id.lblSignUp);
-            lblSignUp.Clickable = true;
-            lblSignUp.Click += lblNewUser_OnClick;
-            //lblSignUp.Text = "New User";
+            FindViewById<EditText>(Resource.Id.txtUsername).Text = Settings.Get("username") ?? "";
+            FindViewById<EditText>(Resource.Id.txtPassword).Text = Settings.Get("password") ?? "";
+        }
 
+        private void RegisterFacebookLogin()
+        {
             var btnFBLogin = FindViewById<Button>(Resource.Id.btnfbLogin);
             btnFBLogin.Click += delegate
             {
                 if (AccessToken.CurrentAccessToken != null && Profile.CurrentProfile != null)
                 {
-                    //user is logged in through facebook
                     LoginManager.Instance.LogOut();
                     //StartActivity(typeof(TicketsActivity));
                     LoginManager.Instance.LogInWithReadPermissions(this, new List<string> { "public_profile", "user_friends" });
                 }
                 else
                 {
-                    //the user is not logged in
                     LoginManager.Instance.LogInWithReadPermissions(this, new List<string> { "public_profile", "user_friends" });
                 }
             };
-
-            FindViewById<EditText>(Resource.Id.txtUsername).Text = Settings.Get("username") ?? "";
-            FindViewById<EditText>(Resource.Id.txtPassword).Text = Settings.Get("password") ?? "";
         }
+
         private static void TaskSchedulerOnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs unobservedTaskExceptionEventArgs)
         {
             var newExc = new System.Exception("TaskSchedulerOnUnobservedTaskException", unobservedTaskExceptionEventArgs.Exception);
@@ -234,7 +255,7 @@ namespace Kalingo.Activities
 
         private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs unhandledExceptionEventArgs)
         {
-            var newExc = new System.Exception("CurrentDomainOnUnhandledException", unhandledExceptionEventArgs.ExceptionObject as System.Exception);
+            var newExc = new Exception("CurrentDomainOnUnhandledException", unhandledExceptionEventArgs.ExceptionObject as Exception);
             LogUnhandledException(newExc);
         }
 

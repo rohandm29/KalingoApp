@@ -3,6 +3,7 @@ using Android.Content;
 using Android.Gms.Ads;
 using Android.Widget;
 using Kalingo.Activities;
+using Kalingo.Core;
 
 namespace Kalingo.AdMob
 {
@@ -20,7 +21,7 @@ namespace Kalingo.AdMob
         public override void OnAdClosed()
         {
             var intent = new Intent(_context, typeof(MinesBoomActivity));
-            intent.PutExtra("Reward", "Insterstitial-Ad");
+            intent.PutExtra("Reward", $"Insterstitial-{App.CountryId}");
             _context.StartActivity(intent);
         }
 

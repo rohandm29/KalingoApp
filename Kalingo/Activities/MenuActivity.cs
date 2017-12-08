@@ -54,10 +54,11 @@ namespace Kalingo.Activities
 
         private void BtnPlayMinesBoomOnClick(object sender, EventArgs e)
         {
-            //var intent = new Intent(this, typeof(MinesBoomActivity));
-            //StartActivity(intent);
+            var intent = new Intent(this, typeof(MinesBoomActivity));
+            intent.PutExtra("Reward", $"Insterstitial-{App.CountryId}");
+            StartActivity(intent);
 
-            ShowAd();
+            //ShowAd();
         }
 
         private void ShowAd()
@@ -80,7 +81,7 @@ namespace Kalingo.Activities
 
         private void ShowMessage(string message)
         {
-            Toast.MakeText(this, message, ToastLength.Short).Show();
+            Toast.MakeText(this, message, ToastLength.Long).Show();
         }
 
         private void BtnShopClick(object sender, EventArgs e)
