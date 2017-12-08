@@ -282,13 +282,14 @@ namespace Kalingo.Activities
 
         public void OnError(FacebookException error) { }
 
-        public async void OnSuccess(Object result)
+        public void OnSuccess(Object result)
         {
-            LoginResult loginResult = result as LoginResult;
+            var loginResult = result as LoginResult;
 
-            var response = await _userService.FbUserLogin(loginResult.AccessToken.UserId, loginResult.AccessToken.Token);
-
-            HandleUserResponse(string.Empty, string.Empty, response);
+            var intent = new Intent(this, typeof(CountryActivity));
+            intent.PutExtra("UserId", loginResult.AccessToken.UserId);
+            intent.PutExtra("Token", loginResult.AccessToken.Token);
+            StartActivity(intent);
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)

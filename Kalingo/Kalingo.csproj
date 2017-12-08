@@ -171,6 +171,7 @@
   <ItemGroup>
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\CaptchaActivity.cs" />
+    <Compile Include="Activities\CountryActivity.cs" />
     <Compile Include="Activities\MyAccountActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\MenuActivity.cs" />
@@ -213,6 +214,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\TicketCards.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Country.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
