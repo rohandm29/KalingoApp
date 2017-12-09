@@ -30,7 +30,7 @@ namespace Kalingo.Api.Client.Services
                 var user = new NewUserRequest(userName, Encryption.ComputeHash(password), email, countryId);
                 var userResponse = await _apiClient.AddUser(user);
 
-                App.UserId = userResponse.UserId;
+                SaveSessionState(userResponse);
 
                 return userResponse;
             }
@@ -54,7 +54,7 @@ namespace Kalingo.Api.Client.Services
             }
         }
 
-        private async Task<UserResponse> GetUser(string userName, string password)
+        public async Task<UserResponse> GetUser(string userName, string password)
         {
             try
             {
@@ -69,7 +69,21 @@ namespace Kalingo.Api.Client.Services
                 return new UserResponse(0);
             }
         }
-        
+
+        public async Task<UserResponse> GetFbUser(string userName)
+        {
+            try
+            {
+                var user = await _apiClient.GetFbUser(userName);
+
+                return user;
+            }
+            catch (System.Exception)
+            {
+                return new UserResponse(0);
+            }
+        }
+
         public async Task<UserResponse> AddFbUser(string userName, string token, int countryId)
         {
             try
@@ -107,7 +121,7 @@ namespace Kalingo.Api.Client.Services
             return user;
         }
 
-        private void SaveSessionState(UserResponse user)
+        public void SaveSessionState(UserResponse user)
         {
             App.UserId = user.UserId;
             App.Gold = user.Gold;

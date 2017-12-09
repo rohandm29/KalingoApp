@@ -61,7 +61,7 @@ namespace Kalingo.Api.Client.Client
 
         public async Task<UserResponse> AddFbUser(FbUser user)
         {
-            var uri = new Uri(_baseAddress + "/users/AddFb");
+            var uri = new Uri(_baseAddress + "/users/AddFbUser");
 
             var message = new HttpRequestMessage(HttpMethod.Post, uri)
             {
@@ -82,6 +82,19 @@ namespace Kalingo.Api.Client.Client
                 Content = new StringContent(JsonConvert.SerializeObject(userArgs), Encoding.UTF8, "application/json")
             };
 
+            var response = await GetResponse<UserResponse>(message);
+
+            GetHeaders();
+
+            return response;
+        }
+
+        public async Task<UserResponse> GetFbUser(string userName)
+        {
+            var uri = new Uri(_baseAddress + $"users/GetFbUser?userName={userName}");
+
+            var message = new HttpRequestMessage(HttpMethod.Get, uri);
+           
             var response = await GetResponse<UserResponse>(message);
 
             GetHeaders();

@@ -21,7 +21,7 @@ namespace Kalingo.Activities
         private readonly MinesBoomService _minesBoomService = new MinesBoomService();
         private MediaPlayer _playerRed, _playerGreen;
         private ProgressDialog _progress;
-        private bool _playAgain = App.PlayAgainEnabled;
+        private bool _playAgain;
         private IEnumerable<Settings> _settings;
 
         protected override async void OnCreate(Bundle savedInstanceState)
@@ -99,11 +99,17 @@ namespace Kalingo.Activities
 
                 if (App.PlayAgainEnabled)
                     ShowDialogPlayAgain();
+                else
+                {
+                    GoToMenu();
+                }
             }
         }
 
         private async void PlayAgain()
         {
+            _playAgain = true;
+
             _settings = await _minesBoomService.CreateMinesBoom(App.UserId, true);
 
             ClearScreen();

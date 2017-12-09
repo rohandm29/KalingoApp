@@ -62,7 +62,7 @@ namespace Kalingo.Activities
                 Settings.Add("username", username);
                 Settings.Add("password", password);
 
-                UpdateSettings(response.MbConfig);
+                App.Update(response.MbConfig);
 
                 var intent = new Intent(this, typeof(MenuActivity));
                 StartActivity(intent);
@@ -85,11 +85,7 @@ namespace Kalingo.Activities
             }
         }
 
-        private static void UpdateSettings(Config config)
-        {
-            App.Update(config);
-        }
-
+        
         private async void btnRegister_Click(object sender, EventArgs eventArgs)
         {
             var username = FindViewById<EditText>(Resource.Id.txtUsername).Text;
@@ -120,7 +116,7 @@ namespace Kalingo.Activities
                 Settings.Add("username", username);
                 Settings.Add("password", password);
 
-                UpdateSettings(response.MbConfig);
+                App.Update(response.MbConfig);
 
                 var intent = new Intent(this, typeof(MenuActivity));
                 StartActivity(intent);
@@ -287,7 +283,7 @@ namespace Kalingo.Activities
             var loginResult = result as LoginResult;
 
             var intent = new Intent(this, typeof(CountryActivity));
-            intent.PutExtra("UserId", loginResult.AccessToken.UserId);
+            intent.PutExtra("UserName", loginResult.AccessToken.UserId);
             intent.PutExtra("Token", loginResult.AccessToken.Token);
             StartActivity(intent);
         }

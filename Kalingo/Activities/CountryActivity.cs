@@ -16,21 +16,24 @@ namespace Kalingo.Activities
     {
         private readonly UserService _userService = new UserService();
         private readonly CountryService _countryService = new CountryService();
-        private string _userId;
+        private string _userName;
         private string _token;
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            _userId = Intent.GetStringExtra("UserId");
+            _userName = Intent.GetStringExtra("UserName");
             _token = Intent.GetStringExtra("Token");
 
-            var response = await _userService.AddFbUser(_userId, _token);
+            var response = await _userService.GetFbUser(_userName);
 
             if (response.Code == UserCodes.Valid)
             {
                 App.IsUserLoggedIn = true;
+
+                _userService.SaveSessionState(response);
+                App.Update(response.MbConfig);
 
                 var menuIntent = new Intent(this, typeof(MenuActivity));
                 StartActivity(menuIntent);
@@ -53,14 +56,22 @@ namespace Kalingo.Activities
         private async void BtnGo_Click(object sender, EventArgs e)
         {
             var country = FindViewById<Spinner>(Resource.Id.spnCountry).SelectedItem;
-            var countryId = CountryService.GetCountryId(country.ToString()));
+            var countryId = CountryService.GetCountryId(country.ToString());
 
-            var response = await _userService.AddFbUser(_userId, _token, countryId);
+            var response = await _userService.AddFbUser(_userName, _token, countryId);
 
-            App.IsUserLoggedIn = true;
+            if (response.Code == UserCodes.Valid)
+            {
+                App.IsUserLoggedIn = true;
 
-            var menuIntent = new Intent(this, typeof(MenuActivity));
-            StartActivity(menuIntent);
+                _userService.SaveSessionState(response);
+                App.Update(response.MbConfig);
+
+                var menuIntent = new Intent(this, typeof(MenuActivity));
+                StartActivity(menuIntent);
+            }
+
+            Toast.MakeText(this, "Sorry. Try again later", ToastLength.Long);
         }
     }
 }
