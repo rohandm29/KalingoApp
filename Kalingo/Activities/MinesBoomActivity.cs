@@ -15,7 +15,7 @@ using Kalingo.Games.Contract.Entity.MinesBoom;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "MinesBoomActivity"/*, MainLauncher = true*/, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "MinesBoomActivity", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class MinesBoomActivity : Activity
     {
         private readonly MinesBoomService _minesBoomService = new MinesBoomService();
@@ -35,9 +35,9 @@ namespace Kalingo.Activities
 
             App.Reward = Intent.GetStringExtra("Reward");
 
-            _settings = await _minesBoomService.CreateMinesBoom(App.UserId, false);
+            _settings = await _minesBoomService.CreateMinesBoom(10, false);
 
-            ShowDialogCoinsEarned();
+            //ShowDialogCoinsEarned();
         }
 
         private async void ButtonOnClick(object sender, EventArgs eventArgs)
@@ -77,7 +77,7 @@ namespace Kalingo.Activities
         {
             if (result.TotalChances != 0)
             {
-                SetText(result.TotalChances, result.GiftsHidden);
+                SetText(result.TotalChances);
                 return;
             }
 
@@ -217,10 +217,10 @@ namespace Kalingo.Activities
             StartActivity(menuIntent);
         }
 
-        private void SetText(int chances, int gifts)
+        private void SetText(int chances)
         {
             var txtMinesChances = FindViewById<TextView>(Resource.Id.txtMinesChances);
-            txtMinesChances.Text = $"GIFT - {App.TotalGifts} | LIVES - {App.TotalChances} ";
+            txtMinesChances.Text = $"Select any {chances} numbers to find gifts.";
             txtMinesChances.SetTypeface(null, TypefaceStyle.Bold);
         }
 
@@ -297,7 +297,7 @@ namespace Kalingo.Activities
             #endregion
 
             var txtMinesChances = FindViewById<TextView>(Resource.Id.txtMinesChances);
-            txtMinesChances.Text = $"Gift - {5} | lives remaining - {7} | watch mines!!";
+            txtMinesChances.Text = $"Select any {App.TotalChances} numbers to find gifts.";
             txtMinesChances.SetTypeface(null, TypefaceStyle.Bold);
         }
 
