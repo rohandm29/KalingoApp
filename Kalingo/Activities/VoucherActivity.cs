@@ -6,6 +6,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
+using Kalingo.Adapter;
 using Kalingo.Api.Client.Services;
 using Kalingo.Games.Contract.Entity.Voucher;
 using Kalingo.Adapters;
@@ -13,15 +14,15 @@ using Kalingo.Core;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "Kalingo", /*MainLauncher = true, */Icon = "@drawable/icon")]
+    [Activity(Label = "Kalingo", /*MainLauncher = true,*/ Icon = "@drawable/icon")]
     public class VoucherActivity : Activity
     {
         private VoucherService _voucherService;
         private IEnumerable<VoucherResponse> _voucherResponse;
 
-        private GridView gv;
-        private GTAdapter adapter;
-        private List<GridTicketImage> gridTicketImages;
+        private GridView _gridView;
+        private GTAdapter _adapter;
+        private List<GridTicketImage> _gridTicketImages;
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -37,20 +38,22 @@ namespace Kalingo.Activities
         {
             _voucherService = new VoucherService();
             _voucherResponse = await _voucherService.GetVouchers();
-            var vouchersList = new List<string> {"Select Voucher"};
+            var vouchersList = new List<string> {"SELECT VOUCHER"};
             vouchersList.AddRange(_voucherResponse.Select(x => x.Description).ToList());
 
             var spnVoucher = FindViewById<Spinner>(Resource.Id.spnVoucher);
             spnVoucher.ItemSelected += Voucher_OnSelected;
 
-            var voucherAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerItem, vouchersList);
-            voucherAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            spnVoucher.Adapter = voucherAdapter;
+            //var voucherAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerItem, vouchersList);
+            //voucherAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            //spnVoucher.Adapter = voucherAdapter;
 
-            gv = FindViewById<GridView>(Resource.Id.alltickets);
-            //BIND ADAPTER
-            adapter = new GTAdapter(this, GridTicketImages());
-            gv.Adapter = adapter;
+            var customspinnerAdapter = new CustomSpinnerAdapter(this, vouchersList);
+            spnVoucher.Adapter = customspinnerAdapter;
+
+            _gridView = FindViewById<GridView>(Resource.Id.alltickets);
+            _adapter = new GTAdapter(this, GridTicketImages());
+            _gridView.Adapter = _adapter;
         }
 
         private void Voucher_OnSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -63,7 +66,9 @@ namespace Kalingo.Activities
                 var cost = _voucherResponse.First(x => x.Description == sel).Coins;
 
                 var lblVoucherCost = FindViewById<TextView>(Resource.Id.lblVoucherCost);
-                lblVoucherCost.Text = $"COINS NEED : {cost} GOLD. Availabe : {App.Gold}";
+                lblVoucherCost.Text = $"COINS NEED : {cost} GOLD.   AVAILABE : {App.Gold}";
+
+                FindViewById<Button>(Resource.Id.btnClaimVoucher).Enabled = true;
             }
         }
 
@@ -80,7 +85,7 @@ namespace Kalingo.Activities
 
             var claimResponse = await _voucherService.ClaimVoucher(id);
 
-            var claimed = claimResponse.Error.Any() ? claimResponse.Error.First() : "Claimed!!";
+            var claimed = claimResponse.Error.Any() ? claimResponse.Error.First() : "Voucher Claimed!!";
             Toast.MakeText(this, claimed, ToastLength.Long).Show();
         }
 
@@ -91,72 +96,47 @@ namespace Kalingo.Activities
 
         private void RegisterControl()
         {
-            //var lblVoucherNote = FindViewById<TextView>(Resource.Id.lblVoucherNote);
-            //lblVoucherNote.Text = "Voucher will be sent to your email address";
-
             var btnPlayGiftBoxes = FindViewById<Button>(Resource.Id.btnShopBack);
             btnPlayGiftBoxes.Click += BtnShopBackClicked;
 
             var btnClaimVoucher = FindViewById<Button>(Resource.Id.btnClaimVoucher);
             btnClaimVoucher.Click += Claim_Clicked;
-
-            //LoadVoucherImages();
+            btnClaimVoucher.Enabled = false;
         }
 
         private List<GridTicketImage> GridTicketImages()
         {
-            gridTicketImages = new List<GridTicketImage>();
+            _gridTicketImages = new List<GridTicketImage>();
 
             GridTicketImage s;
             s = new GridTicketImage(Resource.Drawable.Amazon);
-            gridTicketImages.Add(s);
+            _gridTicketImages.Add(s);
 
             s = new GridTicketImage(Resource.Drawable.Ebay);
-            gridTicketImages.Add(s);
+            _gridTicketImages.Add(s);
 
             s = new GridTicketImage(Resource.Drawable.Mns);
-            gridTicketImages.Add(s);
+            _gridTicketImages.Add(s);
 
             s = new GridTicketImage(Resource.Drawable.BodyShop);
-            gridTicketImages.Add(s);
+            _gridTicketImages.Add(s);
 
             s = new GridTicketImage(Resource.Drawable.Flipkart);
-            gridTicketImages.Add(s);
+            _gridTicketImages.Add(s);
 
             s = new GridTicketImage(Resource.Drawable.Hnm);
-            gridTicketImages.Add(s);
+            _gridTicketImages.Add(s);
 
             s = new GridTicketImage(Resource.Drawable.BodyShop);
-            gridTicketImages.Add(s);
+            _gridTicketImages.Add(s);
 
             s = new GridTicketImage(Resource.Drawable.Amazon);
-            gridTicketImages.Add(s);
+            _gridTicketImages.Add(s);
 
             s = new GridTicketImage(Resource.Drawable.Ebay);
-            gridTicketImages.Add(s);
+            _gridTicketImages.Add(s);
 
-            return gridTicketImages;
+            return _gridTicketImages;
         }
-
-        //private void LoadVoucherImages()
-        //{
-        //    var btnAmazon = FindViewById<ImageButton>(Resource.Id.btnAmazon);
-        //    btnAmazon.SetImageResource(Resource.Drawable.Amazon);
-
-        //    var btnEbay = FindViewById<ImageButton>(Resource.Id.btnEbay);
-        //    btnEbay.SetImageResource(Resource.Drawable.Ebay);
-
-        //    var btnMns = FindViewById<ImageButton>(Resource.Id.btnMns);
-        //    btnMns.SetImageResource(Resource.Drawable.Mns);
-
-        //    var btnBodyShop = FindViewById<ImageButton>(Resource.Id.btnBodyShop);
-        //    btnBodyShop.SetImageResource(Resource.Drawable.BodyShop);
-
-        //    var btnHnm = FindViewById<ImageButton>(Resource.Id.btnHnm);
-        //    btnHnm.SetImageResource(Resource.Drawable.Hnm);
-
-        //    var btnFlipkart = FindViewById<ImageButton>(Resource.Id.btnFlipkart);
-        //    btnFlipkart.SetImageResource(Resource.Drawable.Flipkart);
-        //}
     }
 }

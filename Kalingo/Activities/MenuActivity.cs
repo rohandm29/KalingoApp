@@ -12,7 +12,7 @@ using Kalingo.Core;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "M E N U"/*, MainLauncher = true*/)]
+    [Activity(Label = "M E N U", MainLauncher = true)]
     public class MenuActivity : Activity, IRewardedVideoAdListener
     {
         private UserService _userService;
@@ -42,7 +42,11 @@ namespace Kalingo.Activities
 
         private void LoadAd()
         {
-            if (App.InterstitialMode || App.PromoUser == 1)
+            if (App.MixedMode)
+            {
+                LoadMixedAd();
+            }
+            else if (App.InterstitialMode || App.PromoUser == 1)
             {
                 LoadInterstistialAd();
             }
@@ -177,6 +181,18 @@ namespace Kalingo.Activities
 
             // test Adunit
             //_rewardedVideoAd.LoadAd("ca-app-pub-3940256099942544/5224354917", new AdRequest.Builder().Build());
+        }
+
+        private void LoadMixedAd()
+        {
+            if (MinesBoomHelper.GetRandomFlag())
+            {
+                LoadInterstistialAd();
+            }
+            else
+            {
+                LoadRewardedAd();
+            }
         }
 
         private void LoadInterstistialAd()

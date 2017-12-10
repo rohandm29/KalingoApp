@@ -15,7 +15,7 @@ using Kalingo.Games.Contract.Entity.MinesBoom;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "MinesBoomActivity", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "MinesBoomActivity", /*MainLauncher = true, */ScreenOrientation = ScreenOrientation.Portrait)]
     public class MinesBoomActivity : Activity
     {
         private readonly MinesBoomService _minesBoomService = new MinesBoomService();
@@ -88,20 +88,26 @@ namespace Kalingo.Activities
                 txtMinesChances.Text = $"You have won {result.CoinsWon} {coinType} coins.";
                 txtMinesChances.SetTypeface(null, TypefaceStyle.BoldItalic);
 
+                ShowMessage("Redirecting... please wait");
+
                 GoToCaptcha();
             }
             else if (result.TotalChances == 0)
             {
-                Toast.MakeText(this, "Game lost.", ToastLength.Long).Show();
+                ShowMessage("Nothing won");
 
                 if (result.RandomSequence != null)
                     ShowMissedThumbs(result.RandomSequence);
+
+                Thread.Sleep(1000);
 
                 if (App.PlayAgainEnabled)
                     ShowDialogPlayAgain();
                 else
                 {
                     GoToMenu();
+
+                    ShowMessage("Redirecting... please wait");
                 }
             }
         }
@@ -232,7 +238,7 @@ namespace Kalingo.Activities
 
         private void ShowMessage(string message)
         {
-            Toast.MakeText(this, message, ToastLength.Short).Show();
+            Toast.MakeText(this, message, ToastLength.Long).Show();
         }
 
         private void SetupProgress()

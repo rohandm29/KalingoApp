@@ -17,6 +17,7 @@ namespace Kalingo.Core
         public static int TotalChances { get; set; }
         public static int TotalGifts { get; set; }
         public static bool InterstitialMode { get; set; }
+        public static bool MixedMode { get; set; }
         public static bool MaintenanceMode { get; set; }
         public static bool PlayAgainEnabled { get; set; }
         public static string Reward { get; set; }
@@ -32,6 +33,7 @@ namespace Kalingo.Core
             PlayAgainEnabled = config.PlayAgainEnabled;
             InterstitialAdUnit = config.InterstitialAdUnit;
             RewardedAdUnit = config.RewardedAdUnit;
+            MixedMode = config.MixedMode;
         }
 
         public static void ClearSession()

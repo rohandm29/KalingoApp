@@ -179,6 +179,7 @@
     <Compile Include="Activities\VoucherActivity.cs" />
     <Compile Include="Adapter\GridTicketImage.cs" />
     <Compile Include="Adapter\GTAdapter.cs" />
+    <Compile Include="Adapter\SpinnerAdapter.cs" />
     <Compile Include="AdMob\InterstitialAdListener.cs" />
     <Compile Include="AdMob\RewardedAdListener.cs" />
     <Compile Include="Helpers\Settings.cs" />

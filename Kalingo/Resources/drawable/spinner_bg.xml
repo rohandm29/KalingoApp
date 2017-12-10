@@ -6,6 +6,14 @@
         android:color="#003d98"/>
   </item>
 
+  <!--<TextView
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:textColor="#111111"
+android:padding="10dp"
+android:textAlignment="center"
+/>-->
+
   <!--<item>
     <shape android:shape="rectangle" >
       <solid android:color="#003d98" />

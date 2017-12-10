@@ -8,8 +8,11 @@
         android:text="MINES BOOM"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="25dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="#c9d6ea"
+        android:textColor="@android:color/black"
         android:gravity="center_vertical|center"
         android:id="@+id/lblLogIn" />
     <TextView
@@ -18,7 +21,6 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:background="#babcd1"
         android:gravity="center_vertical|center"
         android:id="@+id/txtMinesChances" />
     <LinearLayout
