@@ -51,7 +51,23 @@ namespace Kalingo.Activities
 
         private void HandleUserResponse(string username, string password, UserResponse response)
         {
-            if (response.MbConfig.MaintenanceMode)
+            if (response.Code == UserCodes.Invalid)
+            {
+                App.IsUserLoggedIn = false;
+                Toast.MakeText(this, "user authentication failed", ToastLength.Short).Show();
+            }
+            else if (response.Code == UserCodes.NotFound)
+            {
+                App.IsUserLoggedIn = false;
+                Toast.MakeText(this, "Please Sign Up!!", ToastLength.Short).Show();
+                //RegisterUser();
+            }
+            else if (response.Code == UserCodes.Inactive)
+            {
+                App.IsUserLoggedIn = false;
+                Toast.MakeText(this, "Please try after sometime!!", ToastLength.Short).Show();
+            }
+            else if (response.MbConfig.MaintenanceMode)
             {
                 Toast.MakeText(this, "Under Maintenance.. \nPlease try again later.", ToastLength.Long).Show();
             }
@@ -66,22 +82,6 @@ namespace Kalingo.Activities
 
                 var intent = new Intent(this, typeof(MenuActivity));
                 StartActivity(intent);
-            }
-            else if(response.Code == UserCodes.Invalid)
-            {
-                App.IsUserLoggedIn = false;
-                Toast.MakeText(this, "user authentication failed", ToastLength.Short).Show();
-            }
-            else if(response.Code == UserCodes.NotFound)
-            {
-                App.IsUserLoggedIn = false;
-                Toast.MakeText(this, "Please Sign Up!!", ToastLength.Short).Show();
-                //RegisterUser();
-            }
-            else if(response.Code == UserCodes.Inactive)
-            {
-                App.IsUserLoggedIn = false;
-                Toast.MakeText(this, "Please try after sometime!!", ToastLength.Short).Show();
             }
         }
 
@@ -237,7 +237,6 @@ namespace Kalingo.Activities
                 if (AccessToken.CurrentAccessToken != null && Profile.CurrentProfile != null)
                 {
                     LoginManager.Instance.LogOut();
-                    //StartActivity(typeof(TicketsActivity));
                     LoginManager.Instance.LogInWithReadPermissions(this, new List<string> { "public_profile", "user_friends" });
                 }
                 else

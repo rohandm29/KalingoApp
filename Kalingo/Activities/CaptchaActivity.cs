@@ -25,12 +25,18 @@ namespace Kalingo.Activities
 
             SetContentView(Resource.Layout.Captcha);
 
-            await Initialise();
+            var coins = Intent.GetStringExtra("Coins");
+            var type = Intent.GetStringExtra("Type");
+
+            await Initialise(coins, type);
             RegisterControls();
         }
 
-        private async Task Initialise()
+        private async Task Initialise(string coins, string type)
         {
+            var lblCaptchaClaim = FindViewById<TextView>(Resource.Id.lblCaptchaClaim);
+            lblCaptchaClaim.Text = $"Enter the text in the given image below to claim {coins} {type} coins -";
+
             _captchaService = new CaptchaService();
 
             await LoadCaptcha();

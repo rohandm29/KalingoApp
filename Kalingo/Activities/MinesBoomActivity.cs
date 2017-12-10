@@ -100,7 +100,7 @@ namespace Kalingo.Activities
 
                 ShowMessage("Redirecting... please wait");
 
-                GoToCaptcha();
+                GoToCaptcha(result.CoinsWon, coinType);
             }
             else if (result.TotalChances == 0)
             {
@@ -227,9 +227,11 @@ namespace Kalingo.Activities
             StartActivity(menuIntent);
         }
 
-        public void GoToCaptcha()
+        public void GoToCaptcha(int coins, string type)
         {
             var menuIntent = new Intent(this, typeof(CaptchaActivity));
+            menuIntent.PutExtra("Coins", coins);
+            menuIntent.PutExtra("Type", type);
             StartActivity(menuIntent);
         }
 

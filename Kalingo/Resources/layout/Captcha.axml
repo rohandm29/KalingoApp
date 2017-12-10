@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:gravity="center_vertical|center"
-            android:id="@+id/lblNewUser" />
+            android:id="@+id/lblCaptchaClaim" />
         <EditText
             android:id="@+id/txtCaptcha"
             android:layout_width="250dp"
