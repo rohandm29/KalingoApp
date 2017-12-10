@@ -4,6 +4,7 @@ using System.Linq;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Gms.Ads;
 using Android.Graphics;
 using Android.Media;
 using Android.OS;
@@ -15,7 +16,7 @@ using Kalingo.Games.Contract.Entity.MinesBoom;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "MinesBoomActivity", /*MainLauncher = true, */ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "MinesBoomActivity", /*MainLauncher = true,*/ ScreenOrientation = ScreenOrientation.Portrait)]
     public class MinesBoomActivity : Activity
     {
         private readonly MinesBoomService _minesBoomService = new MinesBoomService();
@@ -29,15 +30,24 @@ namespace Kalingo.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.MinesBoom);
 
+            LoadAd();
             SetupProgress();
             SetupAudio();
             RegisterControls();
 
             App.Reward = Intent.GetStringExtra("Reward");
 
-            _settings = await _minesBoomService.CreateMinesBoom(10, false);
+            _settings = await _minesBoomService.CreateMinesBoom(App.UserId, false);
 
-            //ShowDialogCoinsEarned();
+            ShowDialogCoinsEarned();
+        }
+
+        private void LoadAd()
+        {
+            // Banner ad
+            var mAdView = FindViewById<AdView>(Resource.Id.adView);
+            var adRequest = new AdRequest.Builder().Build();
+            mAdView.LoadAd(adRequest);
         }
 
         private async void ButtonOnClick(object sender, EventArgs eventArgs)

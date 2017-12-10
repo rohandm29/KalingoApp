@@ -12,7 +12,7 @@ using Kalingo.Core;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "M E N U", MainLauncher = true)]
+    [Activity(Label = "M E N U"/*, MainLauncher = true*/)]
     public class MenuActivity : Activity, IRewardedVideoAdListener
     {
         private UserService _userService;
@@ -42,6 +42,12 @@ namespace Kalingo.Activities
 
         private void LoadAd()
         {
+            // Banner ad
+            var mAdView = FindViewById<AdView>(Resource.Id.adView);
+            var adRequest = new AdRequest.Builder().Build();
+            mAdView.LoadAd(adRequest);
+            
+            // Video ad
             if (App.MixedMode)
             {
                 LoadMixedAd();
