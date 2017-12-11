@@ -37,12 +37,12 @@ namespace Kalingo.Activities
         private async void Initialise()
         {
             _userService = new UserService();
-            _playCount = await _userService.GetUserLimit(App.UserId);
+            _playCount = await _userService.GetUserLimit(42);
         }
 
         private void LoadAd()
         {
-            // Banner ad
+            // Banner ad prod - ca-app-pub-7100837506775638/2856509156
             var mAdView = FindViewById<AdView>(Resource.Id.adView);
             var adRequest = new AdRequest.Builder().Build();
             mAdView.LoadAd(adRequest);
@@ -227,11 +227,13 @@ namespace Kalingo.Activities
         {
             _minesboom = FindViewById<ImageView>(Resource.Id.btnPlayMinesBoom);
             _minesboom.Click += BtnPlayMinesBoomOnClick;
-            //_minesboom.Text += $"\n_____\n Attempts Left : {_playCount}";
             _minesboom.Enabled = false;
 
+            var lblPlayMinesboom = FindViewById<TextView>(Resource.Id.lblPlayMinesboom);
+            lblPlayMinesboom.Click += BtnPlayMinesBoomOnClick;
+            lblPlayMinesboom.Text += $"\n_____\n Attempts Left : {_playCount}";
+
             var btnShopVouchers = FindViewById<ImageView>(Resource.Id.btnShopVouchers);
-            //btnShopVouchers.Text += $"\n_____\n Gold Coins : {App.Gold}";
             btnShopVouchers.Click += BtnShopClick;
 
             var lblMyAccount = FindViewById<TextView>(Resource.Id.lblMyAccount);

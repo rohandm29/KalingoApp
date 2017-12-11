@@ -11,6 +11,7 @@ using Kalingo.Api.Client.Services;
 using Kalingo.Games.Contract.Entity.Voucher;
 using Kalingo.Adapters;
 using Kalingo.Core;
+using Kalingo.Games.Contract.Entity;
 
 namespace Kalingo.Activities
 {
@@ -85,8 +86,13 @@ namespace Kalingo.Activities
 
             var claimResponse = await _voucherService.ClaimVoucher(id);
 
-            var claimed = claimResponse.Error.Any() ? claimResponse.Error.First() : "Voucher Claimed!!";
-            Toast.MakeText(this, claimed, ToastLength.Long).Show();
+            if (claimResponse.Code == VoucherCodes.Valid)
+            {
+                Toast.MakeText(this, "Voucher claimed!!", ToastLength.Long).Show();
+                return;
+            }
+
+            Toast.MakeText(this,"Sorry. Try again later.", ToastLength.Long).Show();
         }
 
         private int GetVoucherId(string voucher)
@@ -102,39 +108,50 @@ namespace Kalingo.Activities
             var btnClaimVoucher = FindViewById<Button>(Resource.Id.btnClaimVoucher);
             btnClaimVoucher.Click += Claim_Clicked;
             btnClaimVoucher.Enabled = false;
+
+            var lblVoucherCost = FindViewById<TextView>(Resource.Id.lblVoucherCost);
+            lblVoucherCost.Text = $"Voucher will be sent to : {App.EmailAddress}";
         }
 
         private List<GridTicketImage> GridTicketImages()
         {
             _gridTicketImages = new List<GridTicketImage>();
 
-            GridTicketImage s;
-            s = new GridTicketImage(Resource.Drawable.Amazon);
-            _gridTicketImages.Add(s);
+            var gridImage = new GridTicketImage(Resource.Drawable.Amazon);
+            _gridTicketImages.Add(gridImage);
 
-            s = new GridTicketImage(Resource.Drawable.Ebay);
-            _gridTicketImages.Add(s);
+            gridImage = new GridTicketImage(Resource.Drawable.Ebay);
+            _gridTicketImages.Add(gridImage);
 
-            s = new GridTicketImage(Resource.Drawable.Mns);
-            _gridTicketImages.Add(s);
+            gridImage = new GridTicketImage(Resource.Drawable.Mns);
+            _gridTicketImages.Add(gridImage);
 
-            s = new GridTicketImage(Resource.Drawable.BodyShop);
-            _gridTicketImages.Add(s);
+            gridImage = new GridTicketImage(Resource.Drawable.BodyShop);
+            _gridTicketImages.Add(gridImage);
 
-            s = new GridTicketImage(Resource.Drawable.Flipkart);
-            _gridTicketImages.Add(s);
+            gridImage = new GridTicketImage(Resource.Drawable.Flipkart);
+            _gridTicketImages.Add(gridImage);
 
-            s = new GridTicketImage(Resource.Drawable.Hnm);
-            _gridTicketImages.Add(s);
+            gridImage = new GridTicketImage(Resource.Drawable.Hnm);
+            _gridTicketImages.Add(gridImage);
 
-            s = new GridTicketImage(Resource.Drawable.BodyShop);
-            _gridTicketImages.Add(s);
+            gridImage = new GridTicketImage(Resource.Drawable.BodyShop);
+            _gridTicketImages.Add(gridImage);
 
-            s = new GridTicketImage(Resource.Drawable.Amazon);
-            _gridTicketImages.Add(s);
+            gridImage = new GridTicketImage(Resource.Drawable.Amazon);
+            _gridTicketImages.Add(gridImage);
 
-            s = new GridTicketImage(Resource.Drawable.Ebay);
-            _gridTicketImages.Add(s);
+            gridImage = new GridTicketImage(Resource.Drawable.Ebay);
+            _gridTicketImages.Add(gridImage);
+
+            gridImage = new GridTicketImage(Resource.Drawable.BodyShop);
+            _gridTicketImages.Add(gridImage);
+
+            gridImage = new GridTicketImage(Resource.Drawable.Amazon);
+            _gridTicketImages.Add(gridImage);
+
+            gridImage = new GridTicketImage(Resource.Drawable.Ebay);
+            _gridTicketImages.Add(gridImage);
 
             return _gridTicketImages;
         }

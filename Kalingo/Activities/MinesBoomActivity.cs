@@ -44,7 +44,7 @@ namespace Kalingo.Activities
 
         private void LoadAd()
         {
-            // Banner ad
+            // Banner ad prod - ca-app-pub-7100837506775638/2856509156
             var mAdView = FindViewById<AdView>(Resource.Id.adView);
             var adRequest = new AdRequest.Builder().Build();
             mAdView.LoadAd(adRequest);
@@ -107,7 +107,7 @@ namespace Kalingo.Activities
                 ShowMessage("Nothing won");
 
                 if (result.RandomSequence != null)
-                    ShowMissedThumbs(result.RandomSequence);
+                    DisableAndShowMissedThumbs(result.RandomSequence);
 
                 Thread.Sleep(1000);
 
@@ -131,13 +131,18 @@ namespace Kalingo.Activities
             ClearScreen();
         }
 
-        private void ShowMissedThumbs(string resultRandomSequence)
+        private void DisableAndShowMissedThumbs(string resultRandomSequence)
         {
             foreach (var id in resultRandomSequence.Split('-'))
             {
                 var button = GetButton(int.Parse(id));
                 button.Text = "";
                 button.SetBackgroundResource(Resource.Drawable.GreenGift);
+            }
+            for (var i = 1; i <= 16; i++)
+            {
+                var button = GetButton(i);
+                button.Enabled = false;
             }
         }
 

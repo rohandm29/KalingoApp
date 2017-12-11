@@ -30,7 +30,7 @@ namespace Kalingo.Api.Client.Services
                 var user = new NewUserRequest(userName, Encryption.ComputeHash(password), email, countryId);
                 var userResponse = await _apiClient.AddUser(user);
 
-                SaveSessionState(userResponse);
+                App.SaveSessionState(userResponse);
 
                 return userResponse;
             }
@@ -40,11 +40,11 @@ namespace Kalingo.Api.Client.Services
             }
         }
 
-        public async Task UpdateUser(string email, int countryId)
+        public async Task UpdateUser(string email)
         {
             try
             {
-                var updateUser = new UpdateUserRequest(App.UserId, email, countryId);
+                var updateUser = new UpdateUserRequest(App.UserId, email, 0);
 
                 await _apiClient.UpdateUser(updateUser);
             }
@@ -116,18 +116,9 @@ namespace Kalingo.Api.Client.Services
         {
             var user = await GetUser(username, password);
 
-            SaveSessionState(user);
+            App.SaveSessionState(user);
 
             return user;
-        }
-
-        public void SaveSessionState(UserResponse user)
-        {
-            App.UserId = user.UserId;
-            App.Gold = user.Gold;
-            App.Silver = user.Silver;
-            App.CountryId = user.CountryId;
-            App.PromoUser = user.PromoId;
         }
     }
 }

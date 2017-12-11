@@ -5,44 +5,57 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="50px">
-  <TextView
-      android:text="My Account"
-      android:textAppearance="?android:attr/textAppearanceLarge"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_margin="40dp"
-      android:gravity="center_vertical|center"
-      android:id="@+id/lblLogIn" />
-  <TextView
-      android:text="Update Email"
-      android:textSize="18sp"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_margin="20dp"
-      android:gravity="center_vertical|center"
-      android:id="@+id/lblUpdateEmail"
-      android:textColor="@android:color/holo_blue_dark" />
-  <EditText
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:textSize="18sp"
-      android:layout_marginRight="10dp"
-      android:layout_marginLeft="15dp"
-      android:id="@+id/txtUpdateEmail" />
-  <TextView
-    android:text="Logout"
-    android:textSize="18sp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="20dp"
-    android:gravity="center_vertical|center"
-    android:id="@+id/lblLogout"
-    android:textColor="@android:color/holo_blue_dark" />
-  <Button
-      android:text="Submit"
-      android:layout_width="208.0dp"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      android:layout_marginTop="40dp"
-      android:id="@+id/btnAccountSubmit" />
+    <TextView
+        android:text="My Account"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:gravity="center_vertical|center"
+        android:id="@+id/lblLogIn" />
+    <TextView
+        android:text="Update Email"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical|center"
+        android:id="@+id/lblUpdateEmail" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_margin="20dp"
+        android:gravity="center_vertical|center"
+        android:id="@+id/txtUpdateEmail" />
+    <TextView
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical|center"
+        android:id="@+id/lblCoins" />
+    <TextView
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical|center"
+        android:id="@+id/lblCoinsMap" />
+    <TextView
+        android:text="Logout"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center_vertical|center"
+        android:id="@+id/lblLogout"
+        android:textColor="@android:color/holo_blue_dark" />
+    <Button
+        android:text="Submit"
+        android:layout_width="208.0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:id="@+id/btnAccountSubmit" />
 </LinearLayout>

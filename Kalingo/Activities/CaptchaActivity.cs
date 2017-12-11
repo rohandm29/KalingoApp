@@ -52,7 +52,8 @@ namespace Kalingo.Activities
 
         public void SetImage(string stream)
         {
-            var imageBytes = Convert.FromBase64String(stream);
+            var image = stream.Substring(10);
+            var imageBytes = Convert.FromBase64String(image);
             Bitmap bitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
 
             var captcha = FindViewById<ImageView>(Resource.Id.imgCaptcha);

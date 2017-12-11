@@ -32,7 +32,7 @@ namespace Kalingo.Activities
             {
                 App.IsUserLoggedIn = true;
 
-                _userService.SaveSessionState(response);
+                App.SaveSessionState(response);
                 App.Update(response.MbConfig);
 
                 var menuIntent = new Intent(this, typeof(MenuActivity));
@@ -64,7 +64,7 @@ namespace Kalingo.Activities
             {
                 App.IsUserLoggedIn = true;
 
-                _userService.SaveSessionState(response);
+                App.SaveSessionState(response);
                 App.Update(response.MbConfig);
 
                 var menuIntent = new Intent(this, typeof(MenuActivity));

@@ -190,6 +190,8 @@
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal|center"
+        android:layout_margin="20dp"
         ads:adSize="BANNER"
         ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
 </LinearLayout>

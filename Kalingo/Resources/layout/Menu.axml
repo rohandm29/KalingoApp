@@ -62,7 +62,7 @@
                 android:gravity="center"
                 android:id="@+id/ticket_voucher_layout"
                 android:background="@android:color/transparent"
-                android:layout_height="120dp"
+                android:layout_height="140dp"
                 android:layout_marginLeft="75dp"
                 android:layout_marginRight="75dp">
                 <android.support.v7.widget.CardView
@@ -98,11 +98,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
-                android:layout_marginTop="15dp"
                 android:gravity="center"
                 android:id="@+id/voucher_layout"
                 android:background="@android:color/transparent"
                 android:layout_height="120dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginLeft="75dp"
                 android:layout_marginRight="75dp">
                 <android.support.v7.widget.CardView
@@ -168,6 +168,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal|center"
+        android:layout_margin="20dp"
         cardview:adSize="BANNER"
         cardview:adUnitId="ca-app-pub-3940256099942544/6300978111" />
 </RelativeLayout>

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -9,7 +8,7 @@ using Kalingo.Core;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "My Account", /*MainLauncher = true,*/ Icon = "@drawable/icon")]
+    [Activity(Label = "My Account",/* MainLauncher = true, */Icon = "@drawable/icon")]
     public class MyAccountActivity : Activity
     {
         private UserService _userService;
@@ -34,9 +33,14 @@ namespace Kalingo.Activities
             var btnSubmit = FindViewById<Button>(Resource.Id.btnAccountSubmit);
             btnSubmit.Click += btnSubmit_OnClick;
 
+            var lblCoins = FindViewById<TextView>(Resource.Id.lblCoins);
+            lblCoins.Text = $"Gold Coins: {App.Gold} | Silver Coins: {App.Silver}";
+            var lblCoinsMap = FindViewById<TextView>(Resource.Id.lblCoinsMap);
+            lblCoinsMap.Text = ("(10 Silver ≈ 1 Gold)");
+
             var lblLogout = FindViewById<TextView>(Resource.Id.lblLogout);
             lblLogout.Clickable = true;
-            lblLogout.Click += LblLogout_Click; ;
+            lblLogout.Click += LblLogout_Click; 
         }
 
         private void LblLogout_Click(object sender, EventArgs e)
@@ -50,9 +54,8 @@ namespace Kalingo.Activities
         private async void btnSubmit_OnClick(object sender, EventArgs eventArgs)
         {
             var txtEmail = FindViewById<EditText>(Resource.Id.txtUpdateEmail).Text;
-            //var country = FindViewById<Spinner>(Resource.Id.spnCountry).SelectedItem.ToString();
 
-            //await _userService.UpdateUser(txtEmail, CountryService.GetCountryId(country));
+            await _userService.UpdateUser(txtEmail);
         }
     }
 }

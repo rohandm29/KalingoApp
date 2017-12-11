@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Kalingo.Games.Contract.Entity;
+using Kalingo.Games.Contract.Entity.User;
 
 namespace Kalingo.Core
 {
@@ -7,6 +8,7 @@ namespace Kalingo.Core
     {
         public static bool IsUserLoggedIn { get; set; }
         public static int UserId { get; set; }
+        public static string EmailAddress { get; set; }
         public static int GameId { get; set; }
         public static int CountryId { get; set; }
         public static int Gold { get; set; }
@@ -23,6 +25,16 @@ namespace Kalingo.Core
         public static string Reward { get; set; }
         public static string InterstitialAdUnit { get; set; }
         public static string RewardedAdUnit { get; set; }
+
+        public static void SaveSessionState(UserResponse user)
+        {
+            App.UserId = user.UserId;
+            App.EmailAddress = user.EmailAddress;
+            App.Gold = user.Gold;
+            App.Silver = user.Silver;
+            App.CountryId = user.CountryId;
+            App.PromoUser = user.PromoId;
+        }
 
         public static void Update(Config config)
         {
