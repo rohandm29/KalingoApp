@@ -185,7 +185,7 @@ namespace Kalingo.Activities
                     lblCountry.Visibility = ViewStates.Visible;
                     spnCountry.Visibility = ViewStates.Visible;
                     btnfbLogin.Visibility = ViewStates.Gone;
-                    btnTerm.Visibility = ViewStates.Gone;
+                    btnTerm.Visibility = ViewStates.Visible;
                     lblMessage.Text = "ALREADY A MEMBER? ";
                     lblSignUp.Text = "LOGIN";
 
@@ -207,7 +207,7 @@ namespace Kalingo.Activities
                     lblCountry.Visibility = ViewStates.Gone;
                     spnCountry.Visibility = ViewStates.Gone;
                     btnfbLogin.Visibility = ViewStates.Visible;
-                    btnTerm.Visibility = ViewStates.Visible;
+                    btnTerm.Visibility = ViewStates.Gone;
                     lblMessage.Text = "DONT HAVE AN ACCOUNT? ";
                     lblSignUp.Text = "SIGNUP";
 

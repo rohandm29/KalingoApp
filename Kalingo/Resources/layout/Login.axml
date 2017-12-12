@@ -66,7 +66,7 @@
                     android:paddingTop="6dp"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     android:layout_width="match_parent" />
@@ -103,7 +103,7 @@
                     tools:visibility="gone" />
                 <EditText
                     android:id="@+id/txtEmail"
-                    android:layout_height="35dp"
+                    android:layout_height="40dp"
                     android:layout_centerInParent="true"
                     android:gravity="center_vertical"
                     android:textColorHint="@android:color/black"
@@ -131,12 +131,11 @@
                 <Spinner
                     android:id="@+id/spnCountry"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="40dp"
                     android:gravity="center_vertical"
                     android:spinnerMode="dropdown"
                     android:textColor="@android:color/white"
                     android:textSize="15sp"
-                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     android:visibility="gone" />
@@ -145,7 +144,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="You agree to the term and condition by clicking signup"
+                    android:text="You agree to the term and condition by clicking SIGNUP"
                     android:textColor="@android:color/black"
                     android:textStyle="normal"
                     android:paddingLeft="5dp"

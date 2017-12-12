@@ -127,9 +127,9 @@ namespace Kalingo.Api.Client.Client
             var message = new HttpRequestMessage(HttpMethod.Get, uri);
             AddHeader(message, userId.ToString());
 
-            var gameId = await GetResponse<int>(message);
+            var playLimit = await GetResponse<int>(message);
 
-            return gameId;
+            return playLimit;
         }
 
         // MINESBOOM

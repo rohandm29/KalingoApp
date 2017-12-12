@@ -99,7 +99,7 @@ namespace Kalingo.Api.Client.Services
                 return new UserResponse(0);
             }
         }
-        public async Task<int> GetUserLimit(int userId)
+        public async Task<int> GetUserLimit()
         {
             try
             {

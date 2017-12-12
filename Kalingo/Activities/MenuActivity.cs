@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -24,20 +25,20 @@ namespace Kalingo.Activities
         private IRewardedVideoAd _rewardedVideoAd;
         private int _playCount;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Menu);
 
             LoadAd();
-            Initialise();
+            await Initialise();
             RegisterControl();
         }
 
-        private async void Initialise()
+        private async Task Initialise()
         {
             _userService = new UserService();
-            _playCount = await _userService.GetUserLimit(42);
+            _playCount = await _userService.GetUserLimit();
         }
 
         private void LoadAd()
@@ -157,7 +158,7 @@ namespace Kalingo.Activities
                 _minesboom.Enabled = true;
             else
             {
-                ShowMessage("Total number of play per day are exhausted");
+                ShowMessage("Total number of plays per day are exhausted");
             }
         }
 
@@ -231,7 +232,7 @@ namespace Kalingo.Activities
 
             var lblPlayMinesboom = FindViewById<TextView>(Resource.Id.lblPlayMinesboom);
             lblPlayMinesboom.Click += BtnPlayMinesBoomOnClick;
-            lblPlayMinesboom.Text += $"\n_____\n Attempts Left : {_playCount}";
+            lblPlayMinesboom.Text += $"\n_____\n Plays Left : {_playCount}";
 
             var btnShopVouchers = FindViewById<ImageView>(Resource.Id.btnShopVouchers);
             btnShopVouchers.Click += BtnShopClick;
