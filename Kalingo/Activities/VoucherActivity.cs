@@ -126,7 +126,7 @@ namespace Kalingo.Activities
             gridImage = new GridTicketImage(Resource.Drawable.Mns);
             _gridTicketImages.Add(gridImage);
 
-            gridImage = new GridTicketImage(Resource.Drawable.BodyShop);
+            gridImage = new GridTicketImage(Resource.Drawable.walmart);
             _gridTicketImages.Add(gridImage);
 
             gridImage = new GridTicketImage(Resource.Drawable.Flipkart);
@@ -135,10 +135,10 @@ namespace Kalingo.Activities
             gridImage = new GridTicketImage(Resource.Drawable.Hnm);
             _gridTicketImages.Add(gridImage);
 
-            gridImage = new GridTicketImage(Resource.Drawable.BodyShop);
+            gridImage = new GridTicketImage(Resource.Drawable.Myntra);
             _gridTicketImages.Add(gridImage);
 
-            gridImage = new GridTicketImage(Resource.Drawable.Amazon);
+            gridImage = new GridTicketImage(Resource.Drawable.groupon);
             _gridTicketImages.Add(gridImage);
 
             gridImage = new GridTicketImage(Resource.Drawable.Ebay);

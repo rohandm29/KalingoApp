@@ -13,7 +13,7 @@ using Kalingo.Core;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "M E N U"/*, MainLauncher = true*/)]
+    [Activity(Label = "M E N U" /*, MainLauncher = true*/)]
     public class MenuActivity : Activity, IRewardedVideoAdListener
     {
         private UserService _userService;
@@ -24,9 +24,11 @@ namespace Kalingo.Activities
 
         private IRewardedVideoAd _rewardedVideoAd;
         private int _playCount;
+        private static bool _interstitialLoaded;
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
+            
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Menu);
 
@@ -43,7 +45,7 @@ namespace Kalingo.Activities
 
         private void LoadAd()
         {
-            // Banner ad prod - ca-app-pub-7100837506775638/2856509156
+            // Banner ad prod - ca-app-pub-7100837506775638/2856509156, test - ca-app-pub-3940256099942544/6300978111
             var mAdView = FindViewById<AdView>(Resource.Id.adView);
             var adRequest = new AdRequest.Builder().Build();
             mAdView.LoadAd(adRequest);
@@ -65,15 +67,25 @@ namespace Kalingo.Activities
 
         private void BtnPlayMinesBoomOnClick(object sender, EventArgs e)
         {
-            var intent = new Intent(this, typeof(MinesBoomActivity));
-            intent.PutExtra("Reward", $"Insterstitial-{App.CountryId}");
-            StartActivity(intent);
+            //var intent = new Intent(this, typeof(MinesBoomActivity));
+            //intent.PutExtra("Reward", $"Insterstitial-{App.CountryId}");
+            //StartActivity(intent);
 
-            //ShowAd();
+            ShowAd();
         }
 
         private void ShowAd()
         {
+            if (App.MixedMode)
+            {
+                if(_interstitialLoaded && _interstitialAd.IsLoaded)
+                    _interstitialAd.Show();
+
+                else if(_rewardedVideoAd.IsLoaded)
+                {
+                    _rewardedVideoAd.Show();
+                }
+            }
             if (App.InterstitialMode || App.PromoUser == 1)
             {
                 if (_interstitialAd.IsLoaded)
@@ -137,10 +149,6 @@ namespace Kalingo.Activities
             _minesboom.Click += BtnPlayMinesBoomOnClick;
         }
 
-        public void OnRewardedVideoAdLeftApplication()
-        {
-        }
-
         public void OnRewardedVideoAdLoaded()
         {
             //var btnPlayMinesBoom = FindViewById<ImageView>(Resource.Id.btnPlayMinesBoom);
@@ -170,6 +178,9 @@ namespace Kalingo.Activities
         {
         }
 
+        public void OnRewardedVideoAdLeftApplication()
+        {
+        }
         #endregion
 
         private void MyAccount_OnClick(object sender, EventArgs eventArgs)
@@ -195,10 +206,12 @@ namespace Kalingo.Activities
             if (MinesBoomHelper.GetRandomFlag())
             {
                 LoadInterstistialAd();
+                _interstitialLoaded = true;
             }
             else
             {
                 LoadRewardedAd();
+                _interstitialLoaded = false;
             }
         }
 

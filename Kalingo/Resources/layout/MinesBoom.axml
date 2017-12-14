@@ -193,5 +193,5 @@
         android:gravity="center_horizontal|center"
         android:layout_margin="20dp"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+        ads:adUnitId="ca-app-pub-7100837506775638/2856509156" />
 </LinearLayout>

@@ -107,7 +107,7 @@ namespace Kalingo.Activities
             {
                 Toast.MakeText(this, "Sorry! username has been taken.", ToastLength.Short).Show();
             }
-            if (response.UserId == 0)
+            else if (response.UserId == 0)
             {
                 Toast.MakeText(this, "Error! Try again later", ToastLength.Short).Show();
             }
@@ -153,7 +153,7 @@ namespace Kalingo.Activities
 
             btnTerm.Click += delegate
             {
-                var uri = Android.Net.Uri.Parse("https://www.dropbox.com/preview/Kalingo/PrivacyDoc.pdf");
+                var uri = Android.Net.Uri.Parse("https://github.com/KalingoApp/KalingoPrivacy/blob/master/PrivacyDoc.pdf");
                 var intent = new Intent(Intent.ActionView, uri);
                 StartActivity(intent);
             };
