@@ -16,5 +16,20 @@ namespace Kalingo.Core
         {
             return Random.Next(10)%2 == 0;
         }
+
+        public static string GetCoinType(int id)
+        {
+            switch (id)
+            {
+                case 1:
+                    return "Gold";
+                case 2:
+                    return "Silver";
+                case 3:
+                    return "Bronze";
+                default:
+                    return string.Empty;
+            }
+        }
     }
 }

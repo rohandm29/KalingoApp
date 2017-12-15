@@ -94,7 +94,8 @@ namespace Kalingo.Activities
             if (result.HasWon)
             {
                 var txtMinesChances = FindViewById<TextView>(Resource.Id.txtMinesChances);
-                var coinType = result.CoinType == 1 ? "Gold" : "Silver";
+                var coinType = MinesBoomHelper.GetCoinType(result.CoinType);
+
                 txtMinesChances.Text = $"You have won {result.CoinsWon} {coinType} coins.";
                 txtMinesChances.SetTypeface(null, TypefaceStyle.BoldItalic);
 
@@ -176,15 +177,10 @@ namespace Kalingo.Activities
 
             foreach (var setting in _settings.Where(x=>x.PlayAgain == playAgain))
             {
-                message.Append($"{setting.MinesCount} Gifts = {setting.CoinCount} {GetCoinName(setting.CoinTypeId)} \n\n");
+                message.Append($"{setting.MinesCount} Gifts = {setting.CoinCount} {MinesBoomHelper.GetCoinType(setting.CoinTypeId)} \n\n");
             }
 
             return message.ToString();
-        }
-
-        private static string GetCoinName(int type)
-        {
-            return type == 1 ? "Gold" : "Silver";
         }
 
         private void ShowDialogPlayAgain()

@@ -13,6 +13,7 @@ namespace Kalingo.Core
         public static int CountryId { get; set; }
         public static int Gold { get; set; }
         public static int Silver { get; set; }
+        public static int Bronze { get; set; }
         public static bool CoinsDialogShown { get; set; }
         public static int PromoUser { get; set; }
         public static int MinesBoomId = 1;
@@ -32,6 +33,7 @@ namespace Kalingo.Core
             App.EmailAddress = user.EmailAddress;
             App.Gold = user.Gold;
             App.Silver = user.Silver;
+            App.Bronze = user.Bronze;
             App.CountryId = user.CountryId;
             App.PromoUser = user.PromoId;
         }
@@ -54,6 +56,7 @@ namespace Kalingo.Core
             UserId = 0;
             Gold = 0;
             Silver = 0;
+            Bronze = 0;
             CountryId = 0;
         }
     }

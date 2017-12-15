@@ -34,9 +34,9 @@ namespace Kalingo.Activities
             btnSubmit.Click += btnSubmit_OnClick;
 
             var lblCoins = FindViewById<TextView>(Resource.Id.lblCoins);
-            lblCoins.Text = $"Gold Coins: {App.Gold} | Silver Coins: {App.Silver}";
+            lblCoins.Text = $"Gold Coins: {App.Gold} \nSilver Coins: {App.Silver} \nBronze Coins: {App.Bronze}";
             var lblCoinsMap = FindViewById<TextView>(Resource.Id.lblCoinsMap);
-            lblCoinsMap.Text = ("(10 Silver ≈ 1 Gold)");
+            lblCoinsMap.Text = ("(10 Silver = 1 Gold, 10 Broze = 1 Silver)");
 
             var lblLogout = FindViewById<TextView>(Resource.Id.lblLogout);
             lblLogout.Clickable = true;

@@ -23,11 +23,11 @@ namespace Kalingo.Api.Client.Services
             return validUser;
         }
 
-        public async Task<UserResponse> RegisterUser(string userName, string password, string email, int countryId)
+        public async Task<UserResponse> RegisterUser(string userName, string password, string email, int countryId, string deviceId, string version)
         {
             try
             {
-                var user = new NewUserRequest(userName, Encryption.ComputeHash(password), email, countryId);
+                var user = new NewUserRequest(userName, Encryption.ComputeHash(password), email, countryId, deviceId, version);
                 var userResponse = await _apiClient.AddUser(user);
 
                 App.SaveSessionState(userResponse);
@@ -84,11 +84,11 @@ namespace Kalingo.Api.Client.Services
             }
         }
 
-        public async Task<UserResponse> AddFbUser(string userName, string token, int countryId)
+        public async Task<UserResponse> AddFbUser(string userName, string token, int countryId, string deviceId, string version)
         {
             try
             {
-                var fbUser = new FbUser(userName, token, countryId);
+                var fbUser = new FbUser(userName, token, countryId, deviceId, version);
 
                 var user = await _apiClient.AddFbUser(fbUser);
 

@@ -47,7 +47,7 @@ namespace Kalingo.Activities
             var response = await _userService.AuthenticateUser(username, password);
 
             HandleUserResponse(username, password, response);
-        }   
+        }
 
         private void HandleUserResponse(string username, string password, UserResponse response)
         {
@@ -100,8 +100,10 @@ namespace Kalingo.Activities
             if (!IsValidRegistration(username, email, country))
                 return;
 
-            var response = await _userService.RegisterUser(username, password, email,
-                CountryService.GetCountryId(country.ToString()));
+            var deviceId = DeviceInfo.GetDeviceId();
+            var countryId = CountryService.GetCountryId(country.ToString());
+
+            var response = await _userService.RegisterUser(username, password, email,countryId, deviceId, DeviceInfo.Version);
 
             if (response.UserId == -1)
             {

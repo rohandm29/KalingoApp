@@ -80,6 +80,12 @@
     <Reference Include="Plugin.CurrentActivity, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Plugin.CurrentActivity.1.0.1\lib\MonoAndroid10\Plugin.CurrentActivity.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.DeviceInfo, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugin.DeviceInfo.3.0.2\lib\MonoAndroid10\Plugin.DeviceInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.DeviceInfo.Abstractions, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugin.DeviceInfo.3.0.2\lib\MonoAndroid10\Plugin.DeviceInfo.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Plugin.Media, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xam.Plugin.Media.3.0.1\lib\MonoAndroid10\Plugin.Media.dll</HintPath>
     </Reference>
@@ -182,6 +188,7 @@
     <Compile Include="Adapter\SpinnerAdapter.cs" />
     <Compile Include="AdMob\InterstitialAdListener.cs" />
     <Compile Include="AdMob\RewardedAdListener.cs" />
+    <Compile Include="Helpers\DeviceInfo.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Master\BaseActivity.cs" />

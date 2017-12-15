@@ -189,7 +189,7 @@ namespace Kalingo.Api.Client.Client
             {
                 Content = new StringContent(JsonConvert.SerializeObject(captchaArgs), Encoding.UTF8, "application/json")
             };
-            AddHeader(message,captchaArgs.UserId.ToString());
+            AddHeader(message,captchaArgs.CaptchId.ToString());
 
             return await GetResponse<CaptchaResponse>(message);
         }

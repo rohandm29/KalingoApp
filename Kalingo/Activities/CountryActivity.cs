@@ -3,11 +3,11 @@ using System.Linq;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Widget;
 using Kalingo.Api.Client.Services;
 using Kalingo.Core;
 using Kalingo.Games.Contract.Entity;
+using Kalingo.Helpers;
 
 namespace Kalingo.Activities
 {
@@ -58,7 +58,9 @@ namespace Kalingo.Activities
             var country = FindViewById<Spinner>(Resource.Id.spnCountry).SelectedItem;
             var countryId = CountryService.GetCountryId(country.ToString());
 
-            var response = await _userService.AddFbUser(_userName, _token, countryId);
+            var deviceId = DeviceInfo.GetDeviceId();
+
+            var response = await _userService.AddFbUser(_userName, _token, countryId, deviceId, DeviceInfo.Version);
 
             if (response.Code == UserCodes.Valid)
             {
