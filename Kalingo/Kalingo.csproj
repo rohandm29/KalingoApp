@@ -189,6 +189,7 @@
     <Compile Include="AdMob\InterstitialAdListener.cs" />
     <Compile Include="AdMob\RewardedAdListener.cs" />
     <Compile Include="Helpers\DeviceInfo.cs" />
+    <Compile Include="Helpers\ResponseHandler.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Master\BaseActivity.cs" />

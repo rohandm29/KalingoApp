@@ -46,7 +46,12 @@ namespace Kalingo.Activities
 
             var response = await _userService.AuthenticateUser(username, password);
 
-            HandleUserResponse(username, password, response);
+            var isValid = ResponseHandler.HandleUserResponse(this, username, password, response);
+
+            if (!isValid) return;
+
+            var intent = new Intent(this, typeof(MenuActivity));
+            StartActivity(intent);
         }
 
         private void HandleUserResponse(string username, string password, UserResponse response)
@@ -69,7 +74,8 @@ namespace Kalingo.Activities
             }
             else if (response.MbConfig.MaintenanceMode)
             {
-                Toast.MakeText(this, "Under Maintenance.. \nPlease try again later.", ToastLength.Long).Show();
+                var message = response.Errors.Any()? response.Errors.First() : "Under Maintenance.. \nPlease try again later.";
+                Toast.MakeText(this, message, ToastLength.Long).Show();
             }
             else if (response.Code == UserCodes.Valid)
             {
@@ -84,7 +90,6 @@ namespace Kalingo.Activities
                 StartActivity(intent);
             }
         }
-
         
         private async void btnRegister_Click(object sender, EventArgs eventArgs)
         {
@@ -117,12 +122,9 @@ namespace Kalingo.Activities
             {
                 Toast.MakeText(this, "Registered Succesfully!!", ToastLength.Long).Show();
 
-                App.IsUserLoggedIn = true;
+                var isValid = ResponseHandler.HandleUserResponse(this, username, password, response);
 
-                Settings.Add("username", username);
-                Settings.Add("password", password);
-
-                App.Update(response.MbConfig);
+                if (!isValid) return;
 
                 var intent = new Intent(this, typeof(MenuActivity));
                 StartActivity(intent);

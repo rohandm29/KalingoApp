@@ -60,7 +60,7 @@ namespace Kalingo.Activities
 
             var result = await _minesBoomService.Submit(id, _playAgain);
 
-            //System.Threading.Thread.Sleep(1000);
+            Thread.Sleep(1000);
 
             btnSelected.Text = "";
 

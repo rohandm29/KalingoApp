@@ -28,7 +28,9 @@ namespace Kalingo.Activities
 
             var response = await _userService.GetFbUser(_userName);
 
-            if (response.Code == UserCodes.Valid)
+            var isValid = ResponseHandler.HandleUserResponse(this, _userName, "", response);
+
+            if (isValid)
             {
                 App.IsUserLoggedIn = true;
 

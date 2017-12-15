@@ -72,7 +72,7 @@
                     android:layout_width="match_parent" />
                 <EditText
                     android:id="@+id/txtPassword"
-                    android:layout_height="40dp"
+                    android:layout_height="30dp"
                     android:layout_centerInParent="true"
                     android:gravity="left"
                     android:layout_gravity="center"
@@ -102,7 +102,7 @@
                     android:visibility="gone" />
                 <EditText
                     android:id="@+id/txtEmail"
-                    android:layout_height="40dp"
+                    android:layout_height="30dp"
                     android:layout_centerInParent="true"
                     android:gravity="center_vertical"
                     android:textColorHint="@android:color/black"
@@ -130,7 +130,7 @@
                 <Spinner
                     android:id="@+id/spnCountry"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="30dp"
                     android:gravity="center_vertical"
                     android:spinnerMode="dropdown"
                     android:textColor="@android:color/white"
@@ -143,11 +143,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:textSize="12sp"
                     android:text="YOU AGREE TO THE TERMS AND CONDITION BY CLICKING SIGNUP"
                     android:textColor="@android:color/black"
                     android:textStyle="normal"
                     android:paddingLeft="5dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="5dp"
                     android:layout_gravity="center"
                     android:visibility="gone" />
                 <Button

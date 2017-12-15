@@ -129,30 +129,38 @@ namespace Kalingo.Activities
 
         public void OnRewardedVideoAdFailedToLoad(int errorCode)
         {
+            HandleFailedToLoadAd();
+        }
+
+        private void HandleFailedToLoadAd()
+        {
             _minesboom = FindViewById<ImageView>(Resource.Id.btnPlayMinesBoom);
-            //_minesboom.Text = "Refresh";
-            EnableMinesboom();
             _minesboom.Click -= BtnPlayMinesBoomOnClick;
             _minesboom.Click += Refresh_Clicked;
 
-            ShowMessage($"Failed To Load {errorCode}. Try refreshing.");
+            FindViewById<TextView>(Resource.Id.lblPlayMinesboom).Text = "REFRESH";
+            TryEnableMinesboom();
+
+            FindViewById<TextView>(Resource.Id.txtLoading).Text = "Failed To Load. Try refreshing.";
         }
 
         private void Refresh_Clicked(object sender, EventArgs eventArgs)
         {
             LoadAd();
+            _minesboom.Enabled = false;
 
             _minesboom = FindViewById<ImageView>(Resource.Id.btnPlayMinesBoom);
-            //_minesboom.Text = $"Play Minesboom \n_____\n Attempts Left : {_playCount}";
-            _minesboom.Enabled = false;
             _minesboom.Click -= Refresh_Clicked;
             _minesboom.Click += BtnPlayMinesBoomOnClick;
+
+            FindViewById<TextView>(Resource.Id.lblPlayMinesboom).Text =$"Play Minesboom\n_____\n Plays Left : { _playCount}";
+            TryEnableMinesboom();
         }
 
         public void OnRewardedVideoAdLoaded()
         {
             //var btnPlayMinesBoom = FindViewById<ImageView>(Resource.Id.btnPlayMinesBoom);
-            EnableMinesboom();
+            TryEnableMinesboom();
 
             var txtLoading = FindViewById<TextView>(Resource.Id.txtLoading);
             txtLoading.Visibility = ViewStates.Invisible;
@@ -160,7 +168,7 @@ namespace Kalingo.Activities
             ShowMessage("AdLoaded");
         }
 
-        private void EnableMinesboom()
+        private void TryEnableMinesboom()
         {
             if(_playCount > 0)
                 _minesboom.Enabled = true;
@@ -217,7 +225,7 @@ namespace Kalingo.Activities
 
         private void LoadInterstistialAd()
         {
-            _interstitialAdListener = new InterstitialAdListener(ApplicationContext, CallBack_OnInsterstitial_Loaded);
+            _interstitialAdListener = new InterstitialAdListener(ApplicationContext, CallBack_OnInsterstitial_Loaded, HandleFailedToLoadAd);
 
             _interstitialAd = new InterstitialAd(this)
             {
@@ -231,7 +239,7 @@ namespace Kalingo.Activities
 
         public void CallBack_OnInsterstitial_Loaded()
         {
-            EnableMinesboom();
+            TryEnableMinesboom();
 
             var txtLoading = FindViewById<TextView>(Resource.Id.txtLoading);
             txtLoading.Visibility = ViewStates.Invisible;
