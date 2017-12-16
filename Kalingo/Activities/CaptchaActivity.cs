@@ -35,7 +35,7 @@ namespace Kalingo.Activities
         private async Task Initialise(string coins, string type)
         {
             var lblCaptchaClaim = FindViewById<TextView>(Resource.Id.lblCaptchaClaim);
-            lblCaptchaClaim.Text = $"Enter the text in the given image below to claim {coins} {type} coins -";
+            lblCaptchaClaim.Text = $"Enter the text in the given image below to claim {coins} {type} coins";
 
             _captchaService = new CaptchaService();
 

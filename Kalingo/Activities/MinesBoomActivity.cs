@@ -223,10 +223,10 @@ namespace Kalingo.Activities
 
         public void GoToCaptcha(int coins, string type)
         {
-            var menuIntent = new Intent(this, typeof(CaptchaActivity));
-            menuIntent.PutExtra("Coins", coins);
-            menuIntent.PutExtra("Type", type);
-            StartActivity(menuIntent);
+            var captchtaIntent = new Intent(this, typeof(CaptchaActivity));
+            captchtaIntent.PutExtra("Coins", coins.ToString());
+            captchtaIntent.PutExtra("Type", type);
+            StartActivity(captchtaIntent);
         }
 
         private void SetText(int chances)

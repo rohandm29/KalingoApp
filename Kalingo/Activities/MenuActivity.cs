@@ -136,8 +136,8 @@ namespace Kalingo.Activities
         private void HandleFailedToLoadAd()
         {
             _minesboom = FindViewById<ImageView>(Resource.Id.btnPlayMinesBoom);
-            _minesboom.Click -= BtnPlayMinesBoomOnClick;
-            _minesboom.Click += Refresh_Clicked;
+            //_minesboom.Click -= BtnPlayMinesBoomOnClick;
+            //_minesboom.Click += Refresh_Clicked;
 
             TryEnableMinesboom();
 
