@@ -87,7 +87,7 @@ namespace Kalingo.Activities
         {
             if (result.TotalChances != 0)
             {
-                SetText(result.TotalChances);
+                SetText(App.TotalChances);
                 return;
             }
 
@@ -122,16 +122,7 @@ namespace Kalingo.Activities
                 }
             }
         }
-
-        private async void PlayAgain()
-        {
-            _playAgain = true;
-
-            _settings = await _minesBoomService.CreateMinesBoom(App.UserId, true);
-
-            ClearScreen();
-        }
-
+        
         private void DisableAndShowMissedThumbs(string resultRandomSequence)
         {
             foreach (var id in resultRandomSequence.Split('-'))
@@ -185,10 +176,8 @@ namespace Kalingo.Activities
 
         private void ShowDialogPlayAgain()
         {
-            if (_playAgain)
+            if (!_playAgain)
             {
-                _playAgain = false;
-
                 RunOnUiThread(() =>
                 {
                     var builder = new AlertDialog.Builder(this);
@@ -217,11 +206,15 @@ namespace Kalingo.Activities
             GoToMenu();
         }
 
-        public void PlayAgain(AlertDialog.Builder builder)
+        public async void PlayAgain(AlertDialog.Builder builder)
         {
-            PlayAgain();
-        }
+            _playAgain = true;
 
+            _settings = await _minesBoomService.CreateMinesBoom(App.UserId, true);
+
+            ClearScreen();
+        }
+       
         public void GoToMenu()
         {
             var menuIntent = new Intent(this, typeof(MenuActivity));
@@ -239,7 +232,7 @@ namespace Kalingo.Activities
         private void SetText(int chances)
         {
             var txtMinesChances = FindViewById<TextView>(Resource.Id.txtMinesChances);
-            txtMinesChances.Text = $"Select any {chances} numbers to find gifts.";
+            txtMinesChances.Text = $"Select any {chances} numbers to find gift/s.";
             txtMinesChances.SetTypeface(null, TypefaceStyle.Bold);
         }
 
@@ -314,10 +307,6 @@ namespace Kalingo.Activities
             imgButton16.Click += ButtonOnClick;
 
             #endregion
-
-            var txtMinesChances = FindViewById<TextView>(Resource.Id.txtMinesChances);
-            txtMinesChances.Text = $"Select any {App.TotalChances} numbers to find gifts.";
-            txtMinesChances.SetTypeface(null, TypefaceStyle.Bold);
         }
 
         private Button GetButton(int buttonId)

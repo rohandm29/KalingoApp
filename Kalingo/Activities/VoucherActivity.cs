@@ -20,6 +20,7 @@ namespace Kalingo.Activities
     {
         private VoucherService _voucherService;
         private IEnumerable<VoucherResponse> _voucherResponse;
+        private List<string> _vouchersList = new List<string>();
 
         private GridView _gridView;
         private GTAdapter _adapter;
@@ -39,8 +40,8 @@ namespace Kalingo.Activities
         {
             _voucherService = new VoucherService();
             _voucherResponse = await _voucherService.GetVouchers();
-            var vouchersList = new List<string> {"SELECT VOUCHER"};
-            vouchersList.AddRange(_voucherResponse.Select(x => x.Description).ToList());
+            _vouchersList = new List<string> {"SELECT VOUCHER"};
+            _vouchersList.AddRange(_voucherResponse.Select(x => x.Description).ToList());
 
             var spnVoucher = FindViewById<Spinner>(Resource.Id.spnVoucher);
             spnVoucher.ItemSelected += Voucher_OnSelected;
@@ -49,7 +50,7 @@ namespace Kalingo.Activities
             //voucherAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             //spnVoucher.Adapter = voucherAdapter;
 
-            var customspinnerAdapter = new CustomSpinnerAdapter(this, vouchersList);
+            var customspinnerAdapter = new CustomSpinnerAdapter(this, _vouchersList);
             spnVoucher.Adapter = customspinnerAdapter;
 
             _gridView = FindViewById<GridView>(Resource.Id.alltickets);
@@ -89,6 +90,7 @@ namespace Kalingo.Activities
             if (claimResponse.Code == VoucherCodes.Valid)
             {
                 Toast.MakeText(this, "Voucher claimed!!", ToastLength.Long).Show();
+                App.Gold -= _voucherResponse.First(x => x.Id == id).Worth;
                 return;
             }
 

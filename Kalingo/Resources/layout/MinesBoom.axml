@@ -17,7 +17,7 @@
         android:id="@+id/lblLogIn" />
     <TextView
         android:textColor="#000000"
-        android:text="Select any 7 numbers to find gifts."
+        android:text="Select any 6 numbers to find gift/s."
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="30dp"

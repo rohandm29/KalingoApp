@@ -38,7 +38,7 @@ namespace Kalingo.AdMob
 
         public override void OnAdLoaded()
         {
-            Toast.MakeText(_context, "Interstitial Loaded", ToastLength.Short).Show();
+            Toast.MakeText(_context, "Loaded", ToastLength.Short).Show();
 
             _callBackOnInsterstitialLoaded();
         }
