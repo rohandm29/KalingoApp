@@ -22,8 +22,8 @@ namespace Kalingo.Api.Client.Client
 
         public KalingoApiClient()
         {
-            //_baseAddress = "http://kalingoapi.cloudapp.net/api/";
-            _baseAddress = "http://10.0.3.2:9988/api/";
+            _baseAddress = "http://kalingoapi.cloudapp.net/api/";
+            //_baseAddress = "http://10.0.3.2:9988/api/";
         }
 
         public async Task<T> GetResponse<T>(HttpRequestMessage message)

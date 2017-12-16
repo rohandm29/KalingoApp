@@ -20,7 +20,7 @@ using System.Net;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "Login", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Login",/* MainLauncher = true, */Icon = "@drawable/icon")]
     public class LoginActivity : Activity, IFacebookCallback
     {
         private UserService _userService;
@@ -164,55 +164,70 @@ namespace Kalingo.Activities
 
         private void OnBtnTermOnClick(object sender, EventArgs e)
         {
-            var webClient = new WebClient();
-            webClient.DownloadFile(new Uri("https://github.com/KalingoApp/KalingoPrivacy/blob/master/PrivacyDoc.pdf?raw=true"), "/storage/emulated/0/Download/PrivacyDoc.pdf");
-
-            var path = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath;
-            var filePath = new Java.IO.File(path + "/PrivacyDoc.pdf");
-
-            var bytes = File.ReadAllBytes(filePath.ToString());
-            string application;
-            var extension = Path.GetExtension(filePath.ToString());
-            switch (extension.ToLower())
-            {
-                case ".doc":
-                case ".docx":
-                    application = "application/msword";
-                    break;
-                case ".pdf":
-                    application = "application/pdf";
-                    break;
-                case ".xls":
-                case ".xlsx":
-                    application = "application/vnd.ms-excel";
-                    break;
-                case ".jpg":
-                case ".jpeg":
-                case ".png":
-                    application = "image/jpeg";
-                    break;
-                default:
-                    application = "*/*";
-                    break;
-            }
-
-            var externalPath = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath + "/PrivacyDoc" + extension;
-            File.WriteAllBytes(externalPath, bytes);
-
-            var file = new Java.IO.File(externalPath);
-            file.SetReadable(true);
-            var uri = Android.Net.Uri.FromFile(file);
-            var intent = new Intent(Intent.ActionView);
-            intent.SetDataAndType(uri, application);
-            intent.SetFlags(ActivityFlags.ClearWhenTaskReset | ActivityFlags.NewTask);
-
             try
             {
-                StartActivity(intent);
+                var webClient = new WebClient();
+                webClient.DownloadFile(
+                    new Uri("https://github.com/KalingoApp/KalingoPrivacy/blob/master/PrivacyDoc.pdf?raw=true"),
+                    "/storage/emulated/0/Download/PrivacyDoc.pdf");
+
+                var path =
+                    Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads)
+                        .AbsolutePath;
+                var filePath = new Java.IO.File(path + "/PrivacyDoc.pdf");
+
+                var bytes = File.ReadAllBytes(filePath.ToString());
+                string application;
+                var extension = Path.GetExtension(filePath.ToString());
+                switch (extension.ToLower())
+                {
+                    case ".doc":
+                    case ".docx":
+                        application = "application/msword";
+                        break;
+                    case ".pdf":
+                        application = "application/pdf";
+                        break;
+                    case ".xls":
+                    case ".xlsx":
+                        application = "application/vnd.ms-excel";
+                        break;
+                    case ".jpg":
+                    case ".jpeg":
+                    case ".png":
+                        application = "image/jpeg";
+                        break;
+                    default:
+                        application = "*/*";
+                        break;
+                }
+
+                var externalPath =
+                    Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads)
+                        .AbsolutePath + "/PrivacyDoc" + extension;
+                File.WriteAllBytes(externalPath, bytes);
+
+                var file = new Java.IO.File(externalPath);
+                file.SetReadable(true);
+                var uri = Android.Net.Uri.FromFile(file);
+                var intent = new Intent(Intent.ActionView);
+                intent.SetDataAndType(uri, application);
+                intent.SetFlags(ActivityFlags.ClearWhenTaskReset | ActivityFlags.NewTask);
+
+                try
+                {
+                    StartActivity(intent);
+                }
+                catch (Exception)
+                {
+                    Toast.MakeText(ApplicationContext, "No Application Available to View PDF", ToastLength.Short).Show();
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Toast.MakeText(ApplicationContext, "No Application Available to View PDF", ToastLength.Short).Show();
+                var uri = Android.Net.Uri.Parse("https://github.com/KalingoApp/KalingoPrivacy/blob/master/PrivacyDoc.pdf?raw=true");
+                var intent = new Intent(Intent.ActionView, uri);
+                StartActivity(intent);
             }
         }
 

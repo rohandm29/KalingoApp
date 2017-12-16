@@ -90,7 +90,7 @@ namespace Kalingo.Activities
             if (claimResponse.Code == VoucherCodes.Valid)
             {
                 Toast.MakeText(this, "Voucher claimed!!", ToastLength.Long).Show();
-                App.Gold -= _voucherResponse.First(x => x.Id == id).Worth;
+                App.Gold -= _voucherResponse.First(x => x.Id == id).Coins;
                 return;
             }
 

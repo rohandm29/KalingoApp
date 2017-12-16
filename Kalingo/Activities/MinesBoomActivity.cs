@@ -87,7 +87,7 @@ namespace Kalingo.Activities
         {
             if (result.TotalChances != 0)
             {
-                SetText(App.TotalChances);
+                SetText(result.TotalChances);
                 return;
             }
 
@@ -100,6 +100,7 @@ namespace Kalingo.Activities
                 txtMinesChances.SetTypeface(null, TypefaceStyle.BoldItalic);
 
                 ShowMessage("Redirecting... please wait");
+                App.UpdateCoins(result.CoinsWon, coinType);
 
                 GoToCaptcha(result.CoinsWon, coinType);
             }

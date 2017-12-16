@@ -8,7 +8,7 @@ using Kalingo.Core;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "Kalingo", /*MainLauncher = true,*/ Icon = "@drawable/icon")]
+    [Activity(Label = "Kalingo", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

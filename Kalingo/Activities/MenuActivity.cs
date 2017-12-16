@@ -67,11 +67,11 @@ namespace Kalingo.Activities
 
         private void BtnPlayMinesBoomOnClick(object sender, EventArgs e)
         {
-            var intent = new Intent(this, typeof(MinesBoomActivity));
-            intent.PutExtra("Reward", $"Insterstitial-{App.CountryId}");
-            StartActivity(intent);
+            //var intent = new Intent(this, typeof(MinesBoomActivity));
+            //intent.PutExtra("Reward", $"Insterstitial-{App.CountryId}");
+            //StartActivity(intent);
 
-            //ShowAd();
+            ShowAd();
         }
 
         private void ShowAd()
@@ -136,8 +136,8 @@ namespace Kalingo.Activities
         private void HandleFailedToLoadAd()
         {
             _minesboom = FindViewById<ImageView>(Resource.Id.btnPlayMinesBoom);
-            //_minesboom.Click -= BtnPlayMinesBoomOnClick;
-            //_minesboom.Click += Refresh_Clicked;
+            _minesboom.Click -= BtnPlayMinesBoomOnClick;
+            _minesboom.Click += Refresh_Clicked;
 
             TryEnableMinesboom();
 
