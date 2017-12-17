@@ -18,7 +18,7 @@ namespace Kalingo.Helpers
 {
     public class ResponseHandler 
     {
-        public static bool HandleUserResponse(Context context, string username, string password, UserResponse response)
+        public static bool HandleUserResponse(Context context, string username, string password, UserResponse response, bool saveCreds = true)
         {
             if (response.Code == UserCodes.Invalid)
             {

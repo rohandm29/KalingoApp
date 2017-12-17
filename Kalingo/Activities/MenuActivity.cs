@@ -147,28 +147,23 @@ namespace Kalingo.Activities
 
         private void Refresh_Clicked(object sender, EventArgs eventArgs)
         {
-            LoadAd();
             _minesboom.Enabled = false;
+            LoadAd();
 
             _minesboom = FindViewById<ImageView>(Resource.Id.btnPlayMinesBoom);
             _minesboom.Click -= Refresh_Clicked;
             _minesboom.Click += BtnPlayMinesBoomOnClick;
 
-            TryEnableMinesboom();
-
             FindViewById<TextView>(Resource.Id.txtLoading).Text = "Loading...Please wait";
-            FindViewById<TextView>(Resource.Id.lblPlayMinesboom).Text =$"Play Minesboom\n_____\n Plays Left : { _playCount}";
         }
 
         public void OnRewardedVideoAdLoaded()
         {
-            //var btnPlayMinesBoom = FindViewById<ImageView>(Resource.Id.btnPlayMinesBoom);
+            FindViewById<TextView>(Resource.Id.lblPlayMinesboom).Text = $"Play Minesboom\n_____\n Plays Left : { _playCount}";
             TryEnableMinesboom();
 
             var txtLoading = FindViewById<TextView>(Resource.Id.txtLoading);
-            txtLoading.Visibility = ViewStates.Invisible;
-
-            ShowMessage("Loaded");
+            txtLoading.Text = "Loaded..";
         }
 
         private void TryEnableMinesboom()
@@ -242,10 +237,11 @@ namespace Kalingo.Activities
 
         public void CallBack_OnInsterstitial_Loaded()
         {
+            FindViewById<TextView>(Resource.Id.lblPlayMinesboom).Text = $"Play Minesboom\n_____\n Plays Left : { _playCount}";
             TryEnableMinesboom();
 
             var txtLoading = FindViewById<TextView>(Resource.Id.txtLoading);
-            txtLoading.Visibility = ViewStates.Invisible;
+            txtLoading.Text = "Loaded..";
         }
 
         private void RegisterControl()

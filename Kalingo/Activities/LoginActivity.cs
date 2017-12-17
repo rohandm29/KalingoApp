@@ -55,43 +55,6 @@ namespace Kalingo.Activities
             StartActivity(intent);
         }
 
-        private void HandleUserResponse(string username, string password, UserResponse response)
-        {
-            if (response.Code == UserCodes.Invalid)
-            {
-                App.IsUserLoggedIn = false;
-                Toast.MakeText(this, "user authentication failed", ToastLength.Short).Show();
-            }
-            else if (response.Code == UserCodes.NotFound)
-            {
-                App.IsUserLoggedIn = false;
-                Toast.MakeText(this, "Please Sign Up!!", ToastLength.Short).Show();
-                //RegisterUser();
-            }
-            else if (response.Code == UserCodes.Inactive)
-            {
-                App.IsUserLoggedIn = false;
-                Toast.MakeText(this, "Please try after sometime!!", ToastLength.Short).Show();
-            }
-            else if (response.MbConfig.MaintenanceMode)
-            {
-                var message = response.Errors.Any()? response.Errors.First() : "Under Maintenance.. \nPlease try again later.";
-                Toast.MakeText(this, message, ToastLength.Long).Show();
-            }
-            else if (response.Code == UserCodes.Valid)
-            {
-                App.IsUserLoggedIn = true;
-
-                Settings.Add("username", username);
-                Settings.Add("password", password);
-
-                App.Update(response.MbConfig);
-
-                var intent = new Intent(this, typeof(MenuActivity));
-                StartActivity(intent);
-            }
-        }
-        
         private async void btnRegister_Click(object sender, EventArgs eventArgs)
         {
             var username = FindViewById<EditText>(Resource.Id.txtUsername).Text;

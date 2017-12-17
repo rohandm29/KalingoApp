@@ -28,7 +28,7 @@ namespace Kalingo.Activities
 
             var response = await _userService.GetFbUser(_userName);
 
-            var isValid = ResponseHandler.HandleUserResponse(this, _userName, "", response);
+            var isValid = ResponseHandler.HandleUserResponse(this, _userName, "", response, false);
 
             if (isValid)
             {
