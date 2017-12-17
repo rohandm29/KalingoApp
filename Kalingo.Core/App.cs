@@ -59,5 +59,21 @@ namespace Kalingo.Core
             Bronze = 0;
             CountryId = 0;
         }
+
+        public static void UpdateCoins(int coinsWon, string coinType)
+        {
+            switch (coinType)
+            {
+                case "Gold":
+                    Gold += coinsWon;
+                    break;
+                case "Silver":
+                    Silver += coinsWon;
+                    break;
+                case "Bronze":
+                    Bronze += coinsWon;
+                    break;
+            }
+        }
     }
 }

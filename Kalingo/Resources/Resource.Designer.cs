@@ -2469,8 +2469,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b00e8
 			public const int btnClaimVoucher = 2131427560;
 			
-			// aapt resource value: 0x7f0b0086
-			public const int btnGo = 2131427462;
+			// aapt resource value: 0x7f0b0088
+			public const int btnGo = 2131427464;
 			
 			// aapt resource value: 0x7f0b009b
 			public const int btnLogIn = 2131427483;
@@ -2550,8 +2550,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b004b
 			public const int contentPanel = 2131427403;
 			
-			// aapt resource value: 0x7f0b0092
-			public const int control = 2131427474;
+			// aapt resource value: 0x7f0b0094
+			public const int control = 2131427476;
 			
 			// aapt resource value: 0x7f0b0052
 			public const int custom = 2131427410;
@@ -2589,8 +2589,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0057
 			public const int expanded_menu = 2131427415;
 			
-			// aapt resource value: 0x7f0b008a
-			public const int ffwd = 2131427466;
+			// aapt resource value: 0x7f0b008c
+			public const int ffwd = 2131427468;
 			
 			// aapt resource value: 0x7f0b003b
 			public const int fit = 2131427387;
@@ -2649,11 +2649,11 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b00c5
 			public const int lblCoinsMap = 2131427525;
 			
-			// aapt resource value: 0x7f0b0084
-			public const int lblCountry = 2131427460;
+			// aapt resource value: 0x7f0b0086
+			public const int lblCountry = 2131427462;
 			
-			// aapt resource value: 0x7f0b0098
-			public const int lblEmail = 2131427480;
+			// aapt resource value: 0x7f0b0084
+			public const int lblEmail = 2131427460;
 			
 			// aapt resource value: 0x7f0b00a1
 			public const int lblGames = 2131427489;
@@ -2670,8 +2670,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b00ab
 			public const int lblMyAccount = 2131427499;
 			
-			// aapt resource value: 0x7f0b0096
-			public const int lblPassword = 2131427478;
+			// aapt resource value: 0x7f0b0098
+			public const int lblPassword = 2131427480;
 			
 			// aapt resource value: 0x7f0b00a7
 			public const int lblPlayMinesboom = 2131427495;
@@ -2685,8 +2685,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b00c2
 			public const int lblUpdateEmail = 2131427522;
 			
-			// aapt resource value: 0x7f0b0094
-			public const int lblUsername = 2131427476;
+			// aapt resource value: 0x7f0b0096
+			public const int lblUsername = 2131427478;
 			
 			// aapt resource value: 0x7f0b00e7
 			public const int lblVoucherCost = 2131427559;
@@ -2724,8 +2724,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b00ce
 			public const int media_actions = 2131427534;
 			
-			// aapt resource value: 0x7f0b008d
-			public const int mediacontroller_progress = 2131427469;
+			// aapt resource value: 0x7f0b008f
+			public const int mediacontroller_progress = 2131427471;
 			
 			// aapt resource value: 0x7f0b00ad
 			public const int messenger_send_button = 2131427501;
@@ -2742,11 +2742,11 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0020
 			public const int never_display = 2131427360;
 			
-			// aapt resource value: 0x7f0b0093
-			public const int newUserLayout = 2131427475;
+			// aapt resource value: 0x7f0b0095
+			public const int newUserLayout = 2131427477;
 			
-			// aapt resource value: 0x7f0b008b
-			public const int next = 2131427467;
+			// aapt resource value: 0x7f0b008d
+			public const int next = 2131427469;
 			
 			// aapt resource value: 0x7f0b000c
 			public const int none = 2131427340;
@@ -2772,11 +2772,11 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b004a
 			public const int parentPanel = 2131427402;
 			
-			// aapt resource value: 0x7f0b0089
-			public const int play = 2131427465;
+			// aapt resource value: 0x7f0b008b
+			public const int play = 2131427467;
 			
-			// aapt resource value: 0x7f0b0087
-			public const int prev = 2131427463;
+			// aapt resource value: 0x7f0b0089
+			public const int prev = 2131427465;
 			
 			// aapt resource value: 0x7f0b00e6
 			public const int priceLayout = 2131427558;
@@ -2796,8 +2796,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b005a
 			public const int radio = 2131427418;
 			
-			// aapt resource value: 0x7f0b0088
-			public const int rew = 2131427464;
+			// aapt resource value: 0x7f0b008a
+			public const int rew = 2131427466;
 			
 			// aapt resource value: 0x7f0b001d
 			public const int right = 2131427357;
@@ -2868,8 +2868,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b002a
 			public const int showTitle = 2131427370;
 			
-			// aapt resource value: 0x7f0b0090
-			public const int shutter = 2131427472;
+			// aapt resource value: 0x7f0b0092
+			public const int shutter = 2131427474;
 			
 			// aapt resource value: 0x7f0b0023
 			public const int small = 2131427363;
@@ -2880,8 +2880,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0008
 			public const int split_action_bar = 2131427336;
 			
-			// aapt resource value: 0x7f0b0085
-			public const int spnCountry = 2131427461;
+			// aapt resource value: 0x7f0b0087
+			public const int spnCountry = 2131427463;
 			
 			// aapt resource value: 0x7f0b00e4
 			public const int spnVoucher = 2131427556;
@@ -2907,8 +2907,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b006c
 			public const int submit_area = 2131427436;
 			
-			// aapt resource value: 0x7f0b0091
-			public const int subtitles = 2131427473;
+			// aapt resource value: 0x7f0b0093
+			public const int subtitles = 2131427475;
 			
 			// aapt resource value: 0x7f0b0025
 			public const int tabMode = 2131427365;
@@ -2934,11 +2934,11 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b00a4
 			public const int ticket_voucher_layout = 2131427492;
 			
-			// aapt resource value: 0x7f0b008e
-			public const int time = 2131427470;
+			// aapt resource value: 0x7f0b0090
+			public const int time = 2131427472;
 			
-			// aapt resource value: 0x7f0b008c
-			public const int time_current = 2131427468;
+			// aapt resource value: 0x7f0b008e
+			public const int time_current = 2131427470;
 			
 			// aapt resource value: 0x7f0b0047
 			public const int title = 2131427399;
@@ -2958,8 +2958,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b0074
 			public const int txtCaptcha = 2131427444;
 			
-			// aapt resource value: 0x7f0b0099
-			public const int txtEmail = 2131427481;
+			// aapt resource value: 0x7f0b0085
+			public const int txtEmail = 2131427461;
 			
 			// aapt resource value: 0x7f0b00a3
 			public const int txtLoading = 2131427491;
@@ -2967,14 +2967,14 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b00af
 			public const int txtMinesChances = 2131427503;
 			
-			// aapt resource value: 0x7f0b0097
-			public const int txtPassword = 2131427479;
+			// aapt resource value: 0x7f0b0099
+			public const int txtPassword = 2131427481;
 			
 			// aapt resource value: 0x7f0b00c3
 			public const int txtUpdateEmail = 2131427523;
 			
-			// aapt resource value: 0x7f0b0095
-			public const int txtUsername = 2131427477;
+			// aapt resource value: 0x7f0b0097
+			public const int txtUsername = 2131427479;
 			
 			// aapt resource value: 0x7f0b0015
 			public const int unknown = 2131427349;
@@ -2985,8 +2985,8 @@ namespace Kalingo
 			// aapt resource value: 0x7f0b002b
 			public const int useLogo = 2131427371;
 			
-			// aapt resource value: 0x7f0b008f
-			public const int video_frame = 2131427471;
+			// aapt resource value: 0x7f0b0091
+			public const int video_frame = 2131427473;
 			
 			// aapt resource value: 0x7f0b00a8
 			public const int voucher_layout = 2131427496;

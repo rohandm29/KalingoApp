@@ -59,10 +59,11 @@ namespace Kalingo.Activities
         {
             var country = FindViewById<Spinner>(Resource.Id.spnCountry).SelectedItem;
             var countryId = CountryService.GetCountryId(country.ToString());
+            var email = FindViewById<EditText>(Resource.Id.txtEmail).Text;
 
             var deviceId = DeviceInfo.GetDeviceId();
 
-            var response = await _userService.AddFbUser(_userName, _token, countryId, deviceId, DeviceInfo.Version);
+            var response = await _userService.AddFbUser(_userName, _token, email, countryId, deviceId, DeviceInfo.Version);
 
             if (response.Code == UserCodes.Valid)
             {

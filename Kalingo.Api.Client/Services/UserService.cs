@@ -84,11 +84,11 @@ namespace Kalingo.Api.Client.Services
             }
         }
 
-        public async Task<UserResponse> AddFbUser(string userName, string token, int countryId, string deviceId, string version)
+        public async Task<UserResponse> AddFbUser(string userName, string token, string emailAddress, int countryId, string deviceId, string version)
         {
             try
             {
-                var fbUser = new FbUser(userName, token, countryId, deviceId, version);
+                var fbUser = new FbUser(userName, token, emailAddress, countryId, deviceId, version);
 
                 var user = await _apiClient.AddFbUser(fbUser);
 

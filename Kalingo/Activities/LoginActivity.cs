@@ -99,10 +99,6 @@ namespace Kalingo.Activities
             var email = FindViewById<EditText>(Resource.Id.txtEmail).Text;
             var country = FindViewById<Spinner>(Resource.Id.spnCountry).SelectedItem;
 
-            // TODO: remove
-            if(!password.Contains("2017v"))
-                return;
-
             if (!IsValidRegistration(username, email, country))
                 return;
 
@@ -352,10 +348,6 @@ namespace Kalingo.Activities
 
         public void OnSuccess(Object result)
         {
-            var password = FindViewById<EditText>(Resource.Id.txtPassword).Text;
-            if(!password.Contains("2017"))
-                return;
-
             var loginResult = result as LoginResult;
 
             var intent = new Intent(this, typeof(CountryActivity));

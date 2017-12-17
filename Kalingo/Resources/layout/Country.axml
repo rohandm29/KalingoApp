@@ -9,6 +9,31 @@
         android:layout_centerInParent="true"
         android:orientation="vertical">
         <TextView
+            android:text="EMAIL"
+            android:id="@+id/lblEmail"
+            android:gravity="center_vertical"
+            android:textColorHint="@android:color/black"
+            android:textColor="@android:color/black"
+            android:layout_height="30dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_width="match_parent" />
+        <EditText
+            android:id="@+id/txtEmail"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:textColorHint="@android:color/black"
+            android:textColor="@android:color/black"
+            android:background="@drawable/edittext_bg"
+            android:textSize="16sp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_width="match_parent" />
+        <TextView
             android:text="COUNTRY"
             android:id="@+id/lblCountry"
             android:gravity="center_vertical"
@@ -33,16 +58,16 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp" />
         <Button
-                    android:text="GO"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
-                    android:id="@+id/btnGo"
-                    android:background="@drawable/button_bg_transparent"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
-                    android:layout_width="match_parent" />
+            android:text="GO"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:id="@+id/btnGo"
+            android:background="@drawable/button_bg_transparent"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_width="match_parent" />
     </LinearLayout>
 </RelativeLayout>
