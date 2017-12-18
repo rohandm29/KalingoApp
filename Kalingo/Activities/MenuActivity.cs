@@ -106,6 +106,10 @@ namespace Kalingo.Activities
         {
             Toast.MakeText(this, message, ToastLength.Long).Show();
         }
+        private void ShowMessageShort(string message)
+        {
+            Toast.MakeText(this, message, ToastLength.Short).Show();
+        }
 
         private void BtnShopClick(object sender, EventArgs e)
         {
@@ -130,10 +134,10 @@ namespace Kalingo.Activities
 
         public void OnRewardedVideoAdFailedToLoad(int errorCode)
         {
-            HandleFailedToLoadAd();
+            HandleFailedToLoadAd(errorCode);
         }
 
-        private void HandleFailedToLoadAd()
+        private void HandleFailedToLoadAd(int errorCode)
         {
             _minesboom = FindViewById<ImageView>(Resource.Id.btnPlayMinesBoom);
             _minesboom.Click -= BtnPlayMinesBoomOnClick;
@@ -143,6 +147,7 @@ namespace Kalingo.Activities
 
             FindViewById<TextView>(Resource.Id.lblPlayMinesboom).Text = "REFRESH";
             FindViewById<TextView>(Resource.Id.txtLoading).Text = "Failed To Load. Try refreshing.";
+            ShowMessageShort($"Error!! {errorCode}");
         }
 
         private void Refresh_Clicked(object sender, EventArgs eventArgs)
@@ -172,7 +177,7 @@ namespace Kalingo.Activities
                 _minesboom.Enabled = true;
             else
             {
-                ShowMessage("Total number of plays per day are exhausted");
+                FindViewById<TextView>(Resource.Id.txtLoading).Text = "Total number of plays per day are exhausted";
             }
         }
 

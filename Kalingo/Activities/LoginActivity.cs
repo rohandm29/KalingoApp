@@ -7,9 +7,6 @@ using Android.Widget;
 using System.IO;
 using System.Threading.Tasks;
 using Kalingo.Api.Client.Services;
-using Kalingo.Core;
-using Kalingo.Games.Contract.Entity;
-using Kalingo.Games.Contract.Entity.User;
 using Kalingo.Helpers;
 using Object = Java.Lang.Object;
 using Xamarin.Facebook;
@@ -72,7 +69,7 @@ namespace Kalingo.Activities
 
             if (response.UserId == -1)
             {
-                Toast.MakeText(this, "Sorry! username has been taken.", ToastLength.Short).Show();
+                Toast.MakeText(this, "Sorry! username/email has been taken.", ToastLength.Short).Show();
             }
             else if (response.UserId == 0)
             {

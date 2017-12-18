@@ -47,18 +47,20 @@ namespace Kalingo.Activities
 
             _captchaId = image.CaptchaId;
 
-            SetImage(image.Image);
+            await SetImage(image.Image);
         }
 
-        public void SetImage(string stream)
+        public async Task SetImage(string stream)
         {
             var image = stream.Substring(10);
             var imageBytes = Convert.FromBase64String(image);
-            Bitmap bitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
+            var bitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
 
             var captcha = FindViewById<ImageView>(Resource.Id.imgCaptcha);
 
             captcha.SetImageBitmap(bitmap);
+
+            await Task.FromResult(0);
         }
 
         private void RegisterControls()

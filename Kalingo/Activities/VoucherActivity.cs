@@ -40,7 +40,7 @@ namespace Kalingo.Activities
         {
             _voucherService = new VoucherService();
             _voucherResponse = await _voucherService.GetVouchers();
-            _vouchersList = new List<string> {"SELECT VOUCHER"};
+            _vouchersList = new List<string> {"SELECT VOUCHER (click here)"};
             _vouchersList.AddRange(_voucherResponse.Select(x => x.Description).ToList());
 
             var spnVoucher = FindViewById<Spinner>(Resource.Id.spnVoucher);

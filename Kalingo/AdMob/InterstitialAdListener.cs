@@ -11,9 +11,9 @@ namespace Kalingo.AdMob
     {
         private readonly Context _context;
         private readonly Action _callBackOnInsterstitialLoaded;
-        private readonly Action _failedToLoadAd;
+        private readonly Action<int> _failedToLoadAd;
 
-        public InterstitialAdListener(Context context, Action callBackOnInsterstitialLoaded, Action failedToLoadAd)
+        public InterstitialAdListener(Context context, Action callBackOnInsterstitialLoaded, Action<int> failedToLoadAd)
         {
             _context = context;
             _callBackOnInsterstitialLoaded = callBackOnInsterstitialLoaded;
@@ -33,7 +33,7 @@ namespace Kalingo.AdMob
 
         public override void OnAdFailedToLoad(int errorCode)
         {
-            _failedToLoadAd();
+            _failedToLoadAd(errorCode);
         }
 
         public override void OnAdLoaded()
