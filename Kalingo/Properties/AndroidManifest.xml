@@ -1,11 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="kalingo.beta" android:versionName="1.0" android:installLocation="auto" android:versionCode="44">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="kalingo.kalingo" android:versionName="1.0" android:installLocation="auto" android:versionCode="55">
 	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="25" />
 	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 	<application android:label="Kalingo" android:theme="@style/MyTheme" android:icon="@drawable/Icon" android:hardwareAccelerated="false" android:largeHeap="true">
 		<meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id" />
 		<meta-data android:name="com.facebook.sdk.ApplicationName" android:value="KalingoApp" />
 	</application>
+  <activity android:name="com.appodeal.ads.VideoActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 </manifest>

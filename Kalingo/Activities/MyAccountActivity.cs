@@ -55,7 +55,9 @@ namespace Kalingo.Activities
         {
             var txtEmail = FindViewById<EditText>(Resource.Id.txtUpdateEmail).Text;
 
-            await _userService.UpdateUser(txtEmail);
+            var result = await _userService.UpdateUser(txtEmail);
+
+            Toast.MakeText(this, result ? "Done!!" : "Please try later!", ToastLength.Short);
         }
     }
 }

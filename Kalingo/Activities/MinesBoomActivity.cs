@@ -211,6 +211,8 @@ namespace Kalingo.Activities
         {
             _playAgain = true;
 
+            App.Reward = Intent.GetStringExtra("NA");
+
             _settings = await _minesBoomService.CreateMinesBoom(App.UserId, true);
 
             ClearScreen();

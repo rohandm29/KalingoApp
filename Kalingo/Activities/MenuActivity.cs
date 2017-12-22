@@ -6,14 +6,13 @@ using Android.OS;
 using Android.Widget;
 using Android.Gms.Ads;
 using Android.Gms.Ads.Reward;
-using Android.Views;
 using Kalingo.AdMob;
 using Kalingo.Api.Client.Services;
 using Kalingo.Core;
 
 namespace Kalingo.Activities
 {
-    [Activity(Label = "M E N U" /*, MainLauncher = true*/)]
+    [Activity(Label = "M E N U", MainLauncher = true)]
     public class MenuActivity : Activity, IRewardedVideoAdListener
     {
         private UserService _userService;
@@ -49,7 +48,7 @@ namespace Kalingo.Activities
             var mAdView = FindViewById<AdView>(Resource.Id.adView);
             var adRequest = new AdRequest.Builder().Build();
             mAdView.LoadAd(adRequest);
-            
+
             // Video ad
             if (App.MixedMode)
             {
@@ -265,6 +264,9 @@ namespace Kalingo.Activities
             var lblMyAccount = FindViewById<TextView>(Resource.Id.lblMyAccount);
             lblMyAccount.Clickable = true;
             lblMyAccount.Click += MyAccount_OnClick;
+
+            var txtCoins = FindViewById<TextView>(Resource.Id.txtCoins);
+            txtCoins.Text = $"Gold - {App.Gold}  |  Silver - {App.Silver}  |  Bronze - {App.Bronze}";
         }
     }
 }

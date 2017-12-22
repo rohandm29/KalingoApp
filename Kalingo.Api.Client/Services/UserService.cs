@@ -40,16 +40,19 @@ namespace Kalingo.Api.Client.Services
             }
         }
 
-        public async Task UpdateUser(string email)
+        public async Task<bool> UpdateUser(string email)
         {
             try
             {
                 var updateUser = new UpdateUserRequest(App.UserId, email, 0);
 
-                await _apiClient.UpdateUser(updateUser);
+                var result = await _apiClient.UpdateUser(updateUser);
+
+                return result;
             }
             catch (System.Exception)
             {
+                return false;
                 // ignored
             }
         }

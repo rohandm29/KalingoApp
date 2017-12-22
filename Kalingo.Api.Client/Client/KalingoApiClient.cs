@@ -107,7 +107,7 @@ namespace Kalingo.Api.Client.Client
             _authHeader = Headers?.FirstOrDefault() ?? string.Empty;
         }
 
-        public async Task UpdateUser(UpdateUserRequest updateUser)
+        public async Task<bool> UpdateUser(UpdateUserRequest updateUser)
         {
             var uri = new Uri(_baseAddress + "users/Update");
 
@@ -117,7 +117,9 @@ namespace Kalingo.Api.Client.Client
             };
             AddHeader(message, updateUser.UserId.ToString());
 
-            await GetResponse<UserResponse>(message);
+            var result = await GetResponse<bool>(message);
+
+            return result;
         }
 
         public async Task<int> GetUserLimit(int userId)
