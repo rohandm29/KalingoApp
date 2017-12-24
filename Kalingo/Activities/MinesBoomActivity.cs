@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -36,10 +38,19 @@ namespace Kalingo.Activities
             RegisterControls();
 
             App.Reward = Intent.GetStringExtra("Reward");
+            await StartMinesBoom(false);
+        }
 
-            _settings = await _minesBoomService.CreateMinesBoom(App.UserId, false);
+        private async Task StartMinesBoom(bool playAgian)
+        {
+            var response = await _minesBoomService.CreateMinesBoom(App.UserId, playAgian);
 
-            ShowDialogCoinsEarned();
+            if (response.GameId > 0)
+            {
+                _settings = response.Settings;
+
+                ShowDialogCoinsEarned();
+            }
         }
 
         private void LoadAd()
@@ -213,7 +224,7 @@ namespace Kalingo.Activities
 
             App.Reward = Intent.GetStringExtra("NA");
 
-            _settings = await _minesBoomService.CreateMinesBoom(App.UserId, true);
+            await StartMinesBoom(true);
 
             ClearScreen();
         }

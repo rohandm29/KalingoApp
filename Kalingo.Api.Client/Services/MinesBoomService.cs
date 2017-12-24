@@ -16,7 +16,7 @@ namespace Kalingo.Api.Client.Services
             _apiClient = new KalingoApiClient();
         }
 
-        public async Task<IEnumerable<Settings>> CreateMinesBoom(int userId, bool playAgain)
+        public async Task<NewMinesboomResponse> CreateMinesBoom(int userId, bool playAgain)
         {
             try
             {
@@ -24,11 +24,11 @@ namespace Kalingo.Api.Client.Services
 
                 SaveSessionGameId(newMinesboomResponse.GameId);
 
-                return newMinesboomResponse.Settings;
+                return newMinesboomResponse;
             }
             catch (System.Exception)
             {
-                return new List<Settings>();
+                return default(NewMinesboomResponse);
             }
         }
 
